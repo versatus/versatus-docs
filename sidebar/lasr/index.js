@@ -1,3 +1,5 @@
+const coreConcepts = require('./coreConcepts');
+
 module.exports = [
   {
     type: 'html',
@@ -5,10 +7,7 @@ module.exports = [
     defaultStyle: true,
     className: 'sidebar_title',
   },
-  {
-    type: 'doc',
-    id: 'lasr/lasr',
-  },
+  ...coreConcepts
   // {
   //   type: 'category',
   //   label: 'LASR',

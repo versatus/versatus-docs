@@ -1,0 +1,34 @@
+---
+title: Stateless Rollup
+id: stateless_rollup
+slug: /core_concepts/stateless_rollup
+description: ''
+tags: []
+---
+
+Versatus LASR is the world's first Stateless Rollup. On this page, you will discover how Versatus LASR works, why it's state-free, how it's language-neutral, and what sets it apart from other Rollup solutions.
+
+## Stateful vs. Stateless
+
+To understand what a stateless rollup is, first, one must understand the difference between stateful and stateless systems.
+
+- ***Stateful Systems**:* These systems keep track of previous values, which, combined with new inputs, determine subsequent outputs. For instance, consider a simple incremental counter where each input adds to the existing count (current state), resulting in a new value total (new state).  Blockchains are more complex than a simple counter. The primary purpose of a blockchain is to achieve a consensus on the current state among numerous nodes. In blockchain terms, it means keeping track of how much digital currency each account has. Therefore, blockchains are inherently stateful systems.
+- ***Stateless Systems**:* These systems operate solely based on what you input, without caring about prior values (states). They're like a calculator that does math based on the current inputs without caring about past calculations. Stateless systems offer efficiency without stateful systems' computational overhead or storage requirements.
+
+Before exploring how Versatus LASR operates as a stateless system, it's necessary also to have the rollup concept clear.
+
+## Rollups
+
+Rollups are like helpers for the main blockchain. They keep track of who owns what and what transactions happen by retaining a state of account data and transactions. Then, they bundle all these transactions together into one big package and send it back (bridging) to the main blockchain.
+
+The bridge concept refers to the process of transferring assets or data from one blockchain or network to another. In the context of rollups, bridging means moving your assets from the main blockchain (referred to as Layer 1) to the rollup (often called Layer 2) before you can use them for transactions or interactions on the rollup.
+
+Once you've bridged your assets to the rollup, you can use them for transactions and interactions within that environment. But until you bridge them back to the main blockchain, they stay within the rollup and can't be used elsewhere.
+
+Therefore, rollups serve as off-chain scalability solutions, facilitating faster and cheaper transactions compared to the main chain. It happens because rollups bundle up transactions and proofs back to the main chain as a single transaction. They operate as separate chains where users can engage in various activities such as gaming, NFT transactions, or decentralized exchanges. 
+
+Despite their advantages, conventional rollups introduce fragmentation within the ecosystem since each rollup has its own state. Therefore, to know states from all rollups, a program would need to bridge to all rollups, even though the state on the rollup depends on the main chain's state (Layer 1) at the time of bridging.
+
+## LASR Solution
+
+Versatus LASR does something new compared to conventional rollups. It relies on the main blockchain's state instead of keeping its own records (states). LASR leverages an "Executable Oracle" to export account data from the main chain, executing batches of transactions in parallel. Upon completion and verification, these transactions return to the main chain, offering users and developers the benefits of rollups without inherent setbacks.

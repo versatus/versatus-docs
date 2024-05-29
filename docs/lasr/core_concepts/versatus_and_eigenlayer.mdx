@@ -1,0 +1,25 @@
+---
+title: Versatus LASR and EigenLayer
+id: versatus_and_eigenlayer
+slug: /core_concepts/versatus_and_eigenlayer
+description: ''
+tags: []
+---
+
+# Versatus LASR and EigenLayer
+
+Versatus LASR (Language Agnostic Stateless Rollup), one of the six Versatus core services, was designed to operate without maintaining a continuous on-chain state. Instead, it relies on reconstructing transactions from data snapshots. These snapshots are efficiently managed and stored through EigenDA, a tool provided by [EigenLayer](https://www.eigenlayer.xyz/).
+
+:::info
+  Access the [Stateless Rollup](/core_concepts/stateless-rollup) for additional information on how it works.
+:::
+
+## Role of EigenDA
+
+EigenDA ensures high data availability and throughput at a low cost, which is crucial for the operation of the LASR rollup. This system stores data snapshots that the network of watcher nodes uses to validate transactions. The availability of these snapshots allows for swift and reliable transaction verification.
+
+## Impact on Scalability and Developer Experience
+
+The integration of EigenDA enhances the scalability of the LASR, handling more transactions without compromising on speed or cost. Additionally, developers benefit from this robust framework as it simplifies the complexities involved in data handling, leading to an improved development experience within the Versatus ecosystem.
+
+For a detailed exploration of how Versatus uses EigenLayer's products, refer to the full [case study](https://www.blog.eigenlayer.xyz/eigenda-versatus/) created by EigenLayer.
