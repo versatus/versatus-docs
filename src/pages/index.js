@@ -15,6 +15,7 @@ import '../css/iconCards.css';
 import '../css/linkCards.css';
 import '../css/navbar.css';
 import '../css/sidebar.css';
+import '../css/steps.css';
 import '../css/svg.css';
 import '../css/table.css';
 
