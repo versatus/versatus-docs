@@ -108,7 +108,7 @@
   position: relative;
 }
 
-table {
+/* table {
   width: 100% !important;
   margin-bottom: var(--ifm-spacing-vertical);
   border-radius: 7px !important;
@@ -118,9 +118,9 @@ table {
 table thead,
 table tbody {
   width: 100% !important;
-}
+} */
 
-table thead th {
+/* table thead th {
   border: 1px solid #690;
   text-align: left;
   background: #690 !important;
@@ -131,13 +131,11 @@ table thead th {
   font-style: normal;
   font-weight: 700;
   line-height: 18px;
-  /* width: 50%; */
   position: sticky;
   top: 0;
-  /* z-index: 1; */
-}
+} */
 
-table tr td {
+/* table tr td {
   background-color: #ffffff;
   color: #8e8e8e;
   font-feature-settings: 'clig' off, 'liga' off;
@@ -149,8 +147,8 @@ table tr td {
   padding: 20px;
   text-align: start;
   vertical-align: top;
-}
+} */
 
-table thead tr {
+/* table thead tr {
   border: 0 !important;
-}
+} */
