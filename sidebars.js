@@ -17,7 +17,6 @@ const { lasrSidebar, allegraSidebar } = require('./sidebar/index');
 const sidebars = {
   lasrSidebar,
   allegraSidebar
-
 };
 
 export default sidebars;
