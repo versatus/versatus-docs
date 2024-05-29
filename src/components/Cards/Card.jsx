@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Card({ logo, name, linkTo, externalLink, description }) {
+export default function Card({ logo, name, linkTo, externalLink, description, icon }) {
   const logoLink = logo && `https://raw.githubusercontent.com/transpara/documentation/main/visual-kpi-docs/static/img/setup-adm/interfaces/icons/${logo.toLowerCase()}.png`;
   
   if (linkTo || externalLink) {
@@ -10,6 +10,9 @@ export default function Card({ logo, name, linkTo, externalLink, description }) 
       <a className={classes} target={externalLink && '_blank'} href={linkTo}>
         {
           logo && <img src={logoLink} className="icon_img" alt={name}/>
+        }
+        {
+          icon && icon
         }
         <h3>{name}</h3>
         {
@@ -23,7 +26,12 @@ export default function Card({ logo, name, linkTo, externalLink, description }) 
 
   return (
     <div className={classes}>
-      <img src={logoLink} className="icon_img" alt={name}/>
+      {
+        logo && <img src={logoLink} className="icon_img" alt={name}/>
+      }
+      {
+        icon && icon
+      }
       <h3 className={!description && "title-only-card"}>{name}</h3>
       {
         description && <p>{description}</p>
