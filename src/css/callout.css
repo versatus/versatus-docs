@@ -1,4 +1,4 @@
-.callout-heading {
+/* .callout-heading {
   margin-bottom: 0.3rem;
   display: flex;
   height: 25.89px !important;
@@ -35,9 +35,9 @@
 }
 .callout-content p {
   margin: 0;
-}
+} */
 /*-------------------------------- Custom CALLOUTS configuration ------------------------------  */
-.callout_img {
+/* .callout_img {
   cursor: default !important;
   width: 20px;
   height: 20px;
@@ -190,4 +190,4 @@ html[data-theme='dark'] .alert--unique {
 
 .alert--secondary [class^="admonitionHeading"] {
   color: var(--transpara-primary-color7);
-}
+} */

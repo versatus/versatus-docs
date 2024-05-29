@@ -1,0 +1,30 @@
+---
+title: Deploy Configurations
+id: deploy_configuration
+slug: /lasr_guides/deploy_configuration
+description: ''
+tags: []
+---
+
+When deploying your program to IPFS and registering it to the LASR Network, you can define several configurations that will determine how your program will behave. The following table presents all available parameters you can use when deploying. 
+
+| Option                | Description                                             | Type     | Required | Default                       |
+|-----------------------|---------------------------------------------------------|----------|----------|-------------------------------|
+| `--version`, `-v`     | Display the version number of the deployment tool.      | boolean  | No       |                               |
+| `--help`              | Display the help menu for the deployment tool.          | boolean  | No       |                               |
+| `--build`, , `-b`     | The name of the program file being built.               | string   | Yes      |                               |
+| `--author`, , `-a`    | The author of the contract.                             | string   | No       | Your wallet's address.        |
+| `--name`, `-n`        | The name of the contract.                               | string   | No       | Your wallet's address.        |
+| `--symbol`, `-s`      | The symbol for the program.                             | string   | Yes      |                               |
+| `--programName`, `-p` | A name for the program.                                 | string   | Yes      |                               |
+| `--initializedSupply` | The initial supply of the token.                        | string   | Yes      |                               |
+| `--totalSupply`       | The total supply of the token to be created.            | string   | Yes      |                               |
+| `--recipientAddress`  | The address for the initialized supply.                 | string   | No       |                               |
+| `--txInputs`          | Additional inputs for the program.                      | string   | No       |                               |
+| `--keypairPath`       | The path to the keypair file.                           | string   | No       | `./.lasr/wallet/keypair.json` |
+| `--secretKey`         | The secret key for the wallet.                          | string   | No       |                               |
+| `--target`            | The build target.                                       | string   | No       | `node` (choices: "node" - _more soon_)      |
+
+:::info
+  It is essential to keep track of your program account id when deploying it. The program account id is the required key to interact with your program later.
+:::

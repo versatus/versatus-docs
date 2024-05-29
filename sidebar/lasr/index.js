@@ -1,5 +1,6 @@
-const coreConcepts = require('./coreConcepts');
 const gettingStarted = require('./gettingStarted');
+const coreConcepts = require('./coreConcepts');
+const lasrGuides = require('./lasrGuides');
 
 module.exports = [
   // {
@@ -10,6 +11,7 @@ module.exports = [
   // },
   ...gettingStarted,
   ...coreConcepts,
+  ...lasrGuides,
   // {
   //   type: 'category',
   //   label: 'LASR',
