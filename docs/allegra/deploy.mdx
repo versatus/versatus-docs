@@ -1,0 +1,51 @@
+---
+title: Deployment with Allegra
+id: deploy
+slug: /deploy
+description: ''
+tags: []
+---
+
+import ImageComponent from '../../src/components/Media/ImageComponent';
+import Steps from '../../src/components/Steps/Steps';
+
+# Deploying with Allegra
+
+Deploying your applications with Allegra is straightforward and efficient. Allegra provides a robust, decentralized infrastructure that ensures your applications are scalable, secure, and cost-effective. 
+
+Allegra leverages a decentralized network of nodes to provide a reliable and scalable environment for deploying your applications. By following the steps in this guide, you will be able to:
+
+- Provision a Virtual Private Server (VPS) for your application.
+- Deploy your application to the Allegra network.
+- Ensure your application is secure, verifiable, and cost-efficient.
+
+## Deployment Process
+
+This guide will walk you through the initial steps to get your application deployed using Allegra. By following them, you can deploy your application using Allegra. The decentralized network ensures that your application is robust, scalable, and secure.
+
+<Steps>
+  ### Create a VPS Instance
+  To deploy with Allegra, you first need to create a new VPS instance. This instance should be equivalent in size to an [AWS t3-large](https://aws.amazon.com/ec2/instance-types/t3/). Use the following command to create your VPS instance:
+
+  ```sh
+  ./cli create --name cham --distro ubuntu --version 22.04 --sk <YOUR_SECRET_KEY> --vmtype t3-large
+  ```
+  ### Add your SSH
+  Add your SSH key to your new instance to enable secure access. Run the command below to add it:
+
+  ```sh
+  ./cli add-pubkey --name cham --pubkey "ssh-rsa AAA...= email@email.com" --sk <YOUR_SECRET_KEY>
+  ```
+  ### Expose NodeJS
+  To make your Node.js application accessible, expose the service on port 3000. Use the following command to expose the Node.js service:
+
+  ```sh
+  ./cli expose-service --port 3000 --service-type node-js --name cham --sk <YOUR_SECRET_KEY>
+  ```
+  ### Connect to the Instance
+  Securely connect to your VPS instance using SSH. Execute the command below to establish the connection:
+  
+  ```sh
+  ./cli ssh --owner 0x7615...7cF9 --name cham --keypath ~/.ssh/id_rsa
+  ```
+</Steps>

@@ -7,7 +7,19 @@ module.exports = [
   },
   {
     type: 'doc',
-    id: 'allegra/allegra',
+    id: 'allegra/overview',
+  },
+  {
+    type: 'doc',
+    id: 'allegra/how_allegra_works',
+  },
+  {
+    type: 'doc',
+    id: 'allegra/architecture',
+  },
+  {
+    type: 'doc',
+    id: 'allegra/deploy',
   },
   // {
   //   type: 'category',
