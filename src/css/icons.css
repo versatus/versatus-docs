@@ -1,0 +1,33 @@
+.faucet, .fungible, .burd, .chess {
+  color: #FFF;
+  fill: #FFF;
+  stroke: #FFF;
+}
+
+.nft {
+  stroke: none;
+  stroke-width: 0;
+  stroke-dasharray: none;
+  stroke-linecap: butt;
+  stroke-linejoin: miter;
+  stroke-miterlimit: 10;
+  fill: none;
+  fill-rule: nonzero;
+  opacity: 1;
+}
+
+.nft path {
+  stroke: none;
+  stroke-width: 1;
+  stroke-dasharray: none;
+  stroke-linecap: butt;
+  stroke-linejoin: miter;
+  stroke-miterlimit: 10;
+  fill: #FFF;
+  fill-rule: nonzero;
+  opacity: 1;
+}
+
+.nft path:first-of-type {
+  stroke-linecap: round;
+}

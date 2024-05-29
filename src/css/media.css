@@ -1,0 +1,10 @@
+.media-wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.media-wrapper img {
+  border-radius: .5rem;
+}
