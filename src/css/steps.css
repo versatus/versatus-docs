@@ -1,5 +1,4 @@
 .steps-container {
-  display: flex;
   position: relative;
   margin: 20px 0;
 }
@@ -17,12 +16,12 @@
   display: flex;
   position: relative;
   margin-bottom: 20px;
-  padding-left: 30px;
+  padding-left: 20px;
 }
 
 .step-number {
   position: absolute;
-  left: 6px; /* Adjust to align number with the connector line */
+  left: 6px;
   top: 2px;
   width: 30px;
   height: 30px;
