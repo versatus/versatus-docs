@@ -84,13 +84,13 @@ const config = {
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'LASRSidebar',
+            sidebarId: 'lasrSidebar',
             position: 'left',
             label: 'LASR',
           },
           {
             type: 'docSidebar',
-            sidebarId: 'AllegraSidebar',
+            sidebarId: 'allegraSidebar',
             position: 'left',
             label: 'Allegra',
           },
@@ -108,15 +108,6 @@ const config = {
       footer: {
         style: 'dark',
         links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
-          },
           {
             title: 'Community',
             items: [
