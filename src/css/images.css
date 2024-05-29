@@ -1,0 +1,79 @@
+.burd-main {
+  content: url('../../static/img/lasr/tutorials/burd/burd-main-light.png');
+}
+
+[data-theme='dark'] .burd-main {
+  content: url('../../static/img/lasr/tutorials/burd/burd-main-dark.png');
+}
+
+.addUser {
+  content: url('../../static/img/lasr/tutorials/burd/addUser-light.png');
+}
+
+[data-theme='dark'] .addUser {
+  content: url('../../static/img/lasr/tutorials/burd/addUser-dark.png');
+}
+
+.churp {
+  content: url('../../static/img/lasr/tutorials/burd/churp-light.png');
+}
+
+[data-theme='dark'] .churp {
+  content: url('../../static/img/lasr/tutorials/burd/churp-dark.png');
+}
+
+.deleteChurp {
+  content: url('../../static/img/lasr/tutorials/burd/deleteChurp-light.png');
+}
+
+[data-theme='dark'] .deleteChurp {
+  content: url('../../static/img/lasr/tutorials/burd/deleteChurp-dark.png');
+}
+
+.like {
+  content: url('../../static/img/lasr/tutorials/burd/like-light.png');
+}
+
+[data-theme='dark'] .like {
+  content: url('../../static/img/lasr/tutorials/burd/like-dark.png');
+}
+
+.chess-main {
+  content: url('../../static/img/lasr/tutorials/chess/chess-main-light.png');
+}
+
+[data-theme='dark'] .chess-main {
+  content: url('../../static/img/lasr/tutorials/chess/chess-main-dark.png');
+}
+
+.registerUser {
+  content: url('../../static/img/lasr/tutorials/chess/registerUser-light.png');
+}
+
+[data-theme='dark'] .registerUser {
+  content: url('../../static/img/lasr/tutorials/chess/registerUser-dark.png');
+}
+
+.createGame {
+  content: url('../../static/img/lasr/tutorials/chess/createGame-light.png');
+}
+
+[data-theme='dark'] .createGame {
+  content: url('../../static/img/lasr/tutorials/chess/createGame-dark.png');
+}
+
+.acceptGame {
+  content: url('../../static/img/lasr/tutorials/chess/acceptGame-light.png');
+}
+
+[data-theme='dark'] .acceptGame {
+  content: url('../../static/img/lasr/tutorials/chess/acceptGame-dark.png');
+}
+
+.makeMove {
+  content: url('../../static/img/lasr/tutorials/chess/makeMove-light.png');
+}
+
+[data-theme='dark'] .makeMove {
+  content: url('../../static/img/lasr/tutorials/chess/makeMove-dark.png');
+}
