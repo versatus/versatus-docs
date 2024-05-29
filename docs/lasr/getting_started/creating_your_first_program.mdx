@@ -8,8 +8,6 @@ tags: []
 
 import MediaWrapper from '../../../src/components/Media/MediaWrapper'
 
-# Creating your First Program
-
 The LASR framework provides an agnostic platform for developers to create contract-based applications. This page outlines a process to deploy your first dAapp using LASR.
 
 :::info
@@ -20,7 +18,11 @@ The LASR framework provides an agnostic platform for developers to create contra
 
 The only prerequisite to start setting up your project is to have [Node.js](https://nodejs.org/docs/latest/api/synopsis.html) V18 or newer installed on your system. If you don't have Node.js, you need to install it, otherwise, you can continue with the configuration.
 
-## Hello World
+:::
+Currently, LASR doesn't support Windows. If you are trying to deploy it in a Windows OS, Versatus suggests installing a WSL.
+:::
+
+## Hello LASR
 
 The following steps will guide you in creating a hello-lasr program and deploying it. With this, you will begin to understand the power of LASR.
 
@@ -50,7 +52,7 @@ This package provides essential tools and interfaces for developing programs for
 
 ### Start the Project
 
-With the project setted up, you will now initialize a new LASR project. You can use a variety of templates to perform this. In this tutorial, you will use the `hello-lasr`:
+With the project set up, you will now initialize a new LASR project. You can use a variety of templates to perform this. In this tutorial, you will use the `hello-lasr`:
 
 ```bash copy
 npx lasrctl init hello-lasr
@@ -109,7 +111,11 @@ To initiate the testing process, use the following command in your terminal:
 npx lasrctl test -b example-program -i example-program-inputs
 ```
 
-The instructs `lasrctl` to iterate through each JSON file in the specified `./example-program-inputs` directory, feeding them into your program. The results of these operations are then displayed in the terminal. You will observe a series of messages indicating the validation status of your program's output.  Following is an example of what you can expect to see:
+The `lasrctl` command iterates through each JSON file in the specified `./example-program-inputs` directory, feeding them into your program. The results of these operations are displayed in the terminal, providing a series of messages indicating the validation status of your program's output. Following is an example of what you can expect to see:
+
+:::note
+Additionally, you can specify individual files to test specific methods, which will also give you a more verbose output.
+:::
 
 ```bash
 Validating the PROGRAM OUTPUT...
@@ -137,16 +143,12 @@ With these tests successfully completed, your program is now prepared for deploy
 You can now start the deploy process using the `npx lasrctl deploy` command. Below is the command you need to run to deploy your `hello-lasr` application:
 
 ```bash copy
-npx lasrctl deploy -b example-program -s HELLO_WORLD -p MY_FIRST_PROGRAM
+npx lasrctl deploy --build example-program --symbol HELLO_WORLD --programName MY_FIRST_PROGRAM
 ```
 
 :::warning
   Sometimes the first try of a deploy may not work, if this happens just rerun the `deploy` command and it will likely succeed on the second try.
 :::
-
-Where:
-- `-s`: The symbol for the program.
-- `-p`: The name for the program.
 
 Access the [Deploy Configuration](/lasr_guides/deploy_configuration) page to learn more about the available parameters you can use when deploying your program.
 

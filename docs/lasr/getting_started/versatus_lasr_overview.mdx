@@ -6,13 +6,12 @@ description: ''
 tags: []
 ---
 
-# Versatus LASR Overview
-
 The Versatus LASR (pronounced as “laser”) project aims to build a new type of internet free from censorship and data capture while still offering the speed and security of the current internet. LASR has a revolutionary architecture which includes:
 
-- A robust peer-to-peer network layer ensures secure data transmission. It is fully compatible with existing internet protocols, providing a reliable and efficient communication framework.
+- Programs designed to process JSON input and output, simplifying debugging and making it easier for developers to understand and troubleshoot the system's operations.
+- A robust peer-to-peer network layer ensuring secure data transmission. It is fully compatible with existing internet protocols, providing a reliable and efficient communication framework.
 - A specialized Nano runtime assures secure, reliable task execution across different languages and platforms for diverse applications, ensuring operational versatility and robustness.
-- An Executable Oracle, engineered to facilitate the creation of adaptable, secure, and transparent smart contracts, ensuring integrity and efficiency in contract execution.
+{/* - An Executable Oracle, engineered to facilitate the creation of adaptable, secure, and transparent smart contracts, ensuring integrity and efficiency in contract execution. */}
 - A scalable system designed to meticulously verify transaction data and accurately report any discrepancies, ensuring the integrity and reliability of the transaction process.
 
 The synergy of these four components creates a robust framework that ensures the efficient and scalable execution of smart contracts across diverse programming languages, fostering a versatile and high-performance environment.
@@ -25,21 +24,21 @@ With LASR, you can make new apps or use old ones. The components related to each
 
 With LASR, you don't have the traditional barriers to start working with blockchain and smart contracts. Versatus LASR creates a welcoming space for developers from various backgrounds. You can pick a programming language you're comfortable with and create dApps on your local machine.
 
-<Callout type="info">
+:::info
   LASR project currently only supports Typescript. However, additional language support will be added soon. If you're interested in helping LASR grow, get in touch through the [Discord community](https://discord.gg/versatus). 
-</Callout>
+:::
 
 Once the program is ready, you'll deploy it to the InterPlanetary File System (IPFS), a decentralized file system utilizing peer-to-peer protocols for content-addressed data sharing. For further insights on IPFS, you can explore [its documentation](https://docs.ipfs.tech/). 
 
-After deployment, you can register your LASR program within the LASR server. This server is a blockchain implementation based on [Ethereum](https://ethereum.org/en/developers/docs/), utilizing a Layer 2 solution to improve scalability and minimize transaction expenses.
+After deployment, you can register your LASR program within the LASR network. This network is a blockchain implementation based on Ethereum, utilizing a Layer 2 solution to improve scalability and minimize transaction expenses. LASR uses EigenDA for settlement, which in turn settles to Ethereum. Therefore, transactions are not directly settled on Ethereum but through EigenDA, enhancing efficiency and cost-effectiveness.
 
-<Callout type="info">
+:::info
   Blockchain is a digital ledger that records all transactions or information in blocks. Each block is linked to the one before and after, creating a continuous chain of information—hence the name **blockchain**. 
-</Callout>
+:::
 
 ### Using an Existing LASR Program
 
-If you want to use an existing LASR program, you can quickly get started by calling it on the LASR server. The LASR system retrieves the program from the IPFS. Once the program is retrieved, the LASR server processes and executes it using the Ethereum network. As a result of this process, you receive the results in your machine, completing the utilization cycle of the program within the LASR network.
+If you want to use an existing LASR program, you can quickly get started by calling it on the LASR network. The LASR system retrieves the program from the IPFS. Once the program is retrieved, the LASR network processes and executes it, after settling it on EigenDA. As a result of this process, you receive the results in your machine, completing the utilization cycle of the program within the LASR network.
 
 ## What's Next?
 
