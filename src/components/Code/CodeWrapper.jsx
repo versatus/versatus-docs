@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, ReactNode } from 'react';
 
 const CodeWrapper = ({ children, height, hidden = true }) => {
-  const [showDetails, setShowDetails] = useState<boolean>(!hidden);
+  const [showDetails, setShowDetails] = useState(!hidden);
 
   const toggleDetails = () => {
     setShowDetails(!showDetails);
