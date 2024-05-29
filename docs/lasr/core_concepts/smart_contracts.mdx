@@ -1,0 +1,71 @@
+---
+title: Smart Contracts
+id: smart_contracts
+slug: /smart_contracts
+description: ''
+tags: []
+---
+
+Versatus LASR is a platform that enables the execution of smart contracts in a programming language-agnostic way. However, before diving into how LASR uses smart contracts, it's important to understand what they are all about.
+
+## What are Smart Contracts?
+
+In traditional web development, you might be familiar with backend scripts that execute certain functions in response to user inputs or API calls. Smart contracts are similar, but they exist on a blockchain. 
+
+Smart contracts are self-executing contracts, or software programs in other words, with the terms of the agreement directly written into lines of code and added to a block of the blockchain. After the smart contract (code) is available on the blockchain, anyone can execute it by providing the necessary inputs and paying the transaction fee.
+
+## How Smart Contracts Work
+
+Smart contracts operate in a straightforward and automated sequence:
+
+1. **Deployment**: Similar to deploying code to a server, smart contracts are written, tested, and then deployed onto the blockchain.
+2. **Activation**: Users interact with them via transactions, similar to API requests in Web2, but these are blockchain transactions.
+3. **Execution**: When triggered, the contract automatically executes the agreed-upon actions.
+4. **Mining**: After a smart contract is executed, its resulting transactions must be officially recorded on the blockchain. To add the information to the blockchain, you will have to cover the costs associated with the mining process.
+
+### Smart Contract Example
+
+Let's break down a practical example called `buyTicket` to illustrate a smart contract in action:
+
+```bash
+Function: buyTicket
+  When someone sends me money:
+  1. If the money is equal to or above the ticket price ($50):
+    i. Confirm the ticket availability
+    ii. Deduct one ticket from the ticket pool
+    iii. Record the buyer's account address
+    iv. Send the electronic ticket to the buyer's address
+```
+
+The above smart contract workflow can be described as follows:
+
+1. **Payment**: A user sends $50 to the `buyTicket` contract, similar to a payment through a payment gateway.
+2. **Verification**: The contract checks if tickets are still available, much like an inventory check in an e-commerce platform.
+3. **Transaction**: If the payment and availability conditions are met, the ticket quantity is updated, similar to a database update in web2.
+4. **Delivery**: The ticket is digitally issued to the buyer's blockchain address, ensuring a secure and verifiable transaction.
+
+:::info
+  Each smart contract is linked to a specific account. Similarly, users maintain their accounts. To call a smart contract, a user must generate a transaction directed at the account of that smart contract.
+:::
+
+As you can check, a smart contract is the Web3 version of the backend Web2 services. 
+
+:::warning
+  When deploying a smart contract, you need to be aware of two crucial points:
+  - Once you deploy a smart contract, you can't modify it. You must add a new smart contract to the blockchain if changes are required.
+  - Smart contracts are public. Therefore, they can be susceptible to security threats if not well-written.
+:::
+
+## Virtual Machines and Transaction Fees
+
+To execute the smart contract, you need to mine the transaction, which is equivalent to mining a transaction. The mining process is where transactions, including smart contract executions, are verified and added to the blockchain. It requires computational power to process the smart contract. As compensation, miners charge a transaction fee, which is analogous to cloud services costs based on computing resources used in Web2. More complex smart contracts 
+
+:::info
+  Complex contracts consume more resources, which can increase transaction fees.
+:::
+
+The mining and the smart contract execution are done by virtual machines (VMs) on the blockchain in web3. Each blockchain has its own form of VM, such as the Ethereum Virtual Machine (EVM). These VMs can be considered equivalent to a web server's runtime environment but for executing blockchain code. You can see the VMs as the runtime environment for your smart contract, similar to the Node.js environment for executing JavaScript.
+
+## The Versatus Solution
+
+Versatus LASR aims to provide a platform for the safe and efficient execution of smart contracts, regardless of the programming language used. The adoption of LASR will help developers design and manage smart contracts while improving scalability and interoperability within the blockchain ecosystem.
