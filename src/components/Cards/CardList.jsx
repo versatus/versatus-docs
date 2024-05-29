@@ -17,7 +17,7 @@ const CardList = ({ data, className, numColumns }) => {
         <Card 
           key={index}
           logo={item.logo}
-          name={item.name}
+          title={item.title}
           description={item.description}
           linkTo={item.linkTo}
           externalLink={item.externalLink}
