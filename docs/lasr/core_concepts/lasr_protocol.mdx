@@ -1,0 +1,83 @@
+---
+title: LASR Protocol
+id: lasr_protocol
+slug: /lasr_protocol
+description: ''
+tags: []
+---
+
+LASR Protocol can be expressed in JSON files, which use JSON-RPC (Remote Procedure Call) methods. LASR's JSON RPC API allows developers to interact and test LASR programs directly, with data structures represented as JSON. This approach enables developers to send information to a LASR cluster and receive responses from the network in a structured format that is easy to parse and work with.
+
+## Protocol Structure
+
+Each field in the LASR protocol plays a crucial role in defining the transaction's operation, the involved parties, the transaction's value, and the account's state. The structure and purpose of each field are closely tied to the blockchain's operation and security mechanisms, ensuring transactions are authentic, secure, and correctly processed. The following table describes the essential parameters you will find when working with the LASR Protocol.
+
+| Parameter                        | Description                                                                                                       |
+|----------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| `contractInputs`                 | (Optional) Inputs for a contract function call.                                                                   |
+| `op`                             | Operation to be performed. Options include `create` and `update`.                                                 |
+| `transaction`                    | Object containing details about the transaction itself.                                                                       |
+| `transaction.from`               | The address initiating the transaction.                                                                               |
+| `transaction.to`                 | The address receiving the transaction.                                                                                |
+| `transaction.transactionInputs`  | A JSON string containing inputs for the transaction. The structure of this string varies depending on the operation (e.g., creating a token vs. updating a contract).    |
+| `transaction.nonce`              | A number used once to prevent replay attacks.                                                                                  |
+| `transaction.op`                 | Similar to the top-level `op`, this parameter within the transaction object indicates the operation to be performed.                                                                               |
+| `transaction.programId`          | The identifier of the program involved in the transaction.                                                                            |
+| `transaction.r`                  | Components of the [ECDSA](https://cryptobook.nakov.com/digital-signatures/ecdsa-sign-verify-messages) signature for the transaction, ensuring its authenticity and integrity.                                                                                    |
+| `transaction.s`                  | Components of the [ECDSA](https://cryptobook.nakov.com/digital-signatures/ecdsa-sign-verify-messages) signature for the transaction, ensuring its authenticity and integrity.                                                                                                               |
+| `transaction.v`                  | Components of the [ECDSA](https://cryptobook.nakov.com/digital-signatures/ecdsa-sign-verify-messages) signature for the transaction, ensuring its authenticity and integrity.                                                                                                               |
+| `transaction.transactionType.call`| Type of transaction.                                                                                     |
+| `transaction.value`              | The amount of cryptocurrency (in the smallest unit) being transferred in the transaction.                                                                            |
+| `version`                        | Indicates the version of the LASR protocol.                                                                                         |
+| `accountInfo`                    | Object contains information about the account involved in the transaction.                                                                              |
+| `accountInfo.accountType.program`| Specifies the type of account, including the associated program.                                                                                  |
+| `accountInfo.programNamespace`   | (Optional) Namespace related to the program.                                                                                 |
+| `accountInfo.ownerAddress`       | The address that owns the account..                                                                              |
+| `accountInfo.programs`           | Object containing details about programs associated with the account, including their IDs, owner IDs, balances, and metadata.                                                                             |
+| `accountInfo.nonce`              | Similar to the transaction nonce, this is a counter for the account to prevent replay attacks.                                                                                      |
+| `accountInfo.programAccountData` | (Optional) Data associated with the program account.                                                                         |
+| `accountInfo.programAccountMetadata`| (Optional) Metadata associated with the program account.                                                                   |
+| `accountInfo.programAccountLinkedPrograms`| (Optional) Linked programs associated with the account.                                                                 |
+
+Below you find an example of a JSON file used to create the LASR version of the Hello World program.
+
+``` json
+{
+  "contractInputs": "",
+  "op": "create",
+  "transaction": {
+    "from": "0x100444c7D04A842D19bc3eE63cB7b96682FF3f43",
+    "to": "0x100444c7D04A842D19bc3eE63cB7b96682FF3f43",
+    "transactionInputs": "{\"name\":\"HelloToken\",\"symbol\":\"HLLO\",\"totalSupply\":\"1\",\"initializedSupply\":\"1\"}",
+    "nonce": "0x0000000000000000000000000000000000000000000000000000000000000001",
+    "op": "create",
+    "programId": "0x100444c7D04A842D19bc3eE63cB7b96682FF3f43",
+    "r": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
+    "s": "0xfedcba0987654321fedcba0987654321fedcba0987654321fedcba0987654321",
+    "v": 1,
+    "transactionType": {
+      "call": "0x0000000000000000000000000000000000000000000000000000000000000001"
+    },
+    "value": "0x0000000000000000000000000000000000000000000000000000000000000001"
+  },
+  "version": 1,
+  "accountInfo": {
+    "accountType": {
+      "program": "0x57234c52617e7ca8edc5577ebe3eb38d53a77607"
+    },
+    "programNamespace": null,
+    "ownerAddress": "0x482830d7655fb8465a43844fc1530a7713781b49",
+    "programs": {
+    },
+    "nonce": "0x000000000000000000000000000000000000000000000000000000000000001c",
+    "programAccountData": {},
+    "programAccountMetadata": {},
+    "programAccountLinkedPrograms": []
+  }
+}
+
+``` 
+
+:::info
+  When testing your program, you can create JSON files to simulate a call from the LASR network and ensure your program is behaving as expected, as described in the page [Creating Your First Program](/getting_started/creating_your_first_program#step-4-test-your-program). 
+:::
