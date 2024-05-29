@@ -21,7 +21,7 @@
 
 .menu__link {
   font-size: 14px;
-  color: #282A30;
+  color: #ffffff;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -36,7 +36,7 @@
   /* padding-left: 0 !important; */
   text-transform: uppercase;
   margin: 24px 0 5px !important;
-  color: #690;
+  color: var(--ifm-color-primary);
   font-feature-settings: 'clig' off, 'liga' off;
   font-size: 14px;
   font-style: normal;
@@ -69,11 +69,11 @@
 }
 
 .menu__list-item-collapsible.menu__list-item-collapsible--active,.menu__link--active {
-  background: #9C0 !important;
+  background: var(--ifm-color-primary) !important;
 }
 
 .menu__link--active {
-  color: #455909 !important;
+  color: #ffffff !important;
   font-weight: 600;
 }
 

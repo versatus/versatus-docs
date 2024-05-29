@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
@@ -13,6 +12,7 @@ import '../css/custom.css';
 import '../css/HomePage.css';
 import '../css/iconCards.css';
 import '../css/linkCards.css';
+import '../css/media.css';
 import '../css/navbar.css';
 import '../css/sidebar.css';
 import '../css/steps.css';
@@ -48,7 +48,6 @@ export default function Home() {
       description="Description will go into a meta tag in <head />">
       <HomepageHeader />
       <main>
-        <HomepageFeatures />
       </main>
     </Layout>
   );

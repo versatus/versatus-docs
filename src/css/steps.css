@@ -1,7 +1,16 @@
 .steps-container {
   display: flex;
-  flex-direction: column;
+  position: relative;
   margin: 20px 0;
+}
+
+.line {
+  position: absolute;
+  left: 20px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: linear-gradient(to bottom, #444 85%, transparent 100%);
 }
 
 .step-item {
@@ -11,24 +20,14 @@
   padding-left: 30px;
 }
 
-.step-item::after {
-  content: '';
-  position: absolute;
-  left: 20px;
-  top: 40px;
-  height: calc(100% - 40px);
-  width: 2px;
-  background-color: #444;
-}
-
 .step-number {
   position: absolute;
-  left: 5px;
-  top: 0;
+  left: 6px; /* Adjust to align number with the connector line */
+  top: 2px;
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #5c5c5c;
+  background-color: #555555;
   color: #fff;
   display: flex;
   justify-content: center;
@@ -37,7 +36,7 @@
 }
 
 .step-body {
-  padding-left: 20px;
+  padding-left: 40px;
   flex-grow: 1;
 }
 
