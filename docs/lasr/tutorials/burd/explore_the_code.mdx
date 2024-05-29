@@ -1,0 +1,423 @@
+---
+title: Explore the Code
+id: explore_the_code
+slug: /tutorials/burd/explore_the_code
+description: ''
+tags: []
+---
+
+import Steps from '../../../../src/components/Steps/Steps';
+import MediaWrapper from '../../../../src/components/Media/MediaWrapper';
+import CodeWrapper from '../../../../src/components/Code/CodeWrapper';
+import LinkCards from '../../../../src/components/Cards/LinkCards';
+
+BURD program is composed of some core functions that define how it works. This page explores all these functionalities BURD has to offer, presenting you details about each method available in the `burd.ts` file found in the [cloned project](/tutorials/burd/deploy).
+
+## Creating a Program
+
+When you create a new program using LASR, you need to create a class that extends the `Program` class from @versatus/versatus-javascript, incorporating your specific methods. Below, you find all methods used within BURD: 
+
+<LinkCards numColumns={2} data={[
+  { title: 'Create', linkTo: '#create' },
+  { title: 'Add User', linkTo: '#add-user' },
+  { title: 'Churp', linkTo: '#churp' },
+  { title: 'Delete Churp', linkTo: '#delete-churp' },
+  { title: 'Like', linkTo: '#like' },
+  { title: 'Unlike', linkTo: '#unlike' },
+]}/>
+
+:::
+All BURD methods leverage different functions from @versatus/versatus-javascript. Refer to the [Methods Reference table](#methods-reference) for more information on each one.
+:::
+
+### Create
+
+The `create` method is required in every program created with LASR, as it's executed during deployment. The `create` method utilizes parameters specified in the [`lasrctl deploy`](/tutorials/burd/deploy#deploy-burd) command to set up the program. For BURD, this method creates an NFT.
+
+The `create` method uses parameters provided in the `lasrctl deploy` command to establish the program's initial conditions and settings. This method sets up the program's metadata and data, and initiates any necessary initial distributions or configurations.
+
+:::info
+It's important to note that `metadata` in line 8 are the parameters required to create a program with LASR. On the other hand, data, in line 12, is optional information that changes based on the needs of the program being created.
+:::
+
+Below you find the code block exemplifying the method in BURD followed by a breakdown of the steps taken by the method:
+
+<CodeWrapper height="290px">
+```ts showLineNumbers filename="create"
+create(computeInputs: ComputeInputs) {
+    try {
+      const { transaction } = computeInputs
+      const { from } = transaction
+      const txInputs = parseTxInputs(computeInputs)
+      let currSupply = getCurrentSupply(computeInputs)
+
+      // metadata
+      const metadata = parseMetadata(computeInputs)
+      const { initializedSupply, totalSupply } = metadata
+
+      // data
+      const imgUrl = txInputs?.imgUrl
+      const collection = txInputs?.collection
+      const currentSupply = (
+        currSupply + parseInt(initializedSupply)
+      ).toString()
+      const methods = 'addUser,create,churp'
+      validate(collection, 'missing collection')
+      const metadataStr = validateAndCreateJsonString(metadata)
+      const addProgramMetadata = buildProgramUpdateField({
+        field: 'metadata',
+        value: metadataStr,
+        action: 'extend',
+      })
+      const dataValues = {
+        type: 'non-fungible',
+        imgUrl,
+        users: '{}',
+        methods,
+      } as Record<string, string>
+      const dataStr = validateAndCreateJsonString(dataValues)
+      const addProgramData = buildProgramUpdateField({
+        field: 'data',
+        value: dataStr,
+        action: 'extend',
+      })
+      const programUpdateInstructions = buildUpdateInstruction({
+        update: new TokenOrProgramUpdate(
+          'programUpdate',
+          new ProgramUpdate(new AddressOrNamespace(THIS), [
+            addProgramMetadata,
+            addProgramData,
+          ]),
+        ),
+      })
+      const distributionInstruction = buildTokenDistributionInstruction({
+        programId: THIS,
+        initializedSupply,
+        currentSupply,
+        to: THIS,
+        nonFungible: true,
+      })
+      const createInstruction = buildCreateInstruction({
+        from,
+        totalSupply,
+        initializedSupply,
+        programId: THIS,
+        programOwner: from,
+        programNamespace: THIS,
+        distributionInstruction,
+      })
+      return new Outputs(computeInputs, [
+        createInstruction,
+        programUpdateInstructions,
+      ]).toJson()
+    } catch (e) {
+      throw e
+    }
+  }
+```
+</CodeWrapper>
+
+| Step                               | Lines       | Description                                                                                                                              |
+|------------------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| **Transaction and Input Parsing**          | `3-5`         | It begins by parsing the transaction details and the inputs provided during the deployment command.                                    |
+| **Metadata Handling**                      | `8-10`        | Parses and validates metadata associated with the program (like supply details), which are crucial for the setup.                     |
+| **Data Setup**                             | `12-18`       | Constructs the initial data structure for the program, including image URLs, collection details, and available methods.               |
+| **Validation and Construction**            | `19`, `20`, `26-32` | Validates necessary components like the collection field and constructs JSON strings for both metadata and data, ensuring they are ready for storage. |
+| **Builds Update Fields**                   | `21-25`, `33-37` | Builds update fields for both metadata and program data, using the program's namespace and addresses.                                 |
+| **Distribution and Creation Instructions** | `38-62`   | Handles the initial token distribution based on the initialized and current supply and creates the initial setup instructions for the program. For BURD, it distributes the initialized supply to the program itself. |
+| **Output Generation**                      | `63-66`       | Outputs are generated and returned in JSON format, which includes all the instructions for creating and updating the program.           |
+
+### Add User
+
+The `addUser` method enables the addition of new users to the BURD program, storing their information within the program's NFT. This NFT accumulates data from all users and the program itself. The `addUser` method also modifies the user's NFT, adding the connection to the program through one `tokenId` available in the main program. Below you find the code block exemplifying the method in BURD followed by a breakdown of the steps taken by the method:
+
+<CodeWrapper>
+```ts copy showLineNumbers filename="addUser"
+addUser(computeInputs: ComputeInputs) {
+  try {
+    const txInputs = parseTxInputs(computeInputs)
+    const { programId } = computeInputs.transaction
+    const { address, username, handle, imgUrl } = txInputs
+    const programAccountData = computeInputs.accountInfo.programAccountData
+    const currUsers = JSON.parse(programAccountData?.users)
+    const userDataStr = validateAndCreateJsonString({
+      address,
+      username,
+      handle,
+      imgUrl,
+    })
+    const updatedUsers = {
+      ...currUsers,
+      [address]: userDataStr,
+    }
+    const dataStr = validateAndCreateJsonString(updatedUsers)
+    const updateUserObject = buildTokenUpdateField({
+      field: 'data',
+      value: dataStr,
+      action: 'extend',
+    })
+
+    const programUpdateInstructions = buildUpdateInstruction({
+      update: new TokenOrProgramUpdate(
+        'tokenUpdate',
+        new TokenUpdate(
+          new AddressOrNamespace(THIS),
+          new AddressOrNamespace(THIS),
+          [updateUserObject],
+        ),
+      ),
+    })
+
+    const approveUser = buildTokenUpdateField({
+      field: 'approvals',
+      value: [[address, [ZERO_VALUE]]],
+      action: 'extend',
+    })
+
+    const approvedSignUpUserInstruction = buildUpdateInstruction({
+      update: new TokenOrProgramUpdate(
+        'tokenUpdate',
+        new TokenUpdate(
+          new AddressOrNamespace(THIS),
+          new AddressOrNamespace(THIS),
+          [approveUser],
+        ),
+      ),
+    })
+
+    const tokenIds = parseAvailableTokenIds(computeInputs)
+    if (!tokenIds) {
+      throw new Error('No tokenIds available')
+    }
+
+    if (tokenIds.length === 0) {
+      throw new Error('No tokenIds available')
+    }
+
+    const transferInstruction = buildTransferInstruction({
+      from: programId,
+      to: address,
+      tokenAddress: programId,
+      tokenIds: [tokenIds[0]],
+    })
+
+    return new Outputs(computeInputs, [
+      programUpdateInstructions,
+      approvedSignUpUserInstruction,
+      transferInstruction,
+    ]).toJson()
+  } catch (e) {
+    throw e
+  }
+}
+```
+</CodeWrapper>
+
+| **Step**                          | **Lines**      | **Description**                                                                                                                                     |
+|----------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Data Parsing**                     | `3-7`         | Retrieves and parses incoming user data (`address`, `username`, `handle`, `imgUrl`).                                                                  |
+| **User Data JSON Creation**          | `8-13`        | Converts user data into a JSON string for storage.                                                                                            |
+| **Data Update**                      | `14-23`       | Updates the BURD program NFT with the new user's data.                                                                                        |
+| **Transaction Instruction**          | `25-51`       | Sends an instruction to update the token data with the new user information.                                                                    |
+| **Token Assignment**                 | `53-67`       | Handles token distribution to the new user, assigning a unique token from the initialized supply in the main program's NFT to the user, representing their profile. |
+
+### Churp
+
+The `churp` method allows users to post messages, called *churps*, on BURD. This method handles creating and storing these churps within the user NFT, which maintains all user data, such as created churps and likes received. Below you find the code block exemplifying the method in BURD followed by a breakdown of the steps taken by the method:
+
+<CodeWrapper>
+```ts copy showLineNumbers filename="churp"
+churp(computeInputs: ComputeInputs) {
+  try {
+    const { from } = computeInputs.transaction
+    const txInputs = parseTxInputs(computeInputs)
+    const { churp } = txInputs
+    validate(churp, 'missing churp')
+    const currDate = new Date().toISOString()
+    const updatedChurps = {
+      [`churp-${currDate}`]: churp,
+    }
+    const dataStr = validateAndCreateJsonString(updatedChurps)
+    const updateUserObject = buildTokenUpdateField({
+      field: 'data',
+      value: dataStr,
+      action: 'extend',
+    })
+    const tokenUpdateInstruction = buildUpdateInstruction({
+      update: new TokenOrProgramUpdate(
+        'tokenUpdate',
+        new TokenUpdate(
+          new AddressOrNamespace(new Address(from)),
+          new AddressOrNamespace(THIS),
+          [updateUserObject],
+        ),
+      ),
+    })
+    return new Outputs(computeInputs, [tokenUpdateInstruction]).toJson()
+  } catch (e) {
+    throw e
+  }
+}
+```
+</CodeWrapper>
+
+| **Step**              | **Lines**  | **Description**                                                                                   |
+|-----------------------|------------|---------------------------------------------------------------------------------------------------|
+| **Validation**        | `6`        | Ensures the churp text is provided.                                                              |
+| **Timestamping**      | `7-10`     | Assigns a unique identifier based on the current date and time to each churp.                     |
+| **Data Storage**      | `11-26`    | Updates the user's NFT data with the new churp using a JSON string.                               |
+
+### Delete Churp
+
+The `deleteChurp` method removes a churp from BURD. It removes the specified churp from the stored data within the user NFT, removing all associated likes. Below you find the code block exemplifying the method in BURD followed by a breakdown of the steps taken by the method:
+
+<CodeWrapper>
+```ts copy showLineNumbers filename="deleteChurp"
+deleteChurp(computeInputs: ComputeInputs) {
+  try {
+    const txInputs = parseTxInputs(computeInputs)
+    const { from } = computeInputs.transaction
+    const { churpId } = txInputs
+    validate(churpId, 'missing churpId')
+    const updateUserObject = buildTokenUpdateField({
+      field: 'data',
+      value: churpId,
+      action: 'remove',
+    })
+    const tokenUpdateInstruction = buildUpdateInstruction({
+      update: new TokenOrProgramUpdate(
+        'tokenUpdate',
+        new TokenUpdate(
+          new AddressOrNamespace(new Address(from)),
+          new AddressOrNamespace(THIS),
+          [updateUserObject],
+        ),
+      ),
+    })
+    return new Outputs(computeInputs, [tokenUpdateInstruction]).toJson()
+  } catch (e) {
+    throw e
+  }
+}
+```
+</CodeWrapper>
+
+| **Step**                     | **Lines**  | **Description**                                                                                   |
+|------------------------------|------------|---------------------------------------------------------------------------------------------------|
+| **Validation**               | `6`        | Checks that the `churpId` is provided.                                                           |
+| **Update Data**              | `7-11`     | Modifies the user NFT data to remove the churp identified by `churpId`.                                |
+| **Transaction Instruction**  | `12-21`    | Constructs an instruction to update the token data, removing the specified churp.                  |
+
+### Like
+
+The `like` method allows users to like a churp from other users, displayed on the frontend. This method records one like in the user NFT, associating the like with the user's ID and the churp's ID. Below you find the code block exemplifying the method in BURD followed by a breakdown of the steps taken by the method:
+
+<CodeWrapper>
+```ts copy showLineNumbers filename="like"
+like(computeInputs: ComputeInputs) {
+  try {
+    const txInputs = parseTxInputs(computeInputs)
+    const { from } = computeInputs.transaction
+    const { churpId, posterAddress } = txInputs
+
+    const dateStr = validate(
+      churpId.replace('churp-', ''),
+      'missing / invalid churp id',
+    )
+    validate(posterAddress, 'missing posterAddress')
+
+    const updatedLikes = {
+      [`like-${dateStr}-${from}`]: posterAddress,
+    }
+    const dataStr = validateAndCreateJsonString(updatedLikes)
+
+    const updateUserObject = buildTokenUpdateField({
+      field: 'data',
+      value: dataStr,
+      action: 'extend',
+    })
+    const tokenUpdateInstruction = buildUpdateInstruction({
+      update: new TokenOrProgramUpdate(
+        'tokenUpdate',
+        new TokenUpdate(
+          new AddressOrNamespace(new Address(posterAddress)),
+          new AddressOrNamespace(THIS),
+          [updateUserObject],
+        ),
+      ),
+    })
+    return new Outputs(computeInputs, [tokenUpdateInstruction]).toJson()
+  } catch (e) {
+    throw e
+  }
+}
+```
+</CodeWrapper>
+
+| **Step**            | **Lines**  | **Description**                                                                                           |
+|---------------------|------------|-----------------------------------------------------------------------------------------------------------|
+| **Validation**      | `7-11`     | Ensures both `churpId` and `posterAddress` are provided.                                                      |
+| **Like Recording**  | `13-22`    | Adds a new entry under likes, formatted to track who liked which churp.                                   |
+| **Data Update**     | `23-32`    | Constructs and sends an instruction to update the token data with the new like information.               |
+
+### Unlike
+
+The `unlike` method permits users to remove a previously given like on a churp. It removes the like entry from the user NFT's data. Below you find the code block exemplifying the method in BURD followed by a breakdown of the steps taken by the method:
+
+<CodeWrapper>
+```ts copy showLineNumbers filename="unlike"
+unlike(computeInputs: ComputeInputs) {
+  try {
+    const txInputs = parseTxInputs(computeInputs)
+    const { from } = computeInputs.transaction
+    const { churpId, posterAddress } = txInputs
+
+    const dateStr = validate(
+      churpId.replace('churp-', ''),
+      'missing / invalid churp id',
+    )
+    validate(posterAddress, 'missing posterAddress')
+
+    const updateUserObject = buildTokenUpdateField({
+      field: 'data',
+      value: `like-${dateStr}-${from}`,
+      action: 'remove',
+    })
+    const tokenUpdateInstruction = buildUpdateInstruction({
+      update: new TokenOrProgramUpdate(
+        'tokenUpdate',
+        new TokenUpdate(
+          new AddressOrNamespace(new Address(posterAddress)),
+          new AddressOrNamespace(THIS),
+          [updateUserObject],
+        ),
+      ),
+    })
+    return new Outputs(computeInputs, [tokenUpdateInstruction]).toJson()
+  } catch (e) {
+    throw e
+  }
+}
+```
+</CodeWrapper>
+
+| **Step**           | **Lines**  | **Description**                                                                                          |
+|--------------------|------------|----------------------------------------------------------------------------------------------------------|
+| **Validation**     | `7-11`     | Ensures both `churpId` and `posterAddress` are provided.                               |
+| **Data Removal**   | `13-27`    | Constructs an instruction to remove the specific like entry from the token data.                         |
+
+## Methods Reference
+
+Below you find all @versatus/versatus-javascript methods used in the BURD program, along with descriptions for what each one does:
+
+| Method                            | Description                                                                                                                                                                                                                                                                                                                                                                             |
+|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `buildCreateInstruction`          | Constructs an update instruction for modifying a token or program's properties. This function simplifies the creation of an update instruction by utilizing an `UpdateInstructionBuilder` to incorporate the specified updates into a single instruction.                                                                                                                        |
+| `buildProgramUpdateField`         | Constructs a token metadata update instruction for updating the metadata of a specified token. This function streamlines the process of creating a token metadata update by using the `buildTokenUpdateField` and `buildUpdateInstruction` utility functions to encapsulate the required operations into a single update instruction.                                          |
+| `buildUpdateInstruction`          | Constructs a token distribution instruction, facilitating the setup of token distribution specifics, including the program ID, supply details, recipient, and optional token updates. This function provides flexibility for distributing both fungible and non-fungible tokens by adjusting the distribution based on the `nonFungible` flag.                          |
+| `buildTokenDistributionInstruction` | Constructs a sequence of minting instructions that represent the process of transferring payment tokens to a program and then transferring the minted tokens (or specified token IDs for NFTs) back to the caller. This function automates the creation of these transfer instructions to facilitate various minting scenarios. |
+| `buildTokenUpdateField`           | Constructs a `ProgramUpdateField` object for updating program fields with specified actions such as insert, extend, or remove. This function supports various field types including metadata, data, and status, with specific actions tailored to each field type. It validates the field and action types and constructs the appropriate update action object.               |
+| `buildTransferInstruction`        | Constructs a `TokenUpdateField` object for updating token fields with specified actions such as insert, extend, or remove. This function supports various field types including metadata, data, approvals, and status, with specific actions tailored to each field type. It validates the field and action types and constructs the appropriate update action object.               |
+| `parseMetadata`                   | Returns the metadata (`name`, `symbol`, `initializedSupply`, and `totalSupply`) from the `computeInputs` parameter.                                                                                                                                                                                                                                                                   |
+| `validate`                        | Validates that none of the values are `undefined` and then creates a JSON string from it.                                                                                                                                                                                                                                                                                             |
+| `validateAndCreateJsonString`     | Retrieves the RPC (Remote Procedure Call) URL for interacting with a blockchain network, based on the specified network type. The RPC URL is crucial for applications that need to communicate with blockchain networks. It returns the selected RPC URL as a string.                                                                                                             |

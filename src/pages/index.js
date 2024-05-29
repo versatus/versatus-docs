@@ -11,6 +11,7 @@ import '../css/callout.css';
 import '../css/custom.css';
 import '../css/HomePage.css';
 import '../css/iconCards.css';
+import '../css/images.css';
 import '../css/linkCards.css';
 import '../css/media.css';
 import '../css/navbar.css';

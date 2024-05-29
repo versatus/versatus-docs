@@ -1,0 +1,102 @@
+---
+title: Deploy BURD
+id: deploy
+slug: /tutorials/burd/deploy
+description: ''
+tags: []
+---
+
+import Steps from '../../../../src/components/Steps/Steps';
+import LinkCards from '../../../../src/components/Cards/LinkCards';
+
+This guide outlines the necessary steps to deploy your BURD version. All the required steps are described below.
+
+<Steps>
+### Clone the BURD Repository
+
+Begin by cloning the BURD project from the [@versatus/versatus-burd](https://github.com/versatus/versatus-burd) GitHub repository to your local machine:
+
+```sh copy
+git clone git@github.com:versatus/versatus-burd.git
+```
+
+### Building the Project
+
+Since BURD is already an initialized project, you only need to install and build it. Execute the following commands:
+
+```sh copy
+cd lasr \
+&& npm install
+```
+
+:::info
+There is no need to initialize the project using `lasrctl init` as the BURD project is pre-configured.
+:::
+
+With the project installed, you need to build the program. Execute the commands below:
+
+```sh copy
+npx lasrctl build burd.ts
+```
+
+### Test your Program
+
+Before trying to use the program, you should test it. It'll ensure the program functions correctly before deployment. Use this command to run the tests:
+
+```sh copy
+npx lasrctl test -b burd -i burd-inputs
+```
+
+All BURD functions will be tested to ensure you won't face problems while trying the program. The output should look something like this:
+
+```sh copy
+...
+
+All tests completed. Summary of results:
+Test 1 (burd-add-user.json): Passed
+Test 2 (burd-approve.json): Passed
+Test 3 (burd-churp.json): Passed
+Test 4 (burd-create-fail.json): Passed
+Test 5 (burd-create.json): Passed
+Test 6 (burd-delete-churp.json): Passed
+Test 7 (burd-follow.json): Passed
+Test 8 (burd-like.json): Passed
+Test 9 (burd-unlike.json): Passed
+Test 10 (burd-update.json): Passed
+```
+
+### Deploy BURD
+
+Once all tests have passed, you are ready to deploy BURD. Use the following command, which includes all necessary parameters for a successful deployment:
+
+```sh copy
+npx lasrctl deploy --build burd --programName BURD --symbol BURD --initializedSupply 100 --totalSupply 100 \
+ --txInputs '{"imgUrl":"https://pbs.twimg.com/media/GKuNIgAa4AALDce?format=jpg&name=medium","collection":"burd"}'
+```
+
+:::warning
+ Deployments may occasionally fail on the first attempt. If this occurs, simply rerun the `deploy` command. It often succeeds on the second try.
+:::
+
+:::info
+ See the [CLI](/lasr_guides/cli) or [Deploy Configuration](/lasr_guides/deploy_configuration) for additional information about the deploy.
+:::
+
+After a successful deployment, the command line will provide a `program address`. Make sure to save this address, as you will need it to run the frontend later.
+
+</Steps>
+
+### What's Next?
+
+With a successfully deployed BURD program, you now can learn more about how the program was created, or go check out how to spin up the frontend to interact with BURD:
+
+<LinkCards numColumns={2} data={[
+  { 
+    title: 'Explore the Code',
+    linkTo: '/tutorials/burd/explore_the_code',
+  },
+  { 
+    title: 'Using BURD',
+    linkTo: '/tutorials/burd/using_burd',
+  },
+]}/>

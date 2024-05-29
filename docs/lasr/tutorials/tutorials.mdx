@@ -1,0 +1,41 @@
+---
+title: Overview
+id: tutorials
+slug: /tutorials
+description: ''
+tags: []
+---
+
+import LinkCards from '../../../src/components/Cards/LinkCards';
+import Faucet from '../../../src/components/Icons/Faucet';
+import Fungible from '../../../src/components/Icons/Fungible';
+import NonFungible from '../../../src/components/Icons/NonFungible';
+import Burd from '../../../src/components/Icons/Burd';
+import Chess from '../../../src/components/Icons/Chess';
+
+# LASR Tutorials
+
+This section provides step-by-step tutorials teaching you how to deploy the different templates Versatus has available, and a advanced examples intended to showcase LASR's capabilities.
+
+:::info
+These tutorials are only available in TypeScript. However, as LASR becomes available in more languages, they will be translated as `WebGLUniformLocation`.
+:::
+
+## Templates
+
+Versatus offers several templates that you can use to deploy dApps quickly. These templates were designed to help you learn and better understand LASR. Access each template example page to learn how to deploy them:
+
+<LinkCards numColumns={3} data={[
+  { title: 'Fungible', linkTo: '/tutorials/templates/fungible', icon: <Fungible/> },
+  { title: 'Non Fungible', linkTo: '/tutorials/templates/non_fungible', icon: <NonFungible/> },
+  { title: 'Faucet', linkTo: '/tutorials/templates/faucet', icon: <Faucet/> },
+]}/>
+
+## Advanced examples
+
+While templates are crucial for starting a project on LASR, Versatus provides additional examples to make your journey easier. These examples are more advanced and are intended to showcase the capabilities of Laser rather than serve as starting points for new projects. Currently, the following examples are available:
+
+<LinkCards numColumns={2} data={[
+  { title: 'BURD', linkTo: '/tutorials/burd', icon: <Burd/> },
+  { title: 'Chess', linkTo: '/tutorials/chess', icon: <Chess/> },
+]}/>

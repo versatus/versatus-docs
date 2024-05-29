@@ -1,0 +1,48 @@
+---
+title: LASR Chess
+id: chess
+slug: /tutorials/chess
+description: ''
+tags: []
+---
+
+import LinkCards from '../../../src/components/Cards/LinkCards';
+import ImageComponent from '../../../src/components/Media/ImageComponent';
+
+LASR Chess is a decentralized chess platform built on Versatus' [LASR](https://versatus.io/blog/introducing-versatus-lasr-the-worlds-first-stateless-rolllup) technology. It allows players to engage in secure, verifiable, and decentralized chess matches using cryptographic methods and [@versatus/versatus-javascript](https://github.com/versatus/versatus-javascript). This documentation provides an overview of how LASR Chess operates and guides users through deploying, exploring the code, and playing it.
+
+## How LASR Chess Works?
+
+A unique non-fungible token (NFT) is generated when LASR Chess is deployed. Users who register in Chess have their address stored within the primary Chess NFT. Each user is identified by their address, which LASR Chess will use to collect users' information and display it on the front end.
+
+When you register, a new NFT is generated to record the main LASR Chess program's address and your information. When a user creates a new game, this is registered within the user's NFT, and all moves and game states, the core components of the match, are stored within it. Therefore, while the primary program manages general users information, your individual game data is securely stored in your NFT, giving you full control over your match history and progress.
+
+<ImageComponent className="chess-main"/>
+
+Upon registering, players are prompted to approve LASR Chess to update their NFT. As players make moves, LASR Chess updates their NFT by recording these actions, ensuring a transparent and immutable game record.
+
+:::
+LASR Chess leverages [chess.js](https://github.com/jhlywa/chess.js/blob/master/README.md) to handle  the movement logic of a chess match.
+:::
+
+## Exploring LASR Chess
+
+LASR Chess serves as an example project to demonstrate LASR's capabilities. It offers a hands-on opportunity to understand LASR's functionalities. The LASR Chess tutorial comprises three parts:
+
+<LinkCards numColumns={3} data={[
+  { 
+    title: '1. Deploy',
+    linkTo: '/tutorials/chess/deploy',
+    description: 'Follow this guide to deploy your version of LASR Chess and start exploring its features.'
+  },
+  { 
+    title: '2. Explore the Code',
+    linkTo: '/tutorials/chess/explore_the_code',
+    description: 'Check the code used to create the LASR Chess application.'
+  },
+  { 
+    title: '3. Playing LASR Chess',
+    linkTo: '/tutorials/chess/playing_chess',
+    description: 'Learn how to access and explore the LASR Chess interface.'
+  },
+]}/>

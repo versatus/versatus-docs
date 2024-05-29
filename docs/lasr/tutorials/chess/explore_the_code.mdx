@@ -1,0 +1,344 @@
+---
+title: Explore the Code
+id: explore_the_code
+slug: /tutorials/chess/explore_the_code
+description: ''
+tags: []
+---
+
+import Steps from '../../../../src/components/Steps/Steps';
+import MediaWrapper from '../../../../src/components/Media/MediaWrapper';
+import CodeWrapper from '../../../../src/components/Code/CodeWrapper';
+import LinkCards from '../../../../src/components/Cards/LinkCards';
+
+LASR Chess program is composed of some core functions that define how it works. This page explores all these functionalities LASR Chess has to offer, presenting you details about each method available in the `lasr-chess.ts` file found in the [cloned project](/tutorials/chess/deploy).
+
+## Creating a Program
+
+When you create a new program using LASR, you need to create a class that extends the `Program` class from @versatus/versatus-javascript, incorporating your specific methods. Below, you find all methods used within LASR Chess: 
+
+<LinkCards numColumns={2} data={[
+  { title: 'Create', linkTo: '#create' },
+  { title: 'Register User', linkTo: '#register-user' },
+  { title: 'New Game', linkTo: '#new-game' },
+  { title: 'Accept Game', linkTo: '#accept-game' },
+  { title: 'Make Move', linkTo: '#make-move' },
+]}/>
+
+:::
+All LASR Chess methods leverage different functions from @versatus/versatus-javascript. Refer to the [Methods Reference table](#methods-reference) for more information on each one.
+:::
+
+### Create
+
+The `create` method is required in every program created with LASR, as it's executed during deployment. The `create` method utilizes parameters specified in the [`lasrctl deploy`](/tutorials/chess/deploy#deploy-chess) command to set up the program. For LASR Chess, this method creates an NFT.
+
+The `create` method uses parameters provided in the `lasrctl deploy` command to establish the program's initial conditions and settings. This method sets up the program's metadata and data, and initiates any necessary initial distributions or configurations.
+
+:::info
+It's important to note that `metadata` in line 5 are the parameters required to create a program with LASR.
+:::
+
+Below you find the code block exemplifying the method in LASR Chess followed by a breakdown of the steps taken by the method:
+
+<CodeWrapper height="290px">
+```ts showLineNumbers filename="create"
+create(computeInputs: IComputeInputs) {
+    try {
+      const { transaction } = computeInputs;
+      const { from, to } = transaction;
+      const metadata = parseMetadata(computeInputs);
+      const { initializedSupply, totalSupply, symbol, name } = metadata;
+      const imgUrl =
+        "https://pbs.twimg.com/profile_images/1765199894539583488/RUiZn7jT_400x400.jpg";
+      const methods = "acceptGame, newGame, makeMove, registerUser";
+      const updateMetadata = updateProgramMetadata({
+        programAddress: THIS,
+        metadata: {
+          symbol,
+          name,
+          initializedSupply,
+          totalSupply,
+        },
+      });
+      const updateData = updateProgramData({
+        programAddress: THIS,
+        data: {
+          type: "chess",
+          imgUrl,
+          users: "{}",
+          methods,
+        },
+      });
+      const distributionInstruction = buildTokenDistribution({
+        programId: THIS,
+        initializedSupply,
+        currentSupply: "0",
+        to: THIS,
+        nonFungible: true,
+      });
+      const createAndDistributeInstruction = buildCreateInstruction({
+        from,
+        initializedSupply,
+        totalSupply,
+        programId: THIS,
+        programOwner: from,
+        programNamespace: THIS,
+        distributionInstruction,
+      });
+      return new Outputs(computeInputs, [
+        createAndDistributeInstruction,
+        updateData,
+        updateMetadata,
+      ]).toJson();
+    } catch (e) {
+      throw e;
+    }
+  }
+```
+</CodeWrapper>
+
+| Step                               | Lines       | Description                                                                                                                              |
+|------------------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| **Transaction and Input Parsing**          | `3-4`         | It begins by parsing the transaction details and the inputs provided during the deployment command.                                    |
+| **Metadata Handling**                      | `5-6`        | Parses and validates metadata associated with the program (like supply details, symbol, and name), which are crucial for the setup.                     |
+| **Data Setup**                             | `7-9`       | Constructs the initial data structure for the program, including image URLs, and available methods.                                      |
+| **Update Metadata and Data**            | `10-27` | Updates the program metadata and data fields using the program's namespace and addresses.                                                |
+| **Distribution and Creation Instructions** | `28-43`   | Handles the initial token distribution based on the initialized and current supply and creates the initial setup instructions for the program. For LASR Chess, it distributes the initialized supply to the program itself. |
+| **Output Generation**                      | `44-48`       | Outputs are generated and returned in JSON format, which includes all the instructions for creating and updating the program.           |
+
+
+### Register User
+
+The `registerUser` method enables the addition of new users to LASR Chess, storing their information within the program's NFT. This NFT accumulates data from all users and the program itself. The `registerUser` method also modifies the user's NFT, adding the connection to the program through one `tokenId` available in the main program. Below you find the code block exemplifying the method in LASR Chess followed by a breakdown of the steps taken by the method:
+
+<CodeWrapper height="290px">
+```ts showLineNumbers filename="registerUser"
+registerUser(computeInputs: IComputeInputs) {
+  try {
+    const txInputs = parseTxInputs(computeInputs);
+    const { programId } = computeInputs.transaction;
+    const { username, address } = txInputs;
+    validate(username, "missing username");
+    const programAccountData = parseProgramAccountData(computeInputs);
+    const currUsers = JSON.parse(programAccountData?.users);
+    validate(currUsers, "unable to parse users");
+    const addUserToChessMainProgram = updateProgramData({
+      programAddress: THIS,
+      data: {
+        users: validateAndCreateJsonString({
+          ...currUsers,
+          [address]: username,
+        }),
+      },
+    });
+    const tokenIds = parseAvailableTokenIds(computeInputs);
+    const transferInstruction = buildTransferInstruction({
+      from: programId,
+      to: address,
+      tokenAddress: programId,
+      tokenIds: [tokenIds[0]],
+    });
+    return new Outputs(computeInputs, [
+      addUserToChessMainProgram,
+      transferInstruction,
+    ]).toJson();
+  } catch (e) {
+    throw e;
+  }
+}
+```
+</CodeWrapper>
+
+| Step                               | Lines       | Description                                                                                                                              |
+|------------------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| **Transaction and Input Parsing**          | `3-4`         | It begins by parsing the transaction details and the inputs provided during the deployment command.                                    |
+| **User Validation**                      | `5-6`        | Validates the presence of the username provided in the inputs.                     |
+| **Program Account Data Parsing**                             | `7-8`       | Parses the program account data to get the current list of users.                                     |
+| **User Data Validation**            | `9` | Validates the parsed users data to ensure it is correctly formatted and not null.                                               |
+| **Update Program Data** | `10-18`   | Updates the program data to include the new user, constructing a JSON string with the updated user list. |
+| **Token Transfer Instruction**                      | `19-25`       | Handles the transfer of a token from the program to the new user, using the first available token ID.           |
+| **Output Generation**                      | `26-29`       | Outputs are generated and returned in JSON format, which includes the instructions for adding the user and transferring the token.           |
+
+### New Game
+
+The `newGame` method creates a new game by updating the user's NFT, adding the new game information to it, starting the match with a new "[FEN](https://www.chess.com/terms/fen-chess#:~:text=FEN%20is%20the%20abbreviation%20of,by%20the%20journalist%20David%20Forsyth.)", the user's address, the wager, and a game state of initialized. Below you find the code block exemplifying the method in LASR Chess followed by a breakdown of the steps taken by the method:
+
+<CodeWrapper height="290px">
+```ts showLineNumbers filename="newGame"
+newGame(computeInputs: IComputeInputs) {
+  try {
+    const { from } = computeInputs.transaction;
+    const txInputs = parseTxInputs(computeInputs);
+    const { wager } = txInputs;
+    const gameId = generateGameId();
+    const updateProgramDataInstruction = updateTokenData({
+      accountAddress: from,
+      programAddress: THIS,
+      data: {
+        [`game-${gameId}-fen`]: NEW_GAME_FEN,
+        [`game-${gameId}-address1`]: from,
+        [`game-${gameId}-gameState`]: "initialized",
+        [`game-${gameId}-wager`]: wager,
+      },
+    });
+    const amountNeededForWager = parseAmountToBigInt(wager ?? "0");
+    const transferToProgram = buildTransferInstruction({
+      from: from,
+      to: THIS,
+      tokenAddress: VERSE_PROGRAM_ADDRESS,
+      amount: amountNeededForWager,
+    });
+    return new Outputs(computeInputs, [
+      updateProgramDataInstruction,
+      transferToProgram,
+    ]).toJson();
+  } catch (e) {
+    throw e;
+  }
+}
+```
+</CodeWrapper>
+
+| Step                               | Lines       | Description                                                                                                                              |
+|------------------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| **Transaction Parsing**          | `3-4`         | It begins by parsing the transaction details from the inputs provided during the command.                                    |
+| **Input Parsing**                      | `5`        | Parses additional inputs, including the wager for the new game.                     |
+| **Game ID Generation**                             | `6`       | Generates a unique game ID for the new game using an auxiliary function.                                     |
+| **Update Program Data Instruction**            | `7-16` | Constructs the data to update the program, including the game state, player address, and wager, then creates the instruction to update the token data with this information.                                               |
+| **Wager Parsing and Transfer Instruction** | `17-23`   | Parses the wager amount to a big integer and constructs the instruction to transfer the wager amount from the player to the program. |
+| **Output Generation**                      | `24-27`       | Outputs are generated and returned in JSON format, which includes the instructions for updating the program data and transferring the wager amount.           |
+
+### Accept Game
+
+The `acceptGame` method will add a second player to a previously created game, and change its state to in progress. This is the process of adding a second player to the match. Below you find the code block exemplifying the method in LASR Chess followed by a breakdown of the steps taken by the method:
+
+<CodeWrapper height="290px">
+```ts showLineNumbers filename="acceptGame"
+acceptGame(computeInputs: IComputeInputs) {
+  try {
+    const { from } = computeInputs.transaction;
+    const txInputs = parseTxInputs(computeInputs);
+    const { gameId, address1, wager } = txInputs;
+    const updateGameStateInstruction = updateTokenData({
+      accountAddress: address1,
+      programAddress: THIS,
+      data: {
+        [`game-${gameId}-gameState`]: "inProgress",
+        [`game-${gameId}-address2`]: from,
+      },
+    });
+    const amountNeededForWager = parseAmountToBigInt(wager ?? "0");
+    const transferToProgram = buildTransferInstruction({
+      from: from,
+      to: "this", // Represents the program's address.
+      tokenAddress: VERSE_PROGRAM_ADDRESS,
+      amount: amountNeededForWager,
+    });
+    return new Outputs(computeInputs, [
+      updateGameStateInstruction,
+      transferToProgram,
+    ]).toJson();
+  } catch (e) {
+    throw e;
+  }
+}
+```
+</CodeWrapper>
+
+| Step                               | Lines       | Description                                                                                                                              |
+|------------------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| **Transaction Parsing**          | `3-4`         | It begins by parsing the transaction details from the inputs provided during the command.                                    |
+| **Input Parsing**                      | `5`        | Parses additional inputs, including the game ID, address of the first player, and the wager for the game.                     |
+| **Update Game State Instruction**            | `6-13` | Constructs the data to update the game state to "inProgress" and adds the second player's address, then creates the instruction to update the token data with this information.                                               |
+| **Wager Parsing and Transfer Instruction** | `14-20`   | Parses the wager amount to a big integer and constructs the instruction to transfer the wager amount from the second player to the program. |
+| **Output Generation**                      | `21-24`       | Outputs are generated and returned in JSON format, which includes the instructions for updating the game state and transferring the wager amount.           |
+
+
+### Make Move
+
+Everytime a player makes a move, being it the first or second player, the `makeMove` method is called. This method will leverage the [chess.js](https://github.com/jhlywa/chess.js/blob/master/README.md) library, using the FEN received to execute a move. After, it will take different actions based on the state of the game. If it is over, it will transfer the wager to the winner. if not, it will keep the game in progress until it finishes. Below you find the code block exemplifying the method in LASR Chess followed by a breakdown of the steps taken by the method:
+
+<CodeWrapper height="290px">
+```ts showLineNumbers filename="makeMove"
+makeMove(computeInputs: IComputeInputs) {
+  try {
+    const { from } = computeInputs.transaction;
+    const { move, fen, address1, gameId, wager } = parseTxInputs(computeInputs);
+    validate(move, "missing move");
+    validate(gameId, "missing gameId");
+    validate(fen, "missing fen");
+    const chess = new Chess(fen);
+    chess.move(move);
+    const instructions = [];
+
+    if (chess.isGameOver()) {
+      const payoutAmount = parseAmountToBigInt(wager ?? "0") * BigInt(2);
+      const transferPayoutToWinner = buildTransferInstruction({
+        from: THIS,
+        to: from,
+        tokenAddress: VERSE_PROGRAM_ADDRESS,
+        amount: payoutAmount,
+      });
+      instructions.push(
+        updateTokenData({
+          accountAddress: address1,
+          programAddress: THIS,
+          data: {
+            [`game-${gameId}-fen`]: chess.fen(),
+            [`game-${gameId}-winnerAddress`]: from,
+            [`game-${gameId}-gameState`]: "finished",
+          },
+        }),
+        transferPayoutToWinner,
+      );
+    } else {
+      instructions.push(
+        updateTokenData({
+          accountAddress: address1,
+          programAddress: THIS,
+          data: {
+            [`game-${gameId}-fen`]: chess.fen(),
+            [`game-${gameId}-gameState`]: "inProgress",
+          },
+        }),
+      );
+    }
+
+    return new Outputs(computeInputs, instructions).toJson();
+  } catch (e) {
+    throw e;
+  }
+}
+```
+</CodeWrapper>
+
+| Step                               | Lines       | Description                                                                                                                              |
+|------------------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| **Transaction Parsing**          | `3-4`         | It begins by parsing the transaction details from the inputs provided during the command.                                    |
+| **Input Parsing and Validation**                      | `5-7`        | Parses additional inputs, including the move, FEN, address of the first player, game ID, and the wager, and validates their presence.                     |
+| **Chess Move Execution**                             | `8-10`       | Creates a new chess instance with the provided FEN, makes the move, and prepares for the game state update.                                     |
+| **Game Over Check and Instructions**            | `12-43` | Checks if the game is over. If it is, constructs instructions to update the game state to "finished", set the winner's address, and transfer the payout to the winner. If not, constructs instructions to update the game state to "inProgress" with the new FEN.                                               |
+| **Output Generation**                      | `45`       | Outputs are generated and returned in JSON format, which includes the instructions for updating the game state and transferring the payout if the game is over.           |
+
+
+## Methods Reference
+
+Below you find all @versatus/versatus-javascript methods used in the LASR Chess **program**, along with descriptions for what each one does:
+
+| Method                        | Description                                                                                                                                                                                                                                                                                                                                                             |
+|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `buildCreateInstruction`      | Constructs an update instruction for modifying a token or program's properties. This function simplifies the creation of an update instruction by utilizing an `UpdateInstructionBuilder` to incorporate the specified updates into a single instruction.                                                                                                               |
+| `buildTokenDistribution`      | Constructs a sequence of minting instructions that represent the process of transferring payment tokens to a program and then transferring the minted tokens (or specified token IDs for NFTs) back to the caller. This function automates the creation of these transfer instructions to facilitate various minting scenarios.                                         |
+| `buildTokenUpdateField`       | Constructs a `ProgramUpdateField` object for updating program fields with specified actions such as insert, extend, or remove. This function supports various field types including metadata, data, and status, with specific actions tailored to each field type. It validates the field and action types and constructs the appropriate update action object.         |
+| `buildTransferInstruction`    | Constructs a `TokenUpdateField` object for updating token fields with specified actions such as insert, extend, or remove. This function supports various field types including metadata, data, approvals, and status, with specific actions tailored to each field type. It validates the field and action types and constructs the appropriate update action object.  |
+| `parseAmountToBigInt`         | Converts a numerical amount into a hexadecimal string, typically for blockchain-related transactions where the amount needs to be expressed in smallest units (e.g., wei) in hexadecimal format.                                                                                                                                                                        |
+| `parseAvailableTokenIds`      | Extracts and returns a list of available token IDs from the computeInputs, allowing identification of which tokens are available for operations such as transfers or updates.                                                                                                                                                                                           |
+| `parseMetadata`               | Returns the metadata (`name`, `symbol`, `initializedSupply`, and `totalSupply`) from the `computeInputs` parameter.                                                                                                                                                                                                                                                     |
+| `parseProgramAccountData`     | Extracts and parses the account data of a program from the computeInputs, allowing access to the current state and data fields of the program.                                                                                                                                                                                                                          |
+| `parseTxInputs`               | Parses the transaction inputs from the computeInputs, extracting and returning relevant details such as the transaction's parameters and additional inputs provided.                                                                                                                                                                                                    |
+| `updateProgramData`           | Removes a specific key from the data of a given program on LASR.                                                                                                                                                                                                                                                                                                        |
+| `updateProgramMetadata`       | Updates the data for a given program on LASR.                                                                                                                                                                                                                                                                                                                           |
+| `updateTokenData`             | Removes a specific key from the data of a given token on LASR.                                                                                                                                                                                                                                                                                                          |
+| `validate`                    | Validates that none of the values are `undefined` and then creates a JSON string from it.                                                                                                                                                                                                                                                                               |
+| `validateAndCreateJsonString` | Retrieves the RPC (Remote Procedure Call) URL for interacting with a blockchain network, based on the specified network type. The RPC URL is crucial for applications that need to communicate with blockchain networks. It returns the selected RPC URL as a string.                                                                                                   |

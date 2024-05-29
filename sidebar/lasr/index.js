@@ -1,5 +1,6 @@
 const gettingStarted = require('./gettingStarted');
 const coreConcepts = require('./coreConcepts');
+const tutorials = require('./tutorials');
 const lasrGuides = require('./lasrGuides');
 
 module.exports = [
@@ -11,6 +12,7 @@ module.exports = [
   // },
   ...gettingStarted,
   ...coreConcepts,
+  ...tutorials,
   ...lasrGuides,
   // {
   //   type: 'category',

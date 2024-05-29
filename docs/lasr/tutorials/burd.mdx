@@ -1,0 +1,44 @@
+---
+title: BURD
+id: burd
+slug: /tutorials/burd
+description: ''
+tags: []
+---
+
+import LinkCards from '../../../src/components/Cards/LinkCards';
+import ImageComponent from '../../../src/components/Media/ImageComponent';
+
+BURD is a decentralized microblogging platform powered by Versatus' [LASR](https://versatus.io/blog/introducing-versatus-lasr-the-worlds-first-stateless-rolllup) technology. It enables users to churp, like, and manage their digital identity securely through cryptographic methods using [@versatus/versatus-javascript](https://github.com/versatus/versatus-javascript). This documentation provides an overview of how BURD operates and guides users through deploying, exploring the code, and using the platform.
+
+## How BURD Works?
+
+A unique non-fungible token (NFT) is generated when BURD is initiated. Users who register with BURD have their address stored within the primary BURD NFT. Each user is identified by their address, which BURD will use to collect users' information and display it on the front end.
+
+When you register, a new NFT is generated to record the main BURD program's address and your information. Churps and likes, the essence of your interactions, are stored within your personal NFT. Your NFT will store your churps and the address of each user who liked each churp. Therefore, while the primary program manages general user information, your individual data is securely stored in your personal NFT, giving you full control over your digital footprint. 
+
+<ImageComponent className="burd-main"/>
+
+Upon creating an account, users are prompted to approve BURD to update the user NFT. Thus, as users engage with the platform by creating or receiving likes on churps, BURD will update the user NFT by adding the data to record these actions.
+
+## Exploring BURD
+
+BURD serves as an example project to demonstrate LASR's capabilities. It offers a hands-on opportunity to understand LASR's functionalities. The BURD tutorial comprises three parts:
+
+<LinkCards numColumns={3} data={[
+  { 
+    title: '1. Deploy',
+    linkTo: '/tutorials/burd/deploy',
+    description: 'Follow this guide to deploy your BURD version and start exploring its features.'
+  },
+  { 
+    title: '2. Explore the Code',
+    linkTo: '/tutorials/burd/explore_the_code',
+    description: 'Check the code used to create the BURD application.'
+  },
+  { 
+    title: '3. Using BURD',
+    linkTo: '/tutorials/burd/using_burd',
+    description: 'Learn how to access and explore the BURD interface.'
+  },
+]}/>
