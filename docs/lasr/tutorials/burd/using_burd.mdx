@@ -8,6 +8,7 @@ tags: []
 
 import Steps from '../../../../src/components/Steps/Steps';
 import MediaWrapper from '../../../../src/components/Media/MediaWrapper';
+import ImageComponent from '../../../../src/components/Media/ImageComponent';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -46,7 +47,7 @@ BURD allows users to engage with a variety of features on the blockchain. Follow
 
 <Tabs>
 
-  <TabItem label="Add User">
+  <TabItem label="Add User" value="Add User">
   The `addUser` method will register a new user in the main program. The GIF below presents an example of adding a user in the frontend application:
 
   <MediaWrapper>
@@ -67,7 +68,7 @@ BURD allows users to engage with a variety of features on the blockchain. Follow
 
   </TabItem>
 
-  <TabItem label="Churp">
+  <TabItem label="Churp" value="Churp">
   The `churp` method creates a new churp, registering it to the creator's NFT. The GIF below presents an example of creating a churp in the frontend application:
 
   <MediaWrapper>
@@ -86,7 +87,7 @@ BURD allows users to engage with a variety of features on the blockchain. Follow
   
   </TabItem>
 
-  <TabItem label="Like">
+  <TabItem label="Like" value="Like">
   The `like` method registers your approval on an existing churp by adding the like information in the churp creator's NFT. The GIF below presents an example of liking a churp in the frontend application:
 
   <MediaWrapper>
@@ -105,7 +106,7 @@ BURD allows users to engage with a variety of features on the blockchain. Follow
 
   </TabItem>
 
-  <TabItem label="Delete Churp">
+  <TabItem  label="Delete Churp" value="Delete Churp">
   The `deleteChurp` method removes one of the user's previous churps, deleting its data from the user's NFT. The GIF below presents an example of deleting a churp in the frontend application:
 
   <MediaWrapper>
@@ -148,7 +149,7 @@ await axios.post('http://lasr-sharks.versatus.io:9292', {
 })
 ```
 
-:::
+:::note
 `http://lasr-sharks.versatus.io:9292` is the endpoint URL where the LASR server listens for requests.  
 :::
 

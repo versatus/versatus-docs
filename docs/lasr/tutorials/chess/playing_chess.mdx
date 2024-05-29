@@ -8,6 +8,7 @@ tags: []
 
 import Steps from '../../../../src/components/Steps/Steps';
 import MediaWrapper from '../../../../src/components/Media/MediaWrapper';
+import ImageComponent from '../../../../src/components/Media/ImageComponent';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -48,7 +49,7 @@ LASR Chess allows users to engage with a variety of features on the blockchain. 
 
 <Tabs>
 
-  <TabItem label="Register User">
+  <TabItem label="Register User" value="Register User">
     The `registerUser` method will register a new user in the main program. The GIF below presents an example of adding a user in the frontend application:
 
     <MediaWrapper>
@@ -71,7 +72,7 @@ LASR Chess allows users to engage with a variety of features on the blockchain. 
     <ImageComponent className="registerUser"/>
   </TabItem>
 
-  <TabItem label="Create Game">
+  <TabItem label="Create Game" value="Create Game">
     The `createGame` method will register a new game in the user's NFT. The GIF below presents an example of this action in the frontend application:
 
     <MediaWrapper>
@@ -91,7 +92,7 @@ LASR Chess allows users to engage with a variety of features on the blockchain. 
     <ImageComponent className="createGame"/>
   </TabItem>
 
-  <TabItem label="Accept Game">
+  <TabItem label="Accept Game" value="Accept Game">
     The `acceptGame` method will register a second player in a created game in the user's NFT. The GIF below presents an example of this action in the frontend application:
 
     <MediaWrapper>
@@ -111,7 +112,7 @@ LASR Chess allows users to engage with a variety of features on the blockchain. 
     <ImageComponent className="acceptGame"/>
   </TabItem>
 
-  <TabItem label="Make Move">
+  <TabItem label="Make Move" value="Make Move">
     The `makeMove` method will register a move from any player in a created game in the user's NFT. The GIF below presents an example of this action in the frontend application:
 
     <MediaWrapper>
@@ -156,6 +157,6 @@ await axios.post('http://lasr-sharks.versatus.io:9292', {
 })
 ```
 
-<Callout type="default">
+:::note
 `http://lasr-sharks.versatus.io:9292` is the endpoint URL where the LASR server listens for requests.  
-</Callout>
+:::
