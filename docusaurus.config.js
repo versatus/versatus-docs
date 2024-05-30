@@ -24,7 +24,6 @@ const config = {
     ],
   ],
   plugins: [
-    require.resolve('docusaurus-lunr-search'),
     require.resolve('docusaurus-plugin-image-zoom'),
     'docusaurus-plugin-sass',
   ],
