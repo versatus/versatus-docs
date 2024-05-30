@@ -5,6 +5,9 @@
 .navbar__logo {
   width: 240px;
   height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .site_logo {
