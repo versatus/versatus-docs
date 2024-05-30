@@ -6,8 +6,8 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --versatus-main-color: #FE2B75;
-  --ifm-color-primary: #FE2B75;
+  --versatus-main-color: #FE536E;
+  --ifm-color-primary: #FE536E;
   --ifm-color-primary-dark: #29784c;
   --ifm-color-primary-darker: #277148;
   --ifm-color-primary-darkest: #205d3b;
@@ -17,7 +17,7 @@
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --cards-background-color: #FFF;
-  --cards-background-color-hover: #FE2B75;
+  --cards-background-color-hover: #FE536E;
   --border-color: #ACACAC;
   --white: #FFF;
   --font-family-inter: Inter;
@@ -25,8 +25,8 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --versatus-main-color: #FE2B75;
-  --ifm-color-primary: #FE2B75;
+  --versatus-main-color: #FE536E;
+  --ifm-color-primary: #FE536E;
   --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;
   --ifm-color-primary-darkest: #1a8870;
@@ -35,7 +35,7 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --cards-background-color: #1C1C1C;
-  --cards-background-color-hover: #FE2B75;
+  --cards-background-color-hover: #FE536E;
   --border-color: #464646;
 }
 

@@ -103,14 +103,12 @@ const config = {
             sidebarId: 'lasrSidebar',
             position: 'left',
             label: 'LASR',
-            routeBasePath: '/lasr'
           },
           {
             type: 'docSidebar',
             sidebarId: 'allegraSidebar',
             position: 'left',
             label: 'Allegra',
-            routeBasePath: '/allegra'
           },
           {
             type: 'search',
