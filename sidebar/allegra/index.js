@@ -1,3 +1,5 @@
+const useCases = require('./useCases');
+
 module.exports = [
   {
     type: 'html',
@@ -21,6 +23,7 @@ module.exports = [
     type: 'doc',
     id: 'allegra/deploy',
   },
+  ...useCases,
   // {
   //   type: 'category',
   //   label: 'Allegra',
