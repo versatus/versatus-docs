@@ -21,6 +21,7 @@ const CardList = ({ data, className, numColumns }) => {
           description={item.description}
           linkTo={item.linkTo}
           externalLink={item.externalLink}
+          icon={item.icon}
         />
       ))}
     </div>

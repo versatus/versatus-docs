@@ -77,3 +77,29 @@
 [data-theme='dark'] .makeMove {
   content: url('../../static/img/lasr/tutorials/chess/makeMove-dark.png');
 }
+
+.faucet, .fungible, .burd, .chess {
+  color: #000;
+  fill: #000;
+  stroke: #000;
+  transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .faucet, [data-theme='dark'] .fungible, [data-theme='dark'] .burd, [data-theme='dark'] .chess {
+  color: #FFF;
+  fill: #FFF;
+  stroke: #FFF;
+}
+
+[data-theme='dark'] .nft path {
+  fill: #FFF;
+  transition: all 0.3s ease;
+}
+
+.link_card:hover .faucet,
+.link_card:hover .fungible,
+.link_card:hover .burd,
+.link_card:hover .chess,
+.link_card:hover .nft path {
+  fill: var(--border-color-hover);
+}

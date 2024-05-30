@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Card({ logo, title, linkTo, externalLink, description, icon }) {
   const logoLink = logo && `https://raw.githubusercontent.com/transpara/documentation/main/visual-kpi-docs/static/img/setup-adm/interfaces/icons/${logo.toLowerCase()}.png`;
-  
+  console.log(icon)
   if (linkTo || externalLink) {
     const classes = description ? 'link_card' : 'link_card title_only_card';
     

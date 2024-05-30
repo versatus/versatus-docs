@@ -35,8 +35,9 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --cards-background-color: #1C1C1C;
-  --cards-background-color-hover: #FE536E;
+  --cards-background-color-hover: #302323;
   --border-color: #464646;
+  --border-color-hover: #FF595D;
 }
 
 .footer.footer--dark {
