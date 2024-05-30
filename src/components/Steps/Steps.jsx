@@ -25,7 +25,7 @@ const Steps = ({ children, showNumbers = true }) => {
             <div key={index} className="step-item">
               {showNumbers && <div className="step-number">{index + 1}</div>}
               <div className="step-body">
-                <div className="step-title">{content.title}</div>
+                <div id={content.title.replace(/\s+/g, '-').toLowerCase()} className="step-title anchor anchorWithStickyNavbar_node_modules-@docusaurus-theme-classic-lib-theme-Heading-styles-module">{content.title}</div>
                 <div className="step-content">{content.content}</div>
               </div>
             </div>
