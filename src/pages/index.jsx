@@ -4,6 +4,7 @@ import Layout from '@theme/Layout';
 
 import '../css/accordion.css';
 import '../css/callout.css';
+import '../css/codeWrapper.css';
 import '../css/custom.css';
 import '../css/homepage.css';
 import '../css/iconCards.css';

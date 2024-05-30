@@ -17,7 +17,7 @@ BURD program is composed of some core functions that define how it works. This p
 
 When you create a new program using LASR, you need to create a class that extends the `Program` class from @versatus/versatus-javascript, incorporating your specific methods. Below, you find all methods used within BURD: 
 
-<LinkCards numColumns={2} data={[
+<LinkCards numColumns={3} data={[
   { title: 'Create', linkTo: '#create' },
   { title: 'Add User', linkTo: '#add-user' },
   { title: 'Churp', linkTo: '#churp' },
@@ -43,7 +43,7 @@ It's important to note that `metadata` in line 8 are the parameters required to 
 Below you find the code block exemplifying the method in BURD followed by a breakdown of the steps taken by the method:
 
 <CodeWrapper height="290px">
-```ts showLineNumbers filename="create"
+```ts showLineNumbers
 create(computeInputs: ComputeInputs) {
     try {
       const { transaction } = computeInputs
