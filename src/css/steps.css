@@ -36,7 +36,6 @@
 
 .step-body {
   padding-left: 40px;
-  flex-grow: 1;
 }
 
 .step-title {
@@ -45,13 +44,36 @@
   margin-bottom: 10px;
 }
 
+.step-content .language-sh.codeBlockContainer_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module.theme-code-block {
+  max-width: 50rem !important;
+}
+
+.step-content .codeBlockLines_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module {
+  overflow-x: scroll !important;
+  max-width: 20rem !important;
+}
+
 .step-content pre {
   background-color: #333;
-  padding: 10px;
   border-radius: 5px;
   color: #fff;
 }
 
 .step-content a {
   color: #1e90ff;
+}
+
+@media (max-width: 480px) {
+  .steps-container {
+    width: 90%;
+  }
+
+  .steps-content p {
+    width: 90%;
+  }
+
+  .step-content .codeBlockLines_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module {
+    overflow-x: scroll !important;
+    max-width: 10rem !important;
+  }
 }
