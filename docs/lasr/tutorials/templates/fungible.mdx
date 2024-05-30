@@ -9,7 +9,7 @@ tags: []
 import Steps from '../../../../src/components/Steps/Steps';
 import MediaWrapper from '../../../../src/components/Media/MediaWrapper';
 
-This page guides you through the process of creating a new project using the [Fungible Template](/core_concepts/templates#fungible-template). The fungible template is designed for projects that require the creation of fungible tokens. Fungible tokens are divisible and can be subdivided into smaller units. Follow the steps-by-step guide below to create and deploy your fungible project:
+This page guides you through the process of creating a new project using the [Fungible Template](/lasr/core_concepts/templates#fungible-template). The fungible template is designed for projects that require the creation of fungible tokens. Fungible tokens are divisible and can be subdivided into smaller units. Follow the steps-by-step guide below to create and deploy your fungible project:
 
 <Steps>
 ### Set Up Your Project
@@ -38,7 +38,7 @@ npx lasrctl init fungible
 Replace the `address` and `secret_key` from the `keypairs.json` file with your account keys.
 
 :::info
-  If you require assistance finding your keys, refer to the [Creating your First Program](/getting_started/creating_your_first_program#set-up-your-wallet-keys) guide to learn where to find them.
+  If you require assistance finding your keys, refer to the [Creating your First Program](/lasr/getting_started/creating_your_first_program#set-up-your-wallet-keys) guide to learn where to find them.
 :::
 
 ### Build Your Program
@@ -79,7 +79,7 @@ Make sure to replace the following information:
 - `CONVERSION_RATE`: The conversion rate for your fungible token. For example, if you set it at `1`, this means one of your token is equal to `1 VERSE`.
 
 :::info
-For detailed information about each standard parameter, refer to the [Deploy Configuration](/lasr_guides/deploy_configuration) page.
+For detailed information about each standard parameter, refer to the [Deploy Configuration](/lasr/lasr_guides/deploy_configuration) page.
 :::
 
 The fungible deploy, requires the `--txInputs` parameter, with the following data as a JSON:

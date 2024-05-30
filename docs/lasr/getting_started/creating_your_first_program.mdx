@@ -60,14 +60,14 @@ npx lasrctl init hello-lasr
 ```
 
 :::info
-For more details about the available templates, access the [Templates](/core_concepts/templates) page. 
+For more details about the available templates, access the [Templates](/lasr/core_concepts/templates) page. 
 :::
 
-The `init` command will generate an example program named example-program.ts, located at the root of your project. In addition, it also generates a folder containing example JSON inputs for each method within the inputs directory. These JSON files have examples of what the LASR protocol will send your program. For more information about how the protocol works, access the [LASR Protocol](/core_concepts/lasr_protocol) page.
+The `init` command will generate an example program named example-program.ts, located at the root of your project. In addition, it also generates a folder containing example JSON inputs for each method within the inputs directory. These JSON files have examples of what the LASR protocol will send your program. For more information about how the protocol works, access the [LASR Protocol](/lasr/core_concepts/lasr_protocol) page.
 
 ### Set up your Wallet Keys
 
-When the `lasrctl` command `init` ran in [Step 2](#start-the-project), it also generated a `.lars/wallet/keypairs.json` file in the project. These addresses are used to connect your account, created in the [Creating an Account](/getting_started/creating_an_account) page to the program you will deploy. You need to replace `address` and `secret_key` with your own:
+When the `lasrctl` command `init` ran in [Step 2](#start-the-project), it also generated a `.lars/wallet/keypairs.json` file in the project. These addresses are used to connect your account, created in the [Creating an Account](/lasr/getting_started/creating_an_account) page to the program you will deploy. You need to replace `address` and `secret_key` with your own:
 
 1. Access [LASR Playground](http://faucet.versatus.io/).
 2. Connect LASR Wallet.
@@ -104,7 +104,7 @@ The command compiles your TypeScript program and outputs the resulting JavaScrip
 
 ### Test Your Program
 
-Now that you have built your program, you can validate its performance against sample JSON inputs that it might encounter in real-world scenarios, as defined by the LASR protocol. To facilitate this process, Versatus prepared a set of sample input JSON files located in the `./inputs` directory of your project. For more information about how the protocol works, access the [LASR Protocol](/core_concepts/lasr_protocol) page.
+Now that you have built your program, you can validate its performance against sample JSON inputs that it might encounter in real-world scenarios, as defined by the LASR protocol. To facilitate this process, Versatus prepared a set of sample input JSON files located in the `./inputs` directory of your project. For more information about how the protocol works, access the [LASR Protocol](/lasr/core_concepts/lasr_protocol) page.
 
 To initiate the testing process, use the following command in your terminal:
 
@@ -151,7 +151,7 @@ npx lasrctl deploy --build example-program --symbol HELLO_WORLD --programName MY
   Sometimes the first try of a deploy may not work, if this happens just rerun the `deploy` command and it will likely succeed on the second try.
 :::
 
-Access the [Deploy Configuration](/lasr_guides/deploy_configuration) page to learn more about the available parameters you can use when deploying your program.
+Access the [Deploy Configuration](/lasr/lasr_guides/deploy_configuration) page to learn more about the available parameters you can use when deploying your program.
 
 </Steps>
 
@@ -159,7 +159,7 @@ Access the [Deploy Configuration](/lasr_guides/deploy_configuration) page to lea
 
 You can interact with the deployed program using the LASR CLI or through the link received once the deploy command finishes. 
 
-- **LASR CLI**: It's installed together with  [@versatus/versatus-javascript package](https://www.npmjs.com/package/@versatus/versatus-javascript) and enables you to interact and test your program using your terminal. To learn more about the available CLI features, access the [LASR CLI](/lasr_guides/cli) page.
+- **LASR CLI**: It's installed together with  [@versatus/versatus-javascript package](https://www.npmjs.com/package/@versatus/versatus-javascript) and enables you to interact and test your program using your terminal. To learn more about the available CLI features, access the [LASR CLI](/lasr/lasr_guides/cli) page.
 
 - **Browser**: Once the deploy is finished, it will  provide you with a URL that can be used in any web browser to interact with your program. This URL will be similar to the following:
 
@@ -178,13 +178,13 @@ https://playground.versatus.io/programs/0x0b90aa2e5ce3a9ced87bab04e04508879c8190
 
 Now that you deployed and tested your first LASR program, you can advance in your journey to create dApps. To better understand how to create and test dApps, access one of the core concepts pages:
 
-- [Blockchain Fundamentals](/core_concepts/blockchain_fundamentals)
-- [LASR Protocol](/core_concepts/lasr_protocol)
-- [Templates](/core_concepts/templates)
+- [Blockchain Fundamentals](/lasr/core_concepts/blockchain_fundamentals)
+- [LASR Protocol](/lasr/core_concepts/lasr_protocol)
+- [Templates](/lasr/core_concepts/templates)
 
 In case you want to explore the LASR features, you can access one of the following options:
 
-- [LASR Deploy Examples](/tutorials)
-- [LASR CLI](/lasr_guides/cli)
-- [Deploy Process](/lasr_guides/deploy_process)
-- [Deploy Configurations](/lasr_guides/deploy_configuration)
+- [LASR Deploy Examples](/lasr/tutorials)
+- [LASR CLI](/lasr/lasr_guides/cli)
+- [Deploy Process](/lasr/lasr_guides/deploy_process)
+- [Deploy Configurations](/lasr/lasr_guides/deploy_configuration)
