@@ -8,6 +8,7 @@ tags: []
 
 import MediaWrapper from '../../../src/components/Media/MediaWrapper';
 import Steps from '../../../src/components/Steps/Steps';
+import LinkCards from '../../../src/components/Cards/LinkCards';
 
 The LASR framework provides an agnostic platform for developers to create contract-based applications. This page outlines a process to deploy your first dAapp using LASR.
 
@@ -178,13 +179,38 @@ https://playground.versatus.io/programs/0x0b90aa2e5ce3a9ced87bab04e04508879c8190
 
 Now that you deployed and tested your first LASR program, you can advance in your journey to create dApps. To better understand how to create and test dApps, access one of the core concepts pages:
 
-- [Blockchain Fundamentals](/lasr/core_concepts/blockchain_fundamentals)
-- [LASR Protocol](/lasr/core_concepts/lasr_protocol)
-- [Templates](/lasr/core_concepts/templates)
+<LinkCards numColumns={2} data={[
+  { 
+    title: 'Blockchain Fundamentals',
+    linkTo: '/lasr/core_concepts/blockchain_fundamentals',
+  },
+  { 
+    title: 'LASR Protocol',
+    linkTo: '/lasr/core_concepts/lasr_protocol',
+  },
+  { 
+    title: 'Templates',
+    linkTo: '/lasr/core_concepts/templates',
+  },
+]}/>
 
 In case you want to explore the LASR features, you can access one of the following options:
 
-- [LASR Deploy Examples](/lasr/tutorials)
-- [LASR CLI](/lasr/lasr_guides/cli)
-- [Deploy Process](/lasr/lasr_guides/deploy_process)
-- [Deploy Configurations](/lasr/lasr_guides/deploy_configuration)
+<LinkCards numColumns={2} data={[
+  { 
+    title: 'LASR Tutorials',
+    linkTo: '/lasr/tutorials',
+  },
+  { 
+    title: 'LASR CLI',
+    linkTo: '/lasr/lasr_guides/',
+  },
+  { 
+    title: 'Deploy Process',
+    linkTo: '/lasr/lasr_guides/deploy_process',
+  },
+  { 
+    title: 'Deploy Configurations',
+    linkTo: '/lasr/lasr_guides/deploy_configuration',
+  },
+]}/>
