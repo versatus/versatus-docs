@@ -8,6 +8,21 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
+  themes: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      ({
+        // ... Your options.
+        // `hashed` is recommended as long-term-cache of index file is possible.
+        hashed: true,
+        searchResultContextMaxLength: 100
+        // For Docs using Chinese, The `language` is recommended to set to:
+        // ```
+        // language: ["en", "zh"],
+        // ```
+      }),
+    ],
+  ],
   plugins: [
     require.resolve('docusaurus-lunr-search'),
     require.resolve('docusaurus-plugin-image-zoom'),
@@ -77,10 +92,10 @@ const config = {
       // Replace with your project's social card
       // image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'Documentation',
+        title: '',
         logo: {
           alt: 'Versatus Logo',
-          src: 'img/logo-light.svg',
+          src: 'img/logo-1.png',
         },
         items: [
           {
@@ -101,10 +116,21 @@ const config = {
             type: 'search',
             position: 'right',
           },
+          // {
+          //   href: 'https://github.com/facebook/docusaurus',
+          //   label: '',
+          //   className: 'github-btn',
+          //   position: 'right',
+          // },
           {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
+            to: 'https://github.com/versatus/versatus-docs',
             position: 'right',
+            className: 'github-btn'
+          },
+          {
+            to: 'https://discord.com/invite/versatus',
+            position: 'right',
+            className: 'discord-btn'
           },
         ],
       },
@@ -116,11 +142,11 @@ const config = {
             items: [
               {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                href: 'https://discord.com/invite/versatus',
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                href: 'https://twitter.com/versatuslabs',
               },
             ],
           },
@@ -128,17 +154,13 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/versatus/versatus-docs',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Versatus`,
       },
       prism: {
         theme: prismThemes.github,
