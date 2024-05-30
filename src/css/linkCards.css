@@ -1,14 +1,16 @@
 .link_cards_container {
   display: grid;
   gap: 10px;
+  margin: auto;
   margin-bottom: 25px;
+  width: 96%;
 }
 
 .link_cards_container .link_card {
   align-items: flex-start;
-  background: #FFF;
+  background: var(--cards-background-color);
   border-radius: 6px;
-  border: 1px solid #ACACAC;
+  border: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -24,15 +26,15 @@
 }
 
 .link_cards_container .link_card:hover {
-  border-color: var(--transpara-primary-color1);
-  background-color: var(--transpara-primary-color1);
+  border-color: var(--cards-background-color-hover);
+  background-color: var(--cards-background-color-hover);
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   text-decoration: none !important;
 }
 
 .link_cards_container .link_card h3 {
-  font-family: Inter;
+  font-family: var(--font-family-inter);
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
@@ -42,8 +44,8 @@
 }
 
 .link_cards_container .link_card p {
-  color: #717171;
-  font-family: Inter;
+  color: var(--white);
+  font-family: var(--font-family-inter);
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
@@ -54,7 +56,7 @@
 
 .link_cards_container .link_card:hover h3,
 .link_cards_container .link_card:hover p {
-  color: #FFF;
+  color: var(--white);
 }
 
 .link_cards_container .link_card .icon_img {
@@ -69,23 +71,32 @@
 
 /* Default grid styles for medium to large screens */
 .grid-columns-auto {
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 }
 
 .grid-columns-2 {
-  grid-template-columns: repeat(2, minmax(200px, 1fr));
+  grid-template-columns: repeat(2, minmax(150px, 1fr));
 }
 
 .grid-columns-3 {
-  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
 }
 
 .grid-columns-4 {
-  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
 }
 
-/* Adjustments for screens smaller than 400px */
-@media (max-width: 399px) {
+@media (min-width: 997px) and (max-width: 1060px) {
+  .grid-columns-auto,
+  .grid-columns-2,
+  .grid-columns-3,
+  .grid-columns-4 {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+/* Adjustments for screens smaller than 670px */
+@media (max-width: 670px) {
   .grid-columns-auto,
   .grid-columns-2,
   .grid-columns-3,

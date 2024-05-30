@@ -15,9 +15,9 @@ import '../css/images.css';
 import '../css/linkCards.css';
 import '../css/media.css';
 import '../css/navbar.css';
+import '../css/pagination.css';
 import '../css/sidebar.css';
 import '../css/steps.css';
-import '../css/svg.css';
 import '../css/table.css';
 
 function HomepageHeader() {

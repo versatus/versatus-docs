@@ -7,9 +7,9 @@
 
 .icon_cards_container .icon_card {
   align-items: flex-start;
-  background: #FFF;
+  background: var(--cards-background-color);
   border-radius: 6px;
-  border: 1px solid #ACACAC;
+  border: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -21,13 +21,13 @@
 
 .icon_cards_container .icon_card:hover {
   cursor: default;
-  border-color: var(--transpara-primary-color1);
-  background-color: var(--transpara-primary-color1);
+  border-color: var(--cards-background-color-hover);
+  background-color: var(--cards-background-color-hover);
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .icon_cards_container .icon_card h3 {
-  font-family: Inter;
+  font-family: var(--font-family-inter);
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
@@ -37,8 +37,8 @@
 }
 
 .icon_cards_container .icon_card p {
-  color: #717171;
-  font-family: Inter;
+  color: var(--white);
+  font-family: var(--font-family-inter);
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
@@ -49,7 +49,7 @@
 
 .icon_cards_container .icon_card:hover h3,
 .icon_cards_container .icon_card:hover p {
-  color: #FFF;
+  color: var(--white);
 }
 
 .icon_cards_container .icon_card .icon_img {
