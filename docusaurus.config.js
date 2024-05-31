@@ -8,24 +8,9 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  themes: [
-    [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
-      ({
-        // ... Your options.
-        // `hashed` is recommended as long-term-cache of index file is possible.
-        hashed: true,
-        searchResultContextMaxLength: 100
-        // For Docs using Chinese, The `language` is recommended to set to:
-        // ```
-        // language: ["en", "zh"],
-        // ```
-      }),
-    ],
-  ],
   plugins: [
+    require.resolve('docusaurus-lunr-search'),
     require.resolve('docusaurus-plugin-image-zoom'),
-    'docusaurus-plugin-sass',
   ],
   title: 'Versatus Docs',
   tagline: '',
@@ -66,13 +51,7 @@ const config = {
           editUrl:
             'https://github.com/versatus/versatus-docs',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/versatus/versatus-docs',
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -113,12 +92,6 @@ const config = {
             type: 'search',
             position: 'right',
           },
-          // {
-          //   href: 'https://github.com/facebook/docusaurus',
-          //   label: '',
-          //   className: 'github-btn',
-          //   position: 'right',
-          // },
           {
             to: 'https://github.com/versatus/versatus-docs',
             position: 'right',
