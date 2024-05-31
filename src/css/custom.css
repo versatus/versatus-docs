@@ -122,6 +122,11 @@ table {
   max-width: 20rem !important;
 }
 
+.codeBlockLines_e6Vv {
+  overflow-x: auto !important;
+  max-width: 20rem !important;
+}
+
 /* language-json codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block
 
 codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module
