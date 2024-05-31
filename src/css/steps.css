@@ -44,15 +44,6 @@
   margin-bottom: 10px;
 }
 
-.step-content .language-sh.codeBlockContainer_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module.theme-code-block {
-  max-width: 50rem !important;
-}
-
-.step-content .codeBlockLines_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module {
-  overflow-x: auto !important;
-  max-width: 20rem !important;
-}
-
 .step-content pre {
   background-color: #333;
   border-radius: 5px;
