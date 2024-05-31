@@ -7,7 +7,6 @@ tags: []
 ---
 
 import MediaWrapper from '../../../src/components/Media/MediaWrapper';
-import Steps from '../../../src/components/Steps/Steps';
 import LinkCards from '../../../src/components/Cards/LinkCards';
 
 The LASR framework provides an agnostic platform for developers to create contract-based applications. This page outlines a process to deploy your first dAapp using LASR.
@@ -28,9 +27,7 @@ Currently, LASR doesn't support Windows. If you are trying to deploy it in a Win
 
 The following steps will guide you in creating a hello-lasr program and deploying it. With this, you will begin to understand the power of LASR.
 
-<Steps>
-
-### Set Up Your Project
+### Step 1: Set Up Your Project
 
 With the only prerequisite met, Follow the steps below to set up a new project:
 
@@ -52,7 +49,7 @@ npm install --save @versatus/versatus-javascript
 
 This package provides essential tools and interfaces for developing programs for the LASR network using Typescript. It contains types, classes, functions, and examples that facilitate the creation of LASR programs. The package also comes with several functions and a CLI. You can use the CLI to initialize, build, deploy, and call programs on the network directly from the terminal.
 
-### Start the Project
+### Step 2: Start the Project
 
 With the project set up, you will now initialize a new LASR project. You can use a variety of templates to perform this. In this tutorial, you will use the `hello-lasr`:
 
@@ -66,7 +63,7 @@ For more details about the available templates, access the [Templates](/lasr/cor
 
 The `init` command will generate an example program named example-program.ts, located at the root of your project. In addition, it also generates a folder containing example JSON inputs for each method within the inputs directory. These JSON files have examples of what the LASR protocol will send your program. For more information about how the protocol works, access the [LASR Protocol](/lasr/core_concepts/lasr_protocol) page.
 
-### Set up your Wallet Keys
+### Step 3: Set up your Wallet Keys
 
 When the `lasrctl` command `init` ran in [Step 2](#start-the-project), it also generated a `.lars/wallet/keypairs.json` file in the project. These addresses are used to connect your account, created in the [Creating an Account](/lasr/getting_started/creating_an_account) page to the program you will deploy. You need to replace `address` and `secret_key` with your own:
 
@@ -89,7 +86,7 @@ When the `lasrctl` command `init` ran in [Step 2](#start-the-project), it also g
 
 By doing this, you are ready to continue the deploy process of your first LASR application.
 
-### Build Your Program
+### Step 4: Build Your Program
 
 Before deploying your program, you need to compile your TypeScript code into JavaScript. This process uses Webpack to consolidate your entire program into a single, deployable file. If you modify your TypeScript code, remember to rebuild your program to ensure that any changes you've made are incorporated into the version of the program that will be deployed. To do this, use the following command:
 
@@ -103,7 +100,7 @@ The command compiles your TypeScript program and outputs the resulting JavaScrip
   Note that the `./build` directory should not be included in your source control system.
 :::
 
-### Test Your Program
+### Step 5: Test Your Program
 
 Now that you have built your program, you can validate its performance against sample JSON inputs that it might encounter in real-world scenarios, as defined by the LASR protocol. To facilitate this process, Versatus prepared a set of sample input JSON files located in the `./inputs` directory of your project. For more information about how the protocol works, access the [LASR Protocol](/lasr/core_concepts/lasr_protocol) page.
 
@@ -140,7 +137,7 @@ These messages confirm that your program has successfully processed the sample i
 
 With these tests successfully completed, your program is now prepared for deployment on the LASR network, meaning your program is ready to interact with the LASR network. If the messages display errors, you must fix your program before deploying it to ensure it works properly with the LASR network.
 
-### Deploy Your Program
+### Step 6: Deploy Your Program
 
 You can now start the deploy process using the `npx lasrctl deploy` command. Below is the command you need to run to deploy your `hello-lasr` application:
 
@@ -153,8 +150,6 @@ npx lasrctl deploy --build example-program --symbol HELLO_WORLD --programName MY
 :::
 
 Access the [Deploy Configuration](/lasr/lasr_guides/deploy_configuration) page to learn more about the available parameters you can use when deploying your program.
-
-</Steps>
 
 ## Interacting With Your Program
 

@@ -6,13 +6,11 @@ description: ''
 tags: []
 ---
 
-import Steps from '../../../../src/components/Steps/Steps';
 import MediaWrapper from '../../../../src/components/Media/MediaWrapper';
 
 This page guides you through the process of creating a new project using the [Faucet](/lasr/core_concepts/templates#faucet-template). The faucet template is a specialized template for creating new tokens in the network. This template is particularly useful in test networks where tokens have no real-world value. Follow the steps-by-step guide below to create and deploy your non-fungible project:
 
-<Steps>
-### Set Up Your Project
+## Step 1: Set Up Your Project
 
 Create your project, with its own directory and add the necessary dependencies to it. Run the following to perform all this process:
 
@@ -25,7 +23,7 @@ mkdir faucet-project \
 && npm install --save @versatus/versatus-javascript
 ```
 
-### Start the Project
+## Step 2: Start the Project
 
 Now, initialize a new LASR project. In this guide, you will use the `faucet` template:
 
@@ -33,7 +31,7 @@ Now, initialize a new LASR project. In this guide, you will use the `faucet` tem
 npx lasrctl init faucet
 ```
 
-### Set up your Wallet Keys
+## Step 3: Set up your Wallet Keys
 
 Replace the `address` and `secret_key` from the `keypairs.json` file with your account keys.
 
@@ -41,7 +39,7 @@ Replace the `address` and `secret_key` from the `keypairs.json` file with your a
   If you require assistance finding your keys, refer to the [Creating your First Program](/lasr/getting_started/creating_your_first_program#set-up-your-wallet-keys) guide to learn where to find them.
 :::
 
-### Build Your Program
+## Step 4: Build Your Program
 
 You need to compile your TypeScript code into JavaScript before deployment. To do this, use the following command:
 
@@ -49,7 +47,7 @@ You need to compile your TypeScript code into JavaScript before deployment. To d
 npx lasrctl build example-program.ts
 ```
 
-### Test Your Program
+## Step 5: Test Your Program
 
 You can now validate your program's performance against sample JSON inputs that it might encounter in real-world scenarios, as defined by the LASR protocol. To initiate the testing process, use the following command:
 
@@ -59,7 +57,7 @@ npx lasrctl test -b example-program -i example-program-inputs
 
 With these tests successfully completed, your program is now prepared for deployment on the LASR network.
 
-### Deploy Your Program
+## Step 6: Deploy Your Program
 
 You can now start the deploy process using the `npx lasrctl deploy` command. Below is the command you need to run to deploy your `faucet` application:
 
@@ -75,7 +73,7 @@ lasrctl deploy --build example-program --symbol FAUCET --programName "Faucet for
 For detailed information about each standard parameter, refer to the [Deploy Configuration](/lasr/lasr_guides/deploy_configuration) page.
 :::
 
-### Interacting With Your Program
+## Interacting With Your Program
 
 Once the deploy is finished, it will  provide you with a URL that can be used in any web browser to interact with your program. This URL will be similar to the following:
 
@@ -86,5 +84,3 @@ https://playground.versatus.io/programs/0x0b90aa2e5ce3a9ced87bab04e04508879c8190
 <MediaWrapper>
 ![](../../../../static/img/lasr/tutorials/faucet_template.png)
 </MediaWrapper>
-
-</Steps>

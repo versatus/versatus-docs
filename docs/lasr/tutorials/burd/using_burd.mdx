@@ -6,7 +6,6 @@ description: ''
 tags: []
 ---
 
-import Steps from '../../../../src/components/Steps/Steps';
 import MediaWrapper from '../../../../src/components/Media/MediaWrapper';
 import ImageComponent from '../../../../src/components/Media/ImageComponent';
 import Tabs from '@theme/Tabs';
@@ -18,8 +17,7 @@ Congratulations on deploying BURD and familiarizing yourself with its codebase. 
 
 To interact with the BURD frontend, execute the following steps:
 
-<Steps>
-### Configure Your Environment Variables
+### Step 1: Configure Your Environment Variables
 
 In the [last step](/lasr/tutorials/burd/deploy#deploy-burd) of the deployment, you were required to save the `program address` from the CLI output. Use this, along with credentials from your `keypairs.json` file, to link the frontend with your BURD project:
 
@@ -28,7 +26,7 @@ In the [last step](/lasr/tutorials/burd/deploy#deploy-burd) of the deployment, y
 4. Set `NEXT_PUBLIC_BURD_OWNER_ADDRESS` to the address in the `lasr/.lasr/wallet/keypair.json` file.
 5. Insert the secret key from the same `keypair.json` file into the `BURD_OWNER_SECRET_KEY` variable.
 
-### Launch the Frontend
+### Step 2: Launch the Frontend
 
 First, navigate to the frontend directory and install the required dependencies. Then you're ready to start the frontend server by executing the following commands:
 
@@ -39,7 +37,6 @@ cd frontend \
 ```
 
 You can now explore the functionalities of BURD.
-</Steps>
 
 ## Using BURD
 

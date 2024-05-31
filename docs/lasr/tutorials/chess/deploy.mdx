@@ -6,15 +6,13 @@ description: ''
 tags: []
 ---
 
-import Steps from '../../../../src/components/Steps/Steps';
 import LinkCards from '../../../../src/components/Cards/LinkCards';
 
 # Deploy LASR Chess
 
 This guide outlines the necessary steps to deploy your LASR Chess version. All the required steps are described below.
 
-<Steps>
-### Clone the LASR Chess Repository
+## Step 1: Clone the LASR Chess Repository
 
 Begin by cloning the LASR Chess project from the [@versatus/laser-chess](https://github.com/versatus/laser-chess) GitHub repository to your local machine:
 
@@ -22,7 +20,7 @@ Begin by cloning the LASR Chess project from the [@versatus/laser-chess](https:/
 git clone git@github.com:versatus/laser-chess.git
 ```
 
-### Building the Project
+## Step 2: Building the Project
 
 Since LASR Chess is already an initialized project, you only need to install and build it. Execute the following commands:
 
@@ -41,7 +39,7 @@ With the project installed, you need to build the program. Execute the commands 
 npx lasrctl build lasr-chess.ts
 ```
 
-### Test your Program
+## Step 3: Test your Program
 
 Before trying to use the program, you should test it. It'll ensure the program functions correctly before deployment. Use this command to run the tests:
 
@@ -63,7 +61,7 @@ Test 5 (lasr-chess-register-user.json): Passed
 Test 6 (lasr-chess-update.json): Passed
 ```
 
-### Deploy LASR Chess
+## Step 4: Deploy LASR Chess
 
 Once all tests have passed, you are ready to deploy LASR Chess. Use the following command, which includes all necessary parameters for a successful deployment:
 
@@ -81,9 +79,8 @@ See the [CLI](/lasr/lasr_guides/cli) or [Deploy Configuration](/lasr/lasr_guides
 
 After a successful deployment, the command line will provide a `program address`. Make sure to save this address, as you will need it to run the frontend later.
 
-</Steps>
 
-### What's Next?
+## What's Next?
 
 With a successfully deployed LASR Chess program, you now can learn more about how the program was created, or go check out how to spin up the frontend to interact with LASR Chess:
 

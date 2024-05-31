@@ -6,13 +6,10 @@ description: ''
 tags: []
 ---
 
-import Steps from '../../../../src/components/Steps/Steps';
 import MediaWrapper from '../../../../src/components/Media/MediaWrapper';
 import ImageComponent from '../../../../src/components/Media/ImageComponent';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
-# Playing LASR Chess
 
 Congratulations on deploying LASR Chess and familiarizing yourself with its codebase. Now, you can explore how the frontend interacts with a LASR project, providing practical insights into adapting LASR Chess for your specific requirements.
 
@@ -20,8 +17,7 @@ Congratulations on deploying LASR Chess and familiarizing yourself with its code
 
 To interact with the LASR Chess frontend, execute the following steps:
 
-<Steps>
-### Configure Your Environment Variables
+### Step 1: Configure Your Environment Variables
 
 In the [last step](/lasr/tutorials/chess/deploy#deploy-lasr-chess) of the deployment, you were required to save the `program address` from the CLI output. Use this, along with credentials from your `keypairs.json` file, to link the frontend with your LASR Chess project:
 
@@ -30,7 +26,7 @@ In the [last step](/lasr/tutorials/chess/deploy#deploy-lasr-chess) of the deploy
 4. Set `NEXT_PUBLIC_CHESS_OWNER_ADDRESS` to the address in the `lasr/.lasr/wallet/keypair.json` file.
 5. Insert the secret key from the same `keypair.json` file into the `CHESS_OWNER_PRIVATE_KEY` variable.
 
-### Launch the Frontend
+### Step 2: Launch the Frontend
 
 First, navigate to the frontend directory and install the required dependencies. Then you're ready to start the frontend server by executing the following commands:
 
@@ -41,7 +37,6 @@ cd app \
 ```
 
 You can now explore the functionalities of LASR Chess.
-</Steps>
 
 ## Playing Chess
 

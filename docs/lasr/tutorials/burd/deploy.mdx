@@ -6,13 +6,11 @@ description: ''
 tags: []
 ---
 
-import Steps from '../../../../src/components/Steps/Steps';
 import LinkCards from '../../../../src/components/Cards/LinkCards';
 
 This guide outlines the necessary steps to deploy your BURD version. All the required steps are described below.
 
-<Steps>
-### Clone the BURD Repository
+## Step 1: Clone the BURD Repository
 
 Begin by cloning the BURD project from the [@versatus/versatus-burd](https://github.com/versatus/versatus-burd) GitHub repository to your local machine:
 
@@ -20,7 +18,7 @@ Begin by cloning the BURD project from the [@versatus/versatus-burd](https://git
 git clone git@github.com:versatus/versatus-burd.git
 ```
 
-### Building the Project
+## Step 2: Building the Project
 
 Since BURD is already an initialized project, you only need to install and build it. Execute the following commands:
 
@@ -39,7 +37,7 @@ With the project installed, you need to build the program. Execute the commands 
 npx lasrctl build burd.ts
 ```
 
-### Test your Program
+## Step 3: Test your Program
 
 Before trying to use the program, you should test it. It'll ensure the program functions correctly before deployment. Use this command to run the tests:
 
@@ -65,7 +63,7 @@ Test 9 (burd-unlike.json): Passed
 Test 10 (burd-update.json): Passed
 ```
 
-### Deploy BURD
+## Step 4: Deploy BURD
 
 Once all tests have passed, you are ready to deploy BURD. Use the following command, which includes all necessary parameters for a successful deployment:
 
@@ -84,9 +82,7 @@ npx lasrctl deploy --build burd --programName BURD --symbol BURD --initializedSu
 
 After a successful deployment, the command line will provide a `program address`. Make sure to save this address, as you will need it to run the frontend later.
 
-</Steps>
-
-### What's Next?
+## What's Next?
 
 With a successfully deployed BURD program, you now can learn more about how the program was created, or go check out how to spin up the frontend to interact with BURD:
 
