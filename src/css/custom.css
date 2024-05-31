@@ -41,7 +41,12 @@
 }
 
 .footer.footer--dark {
-  background-color: #242526;
+  background-color: #292929;
+}
+
+.footer__items {
+  display: flex;
+  gap: 45px;
 }
 
 .site_logo {
@@ -107,3 +112,22 @@ table {
 .architecture-img {
   content: url('../../static/img/allegra/architecture.png');
 }
+
+.language-sh.codeBlockContainer_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module.theme-code-block {
+  max-width: 50rem !important;
+}
+
+.codeBlockLines_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module {
+  overflow-x: auto !important;
+  max-width: 20rem !important;
+}
+
+/* language-json codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block
+
+codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module
+
+prism-code language-json codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar
+
+codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module
+
+token-line */

@@ -118,11 +118,6 @@ const config = {
                 label: 'Twitter',
                 href: 'https://twitter.com/versatuslabs',
               },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
               {
                 label: 'GitHub',
                 href: 'https://github.com/versatus/versatus-docs',
