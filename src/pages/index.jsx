@@ -49,14 +49,14 @@ export default function Home() {
             <div alt="lasr-img" className="lasr-img img"/>
             <div className="card-content">
               <h2>LARS</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <p>Explore LASR, the Language Agnostic Stateless Rollup, enabling secure and efficient dApp development and deployment.</p>
             </div>
           </a>
           <a href="/allegra/overview" className="card">
             <div alt="allegra-img" className="allegra-img img"/>
             <div className="card-content">
               <h2>Allegra</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <p>Discover Allegra, the Web3 cloud platform that simplifies deploying, managing, and scaling decentralized applications with robust infrastructure.</p>
             </div>
           </a>
         </div>
