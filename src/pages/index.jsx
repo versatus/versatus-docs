@@ -42,13 +42,13 @@ export default function Home() {
       <main className="home-container">
         <header className="header">
           <img src="../../static/img/main-page-logo-darkmode" alt="Versatus Logo" className="logo" />
-          <p className="subtitle">Versatus is the Universal Decentralized Application (dApp) Engine that allows all developers to truly build without barriers.</p>
+          <p className="subtitle">Versatus is an Integrated Cloud Platform that allows developers to truly build decentralized applications without barriers.</p>
         </header>
         <div className="cards-container">
           <a href="/lasr/overview" className="card">
             <div alt="lasr-img" className="lasr-img img"/>
             <div className="card-content">
-              <h2>LARS</h2>
+              <h2>LASR</h2>
               <p>Explore LASR, the Language Agnostic Stateless Rollup, enabling secure and efficient dApp development and deployment.</p>
             </div>
           </a>
