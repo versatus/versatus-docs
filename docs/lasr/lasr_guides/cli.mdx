@@ -6,7 +6,7 @@ description: "Guide to using the LASR CLI to interact with deployed programs on 
 tags: ['Versatus', 'LASR', 'CLI', 'command line', 'blockchain', 'smart contracts']
 ---
 
-The LASR CLI enables you to interact with your deployed program on the LASR network. 
+The LASR CLI enables you to build, test, create, and interact with your deployed program on the LASR network. 
 
 ## Interact with Your Deployed Program via CLI
 
@@ -27,11 +27,11 @@ The `npx lasrctl` command supports various options to tailor your interaction wi
 | `--help`          | Displays the help message.                                         | boolean | No       |
 | `--programAddress`| Specifies the address to which data will be sent.                       | string  | Yes      |
 | `--op`            | Specifies the operation to be performed.          | string  | Yes      |
-| `--inputs`        | Specify a JSON file containing any custom parameters that are optional or required by your program.                     | string  | Yes      |
+| `--txInputs`        | Specify a JSON file containing any custom parameters.                     | string  | No      |
 | `--keypairPath`   | Specifies the path to the keypair file.                        | string  | No       |
 | `--secretKey`     | Specifies the secret key for wallet access.                   | string  | No       |
 
-The code block below presents an example of how you can use the CLI. In this case, the CLI is interacting with a LASR version of the traditional Hello World example. In the example, the user is trying to use the `hello` operationg, providing the `name` parameter, which, in the example below was defined as `Joe`.
+The code block below presents an example of how you can use the CLI. In this case, the CLI is interacting with a LASR version of the traditional Hello World example. In the example, the user is trying to use the `hello` operation, providing the `name` parameter, which, in the example below was defined as `Joe`.
 
 ```bash
 npx lasrctl call --programAddress <YOUR_PROGRAM_ADDRESS_FROM_DEPLOY> --op hello --inputs '{"name": "Joe"}'
