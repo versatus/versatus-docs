@@ -40,6 +40,10 @@
   --border-color-hover: #FF595D;
 }
 
+* {
+  font-family: Inter;
+}
+
 .footer.footer--dark {
   background-color: #292929;
 }
