@@ -2,7 +2,7 @@ const gettingStarted = require('./gettingStarted');
 const coreConcepts = require('./coreConcepts');
 const tutorials = require('./tutorials');
 const lasrGuides = require('./lasrGuides');
-const useCases = require('./useCases');
+// const useCases = require('./useCases');
 
 module.exports = [
   // {
@@ -15,7 +15,7 @@ module.exports = [
   ...coreConcepts,
   ...tutorials,
   ...lasrGuides,
-  ...useCases,
+  // ...useCases,
   // {
   //   type: 'category',
   //   label: 'LASR',
