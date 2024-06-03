@@ -1,13 +1,13 @@
 ---
 title: Creating your First Program
 id: creating_your_first_program
-slug: /lasr/getting_started/creating_your_first_program
+slug: /lasr/creating_your_first_program
 description: "Guide to creating and deploying your first dApp using the Versatus LASR framework with TypeScript."
 tags: ['Versatus', 'LASR', 'dApp', 'TypeScript', 'deployment', 'Web3', 'smart contracts']
 ---
 
-import MediaWrapper from '../../../src/components/Media/MediaWrapper';
-import LinkCards from '../../../src/components/Cards/LinkCards';
+import MediaWrapper from '../../src/components/Media/MediaWrapper';
+import LinkCards from '../../src/components/Cards/LinkCards';
 
 The LASR framework provides an agnostic platform for developers to create contract-based applications. This page outlines a process to deploy your first dAapp using LASR.
 
@@ -65,13 +65,13 @@ The `init` command will generate an example program named example-program.ts, lo
 
 ### Step 3: Set up your Wallet Keys
 
-When the `lasrctl` command `init` ran in [Step 2](#step-2-start-the-project), it also generated a `.lasr/wallet/keypairs.json` file in the project. These addresses are used to connect your account, created in the [Creating an Account](/lasr/getting_started/creating_an_account) page to the program you will deploy. You need to replace `address` and `secret_key` with your own:
+When the `lasrctl` command `init` ran in [Step 2](#step-2-start-the-project), it also generated a `.lasr/wallet/keypairs.json` file in the project. These addresses are used to connect your account, created in the [Creating an Account](/lasr/creating_an_account) page to the program you will deploy. You need to replace `address` and `secret_key` with your own:
 
 1. Access [LASR Playground](http://faucet.versatus.io/).
 2. Connect LASR Wallet.
 3. Copy the address and the LASR Secret Key found on the Playground:
 <MediaWrapper>
-![](../../../static/img/lasr/get_started/hello_world/playground-keypairs2.png)
+![](../../static/img/lasr/get_started/hello_world/playground-keypairs2.png)
 </MediaWrapper>
 4. Replace the `address` and the `secret_key` values in the `keypairs.json` file with your new values.
 
@@ -163,7 +163,7 @@ You can interact with the deployed program using the LASR CLI or through the lin
 https://playground.versatus.io/programs/0x0b90aa2e5ce3a9ced87bab04e04508879c8190b7
 ```
 <MediaWrapper>
-![](../../../static/img/lasr/get_started/hello_world/hello_lasr_gif.gif)
+![](../../static/img/lasr/get_started/hello_world/hello_lasr_gif.gif)
 </MediaWrapper>
 
 :::note

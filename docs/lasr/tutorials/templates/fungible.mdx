@@ -12,7 +12,7 @@ This page guides you through the process of creating a new project using the [Fu
 
 ## Step 1: Set Up Your Project
 
-Create your project, with its own directory and add the necessary dependencies to it. Run the following to perform all this process:
+Create your project, with its own directory and add the necessary dependencies to it. Run the following to perform this process:
 
 ```bash copy
 mkdir fungible-project \
@@ -36,7 +36,7 @@ npx lasrctl init fungible
 Replace the `address` and `secret_key` from the `keypairs.json` file with your account keys.
 
 :::info
-  If you require assistance finding your keys, refer to the [Creating your First Program](/lasr/getting_started/creating_your_first_program#step-3-set-up-your-wallet-keys) guide to learn where to find them.
+  If you require assistance finding your keys, refer to the [Creating your First Program](/lasr/creating_your_first_program#step-3-set-up-your-wallet-keys) guide to learn where to find them.
 :::
 
 ## Step 4: Build Your Program
@@ -68,7 +68,7 @@ npx lasrctl deploy --build example-program --symbol SYMBOL_NAME --programName PR
 
 Make sure to replace the following information:
 
-- `SYMBOL_NAME`: The  symbolic name for the token.
+- `SYMBOL_NAME`: The symbolic name for the token.
 - `PROGRAM_NAME`: The name of the program being deployed.
 - `PAYMENT_PROGRAM_ADDRESS`: The program address you're going to take for payment when a user mints a token.
 - `CONVERSION_RATE`: The conversion rate for your fungible token. For example, if you set it at `1`, this means one of your token is equal to `1 VERSE`.
@@ -87,7 +87,7 @@ The fungible deploy, requires the `--txInputs` parameter, with the following dat
 
 ## Interacting With Your Program
 
-Once the deploy is finished, it will  provide you with a URL that can be used in any web browser to interact with your program. This URL will be similar to the following:
+Once the deploy is finished, it'll provide you with a URL that can be used in any web browser to interact with your program. This URL will be similar to the following:
 
 ```
 https://playground.versatus.io/programs/0x0b90aa2e5ce3a9ced87bab04e04508879c8190b7
