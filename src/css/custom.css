@@ -20,7 +20,7 @@
   --cards-background-color-hover: #FE536E;
   --border-color: #ACACAC;
   --white: #FFF;
-  --font-family-inter: Inter;
+  --font-family-main: sans-serif;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -41,7 +41,7 @@
 }
 
 * {
-  font-family: Inter;
+  font-family: sans-serif;
 }
 
 .footer.footer--dark {

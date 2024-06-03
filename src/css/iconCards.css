@@ -27,7 +27,7 @@
 }
 
 .icon_cards_container .icon_card h3 {
-  font-family: var(--font-family-inter);
+  font-family: var(--font-family-main);
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
@@ -38,7 +38,7 @@
 
 .icon_cards_container .icon_card p {
   color: var(--white);
-  font-family: var(--font-family-inter);
+  font-family: var(--font-family-main);
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
