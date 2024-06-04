@@ -118,10 +118,6 @@ table {
   content: url('../../static/img/main-page-logo-darkmode.png')
 }
 
-.architecture-img {
-  content: url('../../static/img/allegra/architecture.png');
-}
-
 .language-sh.codeBlockContainer_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module.theme-code-block {
   max-width: 50rem !important;
 }
