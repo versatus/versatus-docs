@@ -34,7 +34,7 @@ The `npx lasrctl` command supports various options to tailor your interaction wi
 The code block below presents an example of how you can use the CLI. In this case, the CLI is interacting with a LASR version of the traditional Hello World example. In the example, the user is trying to use the `hello` operation, providing the `name` parameter, which, in the example below was defined as `Joe`.
 
 ```bash
-npx lasrctl call --programAddress <YOUR_PROGRAM_ADDRESS_FROM_DEPLOY> --op hello --inputs '{"name": "Joe"}'
+npx lasrctl call --programAddress <YOUR_PROGRAM_ADDRESS_FROM_DEPLOY> --op hello --txInputs '{"name": "Joe"}'
 ```
 
 The result of running the above command is presented next. You can test this example. 
