@@ -18,7 +18,14 @@ const config = {
         anonymizeIP: true,
       },
     ],
+    [
+      '@docusaurus/plugin-google-tag-manager',
+      {
+        containerId: 'GTM-P2XGNM9G',
+      },
+    ],
   ],
+  
   title: 'Versatus Docs',
   tagline: '',
   favicon: 'img/favicon.ico',
