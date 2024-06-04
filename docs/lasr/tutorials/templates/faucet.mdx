@@ -8,7 +8,7 @@ tags: ['Versatus', 'LASR', 'faucet', 'template', 'tutorial', 'blockchain', 'toke
 
 import MediaWrapper from '../../../../src/components/Media/MediaWrapper';
 
-This page guides you through the process of creating a new project using the [Faucet](/lasr/core_concepts/templates#faucet-template). The faucet template is a specialized template for creating new tokens in the network. This template is particularly useful in test networks where tokens have no real-world value. Follow the step-by-step guide below to create and deploy your non-fungible project:
+This page guides you through the process of creating a new project using the [Faucet](/lasr/core_concepts/templates#faucet-template) template. This template is a specialized tool for creating new tokens in the network. By utilizing the faucet template, developers can build and deploy a faucet program, and then add fungible tokens to it. Once set up, users can interact with the faucet to receive the available fungible tokens. Follow the step-by-step guide below to create and deploy your non-fungible project:
 
 ## Step 1: Set Up Your Project
 
@@ -71,12 +71,42 @@ For detailed information about each standard parameter, refer to the [Deploy Con
 
 ## Interacting With Your Program
 
-Once the deploy is finished, it will  provide you with a URL that can be used in any web browser to interact with your program. This URL will be similar to the following:
+Once the deploy is finished, you can use your faucet instance by connecting fungible programs to it, and transfering fungible tokens to any account. Follow the steps below to faucet tokens to a different account:
 
-```
-https://playground.versatus.io/programs/0x0b90aa2e5ce3a9ced87bab04e04508879c8190b7
+:::note
+At the moment, only the faucet program's owner can faucet tokens from it. 
+:::
+
+1. [Deploy a fungible program](/lasr/tutorials/fungible), adding a `recipientAddress` flag to send the initialized supply to your account's address. As the program is deployed, it will yield a program address related you will need to connect the faucet to the fungible program.
+
+2. Add the created fungible program to the faucet. For this you will use the `call` parameter of `lasrctl`, adding a operation flag (`--op`) to add a program:
+
+```sh
+npx lasrctl call --programAddress FAUCET_PROGRAM_ADDRESS --op addProgram \
+  --txInputs '{"programAddress":"FUNGIBLE_PROGRAM_ADDRESS","amountToAdd":"AMOUNT_TO_ADD","faucetAmount":"FAUCET_AMOUNT","addressTimeoutMinutes":"TIMEOUT"}'
 ```
 
-<MediaWrapper>
-![](../../../../static/img/lasr/tutorials/faucet_template.png)
-</MediaWrapper>
+Replacing the following information:
+
+- `FAUCET_PROGRAM_ADDRESS`: The address of the faucet program you deployed.
+- `FUNGIBLE_PROGRAM_ADDRESS`: The address of the fungible program saved on Step 1.
+- `AMOUNT_TO_ADD`: The amount of the token to be added to the faucet.
+- `FAUCET_AMOUNT`: The amount that will be transferred into the new address when calling the faucet operation.
+- `TIMEOUT`: A timeout, in minutes, to block another transfer to the same address.
+
+3. With the fungible program connected to the faucet, you can send tokens to another address. For this you will use the `call` parameter of `lasrctl`, adding a operation flag (`--op`) to faucet tokens:
+
+```sh
+npx lasrctl call --programAddress FAUCET_PROGRAM_ADDRESS --op faucet \
+  --txInputs '{"programToSend":"FUNGIBLE_PROGRAM_ADDRESS","to":"SOME_OTHER_ADDRESS"}'
+```
+
+Replacing the following information:
+
+- `FAUCET_PROGRAM_ADDRESS`: The address of the faucet program you deployed.
+- `FUNGIBLE_PROGRAM_ADDRESS`: The address of the fungible program you want to use.
+- `SOME_OTHER_ADDRESS`: An account address you want tokens to be sent to.
+
+:::tip
+The faucet operation can be seen in action in [Versatus Discord](https://discord.com/invite/versatus) server. By requesting credits through the `/faucet <address>` command in the [faucet channel](https://discord.com/channels/1034112774789414963/1228424731955433493) discord leverages a faucet program to send VERSE Credits to the added address.
+:::

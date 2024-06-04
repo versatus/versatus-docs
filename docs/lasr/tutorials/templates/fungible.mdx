@@ -62,7 +62,7 @@ With these tests successfully completed, your program is now prepared for deploy
 You can now start the deploy process using the `npx lasrctl deploy` command. Below is the command you need to run to deploy your `fungible` application:
 
 ```bash copy
-npx lasrctl deploy --build example-program --symbol SYMBOL_NAME --programName PROGRAM_NAME --initializedSupply 6900000 --totalSupply 6900000 \
+npx lasrctl deploy --build example-program --symbol SYMBOL_NAME --programName PROGRAM_NAME --initializedSupply 6900000 --totalSupply 6900000 --recipientAddress YOUR_ACCOUNT_ADDRESS \
   --txInputs '{"imgUrl":"https://pbs.twimg.com/media/F8z1khNWAAAE7WM?format=jpg&name=900x900","paymentProgramAddress": "PAYMENT_PROGRAM_ADDRESS","conversionRate":"CONVERSION_RATE"}'
 ```
 
@@ -70,6 +70,7 @@ Make sure to replace the following information:
 
 - `SYMBOL_NAME`: The symbolic name for the token.
 - `PROGRAM_NAME`: The name of the program being deployed.
+- `YOUR_ACCOUNT_ADDRESS`: The account address to receive the initialized supply of the token.
 - `PAYMENT_PROGRAM_ADDRESS`: The program address you're going to take for payment when a user mints a token.
 - `CONVERSION_RATE`: The conversion rate for your fungible token. For example, if you set it at `1`, this means one of your token is equal to `1 VERSE`.
 
