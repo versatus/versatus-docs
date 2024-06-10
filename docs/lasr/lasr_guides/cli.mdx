@@ -6,6 +6,9 @@ description: "Guide to using the LASR CLI to interact with deployed programs on 
 tags: ['Versatus', 'LASR', 'CLI', 'command line', 'blockchain', 'smart contracts']
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 The LASR CLI enables you to build, test, create, and interact with your deployed program on the LASR network. 
 
 ## Interact with Your Deployed Program via CLI
@@ -37,11 +40,89 @@ The code block below presents an example of how you can use the CLI. In this cas
 npx lasrctl call --programAddress <YOUR_PROGRAM_ADDRESS_FROM_DEPLOY> --op hello --txInputs '{"name": "Joe"}'
 ```
 
-The result of running the above command is presented next. You can test this example. 
+Each program you deploy has its own program address. You can call LASR's API to check the current state of each program. For this, use the code below:
+
+<Tabs>
+  <TabItem value="curl" label="curl" default>
+  ```bash
+    curl -X POST http://lasr-sharks.versatus.io:9292 \
+        -H "Content-Type: application/json" \
+        -d '{
+              "jsonrpc": "2.0",
+              "method": "lasr_getAccount",
+              "params": ["<YOUR_PROGRAM_ADDRESS>"],
+              "id": 1
+            }'
+    ```
+  </TabItem>
+  <TabItem value="python" label="python">
+  ```python
+  import requests
+  import json
+
+  url = "http://lasr-sharks.versatus.io:9292"
+  headers = {
+      "Content-Type": "application/json"
+  }
+  data = {
+      "jsonrpc": "2.0",
+      "method": "lasr_getAccount",
+      "params": ["0x9004458e3ca47f235a1acc9d9e82a8ffe0ace913"],
+      "id": 1
+  }
+
+  response = requests.post(url, headers=headers, data=json.dumps(data))
+  print(response.json())
+  ```
+  </TabItem>
+  <TabItem value="javascript" label="javascript">
+  ```js
+  const url = "http://lasr-sharks.versatus.io:9292";
+  const headers = {
+    "Content-Type": "application/json"
+  };
+  const data = {
+    jsonrpc: "2.0",
+    method: "lasr_getAccount",
+    params: ["0x9004458e3ca47f235a1acc9d9e82a8ffe0ace913"],
+    id: 1
+  };
+
+  fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+  ```
+  </TabItem>
+</Tabs>
+
+The Hello LASR program used as example above, will return a response JSON where, inside `result.programAccountData`, you can find the `hello` key with the value `"Hello, Joe! The time is 1718036700009!"`:
+
+```json
+{
+    "jsonrpc": "2.0",
+    "result": "{\"accountType\":{\"program\":\"0x9004458e3ca47f235a1acc9d9e82a8ffe0ace913\"},
+    \"programNamespace\":null,\"ownerAddress\":\"0xd0bb5781e34e6bc6c2625ade52d06d048f5b9aa4\",\"programs\":{},
+    \"nonce\":\"0x0000000000000000000000000000000000000000000000000000000000000002\",\"programAccountData\":
+    // highlight-next-line
+    {\"hello\":\"Hello, Joe! The time is 1718036700009!\",\"imgUrl\":\"https://pbs.twimg.com/profile_images/
+    1765199894539583488/RUiZn7jT_400x400.jpg\",\"methods\":\"hello\",\"type\":\"hello-lasr\"},
+    \"programAccountMetadata\":{\"content_id\":\"bafyreieg63zhbhg7x2fk4ugj4ehry3q4xxs52bnzybxubggwolfbritbky\",
+    \"initializedSupply\":\"1\",\"name\":\"MY_FIRST_PROGRAM\",\"symbol\":\"HELLO_WORLD\",\"totalSupply\":\"1\"},
+    \"programAccountLinkedPrograms\":[]}",
+    "id": 1
+}
+```
+
+{/* The result of running the above command is presented next. You can test this example. 
 
 ```bash
 Hello Joe
-```
+``` */}
 
 :::info
   Access the [example list](/lasr/core_concepts/templates) to discover all available examples provided by Versatus.
