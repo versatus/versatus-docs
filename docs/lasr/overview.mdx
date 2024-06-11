@@ -10,15 +10,21 @@ import ImageComponent from '../../src/components/Media/ImageComponent';
 import Steps from '../../src/components/Steps/Steps';
 import LinkCards from '../../src/components/Cards/LinkCards';
 
-<!---leave the following h1 title empty, so the title does not appear at the page--->
+<!---leave the following h1 title empty, so the title does not appear on the page--->
 # 
 
 <ImageComponent className="main-page-logo" wrapperClass="main-page-theme"/>
 
 
-The Versatus LASR (pronounced as “laser”) project is a cutting-edge smart contract platform designed to revolutionize the internet by providing a censorship-free and data capture-free environment while maintaining the speed and security of the current internet.
+The Versatus LASR (Language Agnostic Stateless Rollup) project, pronounced as “laser”, is a cutting-edge smart contract platform designed to revolutionize the internet by providing a censorship-free and data capture-free environment while maintaining the speed and security of the current internet.
 
-## Key Components
+## Stateless Rollup
+
+Versatus LASR operates as a stateless system, meaning it processes transactions based solely on current inputs, eliminating the need for tracking previous states. This contrasts with traditional blockchains, which are stateful and require maintaining a record of past transactions.
+
+Using an "Executable Oracle," LASR leverages the main blockchain's state to execute batches of transactions in parallel. This stateless architecture offers the efficiency of rollups without their typical drawbacks, providing off-chain scalability and reduced transaction costs while relying on the main chain for state integrity. See the [Stateless Rollup](/lasr/core_concepts/stateless_rollup) page for additional information.
+
+## Key Versatus LASR Components
 
 1. **JSON Input and Output Processing Programs**: Streamlines debugging and enhances developer comprehension, simplifying the troubleshooting of system operations.
 2. **Robust Peer-to-Peer Network Layer**: Guarantees secure data transmission while being fully compatible with existing internet protocols, ensuring both reliability and efficiency.
