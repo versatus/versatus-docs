@@ -4,6 +4,8 @@
  * work well for content-centric websites.
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
 /* You can override the default Infima variables here. */
 :root {
   --versatus-main-color: #FE536E;
@@ -20,7 +22,7 @@
   --cards-background-color-hover: #FE536E;
   --border-color: #ACACAC;
   --white: #FFF;
-  --font-family-inter: Inter;
+  --font-family-main: Inter;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -41,7 +43,7 @@
 }
 
 * {
-  font-family: Inter;
+  font-family: var(--font-family-main);
 }
 
 .footer.footer--dark {
@@ -84,14 +86,17 @@ table {
 
 .markdown h1 {
   --ifm-h1-font-size: 2.125rem !important;
+  font-family: var(----font-family-main);
 }
 
 .markdown h2 {
   --ifm-h2-font-size: 1.625rem !important;
+  font-family: var(----font-family-main);
 }
 
 .markdown h3 {
   --ifm-h3-font-size: 1.375rem !important;
+  font-family: var(----font-family-main);
 }
 
 .main-page-theme {
@@ -111,10 +116,6 @@ table {
 
 [data-theme='dark'] .main-page-logo {
   content: url('../../static/img/main-page-logo-darkmode.png')
-}
-
-.architecture-img {
-  content: url('../../static/img/allegra/architecture.png');
 }
 
 .language-sh.codeBlockContainer_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module.theme-code-block {

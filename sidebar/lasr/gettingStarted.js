@@ -10,14 +10,15 @@ module.exports = [
     id: 'lasr/overview',
   },
   {
-    type: 'category',
-    label: 'Getting Started',
-    collapsed: true,
-    collapsible: true,
-    items: [
-      'lasr/getting_started/versatus_lasr_overview',
-      'lasr/getting_started/creating_an_account',
-      'lasr/getting_started/creating_your_first_program',
-    ],
+    type: 'doc',
+    id: 'lasr/lasr_development_process',
   },
+  {
+    type: 'doc',
+    id:  'lasr/creating_an_account',
+  },
+  {
+    type: 'doc',
+    id:  'lasr/creating_your_first_program',
+  }
 ]

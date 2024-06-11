@@ -13,12 +13,12 @@ When you deploy your program to the LASR protocol using the `npx lasrctl deploy`
 Initially, the command funds your account by accessing the Faucet, ensuring your account has sufficient funds to cover deployment costs, thereby preventing spamming. 
 
 :::info
-  The LASR TestNet allows program registration without any fees. The blockchain networks of TestNet offer a less risky environment for users to submit their programs or to test them. As blockchains require a live public network for testing purposes, TestNet provides a suitable testing environment.
+  The LASR Testnet/Devnet allows program registration without any fees. The blockchain networks of Testnet/Devnet offer a less risky environment for users to submit their programs or to test them. As blockchains require a live public network for testing purposes, Testnet/Devnet provides a suitable testing environment.
 :::
 
 ## Upload to IPFS
 
-Your program's code is then uploaded to the InterPlanetary File System (IPFS), a decentralized storage solution. This ensures your program is accessible from any part of the network. After the successful upload, you receive a unique Content Identifier (CID) that points to your program's code on IPFS.
+Your program's code is then uploaded to a Versatus instance InterPlanetary File System (IPFS or VIPFS), a decentralized storage solution. This ensures your program is accessible from any part of the network. After the successful upload, you receive a unique Content Identifier (CID) that points to your program's code on IPFS.
 
 ## Register with LASR
 
@@ -26,6 +26,6 @@ With the CID, the next step is to register it with the LASR Protocol. This regis
 
 ## Deploy to the Protocol
 
-Finally, the command calls the create method to officially deploy your program onto the LASR network. This step transforms your code into an active, executable entity within the LASR network.
+Finally, the command calls the create method defined in the program to officially deploy your program onto the LASR network. This step transforms your code into an active, executable entity within the LASR network.
 
 Upon successful completion of these steps, you will receive the address of your deployed program, ready for interaction within the LASR Network.

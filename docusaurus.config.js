@@ -11,6 +11,13 @@ const config = {
   plugins: [
     require.resolve('docusaurus-lunr-search'),
     require.resolve('docusaurus-plugin-image-zoom'),
+    [
+      '@docusaurus/plugin-google-gtag',
+      {
+        trackingID: 'G-X6DCQGC0D0',
+        anonymizeIP: true,
+      },
+    ],
   ],
   title: 'Versatus Docs',
   tagline: '',

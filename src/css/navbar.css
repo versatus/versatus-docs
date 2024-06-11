@@ -23,7 +23,7 @@
   color: var(--white);
 }
 
-.navbar__item.navbar__link.navbar_link_buttons {
+.navbar__item.navbar__link {
   font-weight: 600;
   padding: 3px 10px;
   font-size: 14px !important;
