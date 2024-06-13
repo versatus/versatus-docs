@@ -19,9 +19,12 @@ You can either install WSL on windows through command line in PowerShell, or Win
 <Tabs>
 
   <TabItem label="Windows Store" value="Windows Store">
-  The following link will guide you to the Windows Store Ubuntu app:
 
-  - [Ubuntu on Windows Store](https://www.microsoft.com/store/productId/9PDXGNCFSCZV?ocid=pdpshare)
+  Installing WSL via Windows Store requires the following steps:
+
+  1. Access the [Windows Store](https://www.microsoft.com/store/productId/9PDXGNCFSCZV?ocid=pdpshare).
+  2. Click **Download**. The WSL with the Ubuntu OS will be installed into your machine.
+
   </TabItem>
   <TabItem label="Command Line" value="Command Line">
   The following process will enable the necessary WSL components and install the default Linux distribution (Ubuntu):
@@ -37,13 +40,23 @@ After running the command above, you will need to restart your computer. Make su
 
 </Tabs>
 
-## Step 2: Set Up Ubuntu
+## Step 2: Verify the Installation
+
+To verify if your WSL is correctly installed, do the following:
+
+1. Open PowerShell.
+2. Execute the command below:
+
+```sh
+wsl --list --verbose
+```
+
+This will present a list of installed distributions, with Ubuntu listed and running.
+
+
+## Step 3: Set Up Ubuntu
 
 With your Ubuntu installed:
-
-:::tip Verify installation
-You can verify the installation on PowerShell with the `wsl --list --verbose` command. You should see a list of installed distributions, with Ubuntu listed and running.
-:::
 
 1. Open your Ubuntu distribution from the Start menu.
 2. You'll be prompted to create a user account and password for Ubuntu. Follow the on-screen instructions to complete the setup.
@@ -54,7 +67,7 @@ The gif below showcases the WSL installation process:
 ![](../../static/img/lasr/get_started/wsl-install-gif.gif)
 </MediaWrapper>
 
-## Step 3: Update Ubuntu
+## Step 4: Update Ubuntu
 
 1. Once you have set up Ubuntu, it's important to update it. Open the Ubuntu terminal and run the following commands:
 
@@ -62,7 +75,7 @@ The gif below showcases the WSL installation process:
 sudo apt update && sudo apt upgrade -y
 ```
 
-## Step 4: Install Node.js and npm
+## Step 5: Install Node.js and npm
 
 Now, with your Ubuntu updated, you need to install Node V18 or newer, as [required by Versatus LASR](/lasr/creating_your_first_program#prerequisites). Run the following comands to install the required packages:
 
@@ -75,13 +88,24 @@ Remember to check if your node version is higher than 18. To see what version yo
 node -v
 ```
 
+Your terminal will return something similar to the following:
+
+```bash
+you@laptop:~/versatus$ node -v
+v20.12.2
+```
+
+:::warning
+If the version is lower than 18, you need to update Node.
+:::
+
 ## Creating your First Program with LASR
 
-With all steps completed, you are ready to continue your journey. Start by creating a Hello LASR program by following the [Creating your First Program](/lasr/creating_your_first_program#hello-lasr) guide.
+With all steps completed, you're ready to continue your journey. Start by creating a Hello LASR program by following the [Creating your First Program](/lasr/creating_your_first_program#hello-lasr) guide.
 
-## Additional Resources
-
+:::tip Additional Resources
 Access the following links to learn more about WSL:
 
 - [Official WSL Documentation](https://docs.microsoft.com/en-us/windows/wsl/)
 - [Ubuntu on WSL](https://ubuntu.com/wsl)
+:::
