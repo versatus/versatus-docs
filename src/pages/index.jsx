@@ -36,8 +36,7 @@ export default function Home() {
 
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      description="Versatus is an Integrated Cloud Platform that allows developers to truly build decentralized applications without barriers.">
 
       <main className="home-container">
         <header className="header">

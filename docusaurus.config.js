@@ -20,11 +20,11 @@ const config = {
     ],
   ],
   title: 'Versatus Docs',
-  tagline: '',
+  tagline: 'Versatus is an Integrated Cloud Platform that allows developers to truly build decentralized applications without barriers.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://docs.versatus.io/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
