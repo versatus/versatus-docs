@@ -14,14 +14,14 @@ export default function DocItem(props) {
     script.src = "https://giscus.app/client.js";
     script.async = true;
     script.setAttribute('data-repo', "versatus/versatus-docs");
-    script.setAttribute('data-repo-id', "R_kgDOLDnY7w");
+    script.setAttribute('data-repo-id', "R_kgDOMBy0jQ");
     script.setAttribute('data-category', "Q&A");
-    script.setAttribute('data-category-id', "DIC_kwDOLDnY784Ce43O");
+    script.setAttribute('data-category-id', "DIC_kwDOMBy0jc4Cfqmi");
     script.setAttribute('data-mapping', "pathname");
     script.setAttribute('data-strict', "0");
     script.setAttribute('data-reactions-enabled', "1");
     script.setAttribute('data-emit-metadata', "0");
-    script.setAttribute('data-input-position', "top");
+    script.setAttribute('data-input-position', "bottom");
     script.setAttribute('data-theme', "dark");
     script.setAttribute('data-lang', "en");
     script.setAttribute('crossorigin', "anonymous");
