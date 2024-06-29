@@ -18,7 +18,16 @@ module.exports = [
     id:  'lasr/creating_an_account',
   },
   {
-    type: 'doc',
-    id:  'lasr/creating_your_first_program',
-  }
+    type: 'category',
+    label: 'Creating your First Program',
+    link: {
+      type: "doc",
+      id:  'lasr/creating_your_first_program',
+    },
+    collapsed: true,
+    collapsible: true,
+    items: [
+      'lasr/wsl_install',
+    ],
+  },
 ]
