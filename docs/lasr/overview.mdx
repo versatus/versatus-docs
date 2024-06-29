@@ -16,7 +16,7 @@ import LinkCards from '../../src/components/Cards/LinkCards';
 <ImageComponent className="main-page-logo" wrapperClass="main-page-theme"/>
 
 
-The Versatus LASR (Language Agnostic Stateless Rollup) project, pronounced as “laser”, is a cutting-edge smart contract platform designed to revolutionize the internet by providing a censorship-free and data capture-free environment while maintaining the speed and security of the current internet.
+The Versatus LASR (Language Agnostic Stateless Rollup) product, pronounced as “laser”, is a cutting-edge smart contract platform designed to revolutionize the internet by providing a censorship-free and data capture-free environment while maintaining the speed and security of the current internet.
 
 ## Stateless Rollup
 
@@ -24,13 +24,19 @@ Versatus LASR operates as a stateless system, meaning it processes transactions 
 
 Using an "Executable Oracle," LASR leverages the main blockchain's state to execute batches of transactions in parallel. This stateless architecture offers the efficiency of rollups without their typical drawbacks, providing off-chain scalability and reduced transaction costs while relying on the main chain for state integrity. See the [Stateless Rollup](/lasr/core_concepts/stateless_rollup) page for additional information.
 
+### Executable Oracle
+
+An Executable Oracle system brings off-chain data on-chain, enabling smart contracts to interact with real-world data sources. This bridge between blockchain networks and external data ensures accurate and timely transactions.
+
+In the context of executing transactions, an Executable Oracle provides data inputs for smart contracts to function properly. For example, it can supply the current price of an asset from a trusted external source for a smart contract designed to trigger a payment based on price conditions. This integration enhances the reliability and functionality of blockchain applications by ensuring that transactions are executed using real-time data.
+
 ## Key Versatus LASR Components
 
 1. **JSON Input and Output Processing Programs**: Streamlines debugging and enhances developer comprehension, simplifying the troubleshooting of system operations.
 2. **Robust Peer-to-Peer Network Layer**: Guarantees secure data transmission while being fully compatible with existing internet protocols, ensuring both reliability and efficiency.
 3. **Specialized Nano Runtime**: Delivers secure and reliable task execution across multiple languages and platforms, boosting operational versatility and robustness.
-4. **Scalable Verification System**: Precisely verifies transaction data and accurately identifies discrepancies, ensuring data integrity and reliability.
-5. **Universal Decentralized Application (dApp) Engine**: Empowers developers to build without constraints, simplifying the development process for smart contracts and decentralized applications in Web3.
+4. **Scalable Verification System**: Verifies transaction data and identifies discrepancies, ensuring data integrity and reliability.
+5. **Universal Decentralized Application (dApp) Engine**: Empowers developers to build without constraints, simplifying the development process for smart contracts and decentralized applications.
 
 ## Why Build on Versatus LASR
 
@@ -38,7 +44,7 @@ Using an "Executable Oracle," LASR leverages the main blockchain's state to exec
 - **Cross-Chain Settlement**: In an increasingly fragmented blockchain ecosystem, the ability to interact across different chains is invaluable. Versatus LASR provides the necessary infrastructure for developers to integrate contracts on their blockchain networks and communities of choice.
 - **Scalability**: By allowing off-chain execution of smart contracts, Versatus LASR developers benefit from reduced operational costs, improved scalability, and overall enhanced dApp performance and user experience.
 
-Unlike other projects, Versatus LASR won't pigeonhole developers into a certain or limited range of languages or a single chain. There is no Web3 prerequisite or steep learning curve. Instead of struggling with new languages and tools, developers can focus on innovating their dApps.
+Unlike other projects, Versatus LASR won't pigeonhole developers into a certain or limited range of languages or a single chain. There is no decentralized development prerequisite or steep learning curve. Instead of struggling with new languages and tools, developers can focus on innovating their dApps.
 
 The synergy of these components creates a robust framework that supports the efficient and scalable execution of smart contracts across various programming languages, fostering a versatile and high-performance environment.
 
