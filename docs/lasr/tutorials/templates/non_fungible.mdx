@@ -62,14 +62,16 @@ With these tests successfully completed, your program is now prepared for deploy
 You can now start the deploy process using the `npx lasrctl deploy` command. Below is the command you need to run to deploy your `non-fungible` application:
 
 ```bash
-npx lasrctl deploy --build example-program --programName "<PROGRAM_NAME>" --symbol <SYMBOL_NAME> --initializedSupply 4 --totalSupply 4 --txInputs '{"imgUrl":"https://i.seadn.io/gcs/files/32d179f19a42ceed7b4727b70d3352bb.jpg?auto=format&dpr=1&w=3840","price":"1","paymentProgramAddress":"<YOUR_WALLET_ADDRESS>","imgUrls":["https://i.seadn.io/gcs/files/5c10e1bf3028476390a65d6726f5340e.jpg?auto=format&dpr=1&w=3840","https://i.seadn.io/s/raw/files/cafd1614da6255ee880254ce349ce866.png?auto=format&dpr=1&w=3840","https://i.seadn.io/gcs/files/6850a6abc69d80c905951316ceb5949b.jpg?auto=format&dpr=1&w=3840","https://i.seadn.io/s/raw/files/94df22c9da16faaf95494f745bcc3e85.png?auto=format&dpr=1&w=3840"],"collection":"batz"}'
+npx lasrctl deploy --build example-program --programName "<PROGRAM_NAME>" \
+  --symbol <SYMBOL_NAME> --initializedSupply 4 --totalSupply 4 \
+  --txInputs '{"imgUrl":"https://i.seadn.io/gcs/files/32d179f19a42ceed7b4727b70d3352bb.jpg?auto=format&dpr=1&w=3840","price":"1","paymentProgramAddress":"<PAYMENT_PROGRAM_ADDRESS>","imgUrls":["https://i.seadn.io/gcs/files/5c10e1bf3028476390a65d6726f5340e.jpg?auto=format&dpr=1&w=3840","https://i.seadn.io/s/raw/files/cafd1614da6255ee880254ce349ce866.png?auto=format&dpr=1&w=3840","https://i.seadn.io/gcs/files/6850a6abc69d80c905951316ceb5949b.jpg?auto=format&dpr=1&w=3840","https://i.seadn.io/s/raw/files/94df22c9da16faaf95494f745bcc3e85.png?auto=format&dpr=1&w=3840"],"collection":"batz"}'
 ```
 
 Make sure to replace the following information:
 
 - `<SYMBOL_NAME>`: The symbolic name for the token.
 - `<PROGRAM_NAME>`: The name of the program being deployed.
-- `<YOUR_WALLET_ADDRESS>`: The address of your wallet.
+- `<PAYMENT_PROGRAM_ADDRESS>`: The address of the payment program.
 
 :::info
 For detailed information about each standard parameter, refer to the [Deploy Configuration](/lasr/lasr_guides/deploy_configuration) page.
