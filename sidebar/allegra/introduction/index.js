@@ -15,7 +15,11 @@ module.exports = [
   },
   {
     type: 'doc',
-    id: 'allegra/problem_x_solution',
+    id: 'allegra/problem',
+  },
+  {
+    type: 'doc',
+    id: 'allegra/solution',
   },
   {
     type: 'doc',
