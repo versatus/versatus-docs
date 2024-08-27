@@ -1,0 +1,54 @@
+---
+title: Architecture
+id: architecture
+slug: /allegra/architecture
+description: "A detailed look at the components and workflow of Allegra's architecture, ensuring robust security, transparency, and cost-efficiency for deploying, managing, and scaling decentralized applications (dApps)."
+tags: ['Allegra', 'Web3', 'architecture', 'decentralized infrastructure', 'dApps']
+---
+
+import ImageComponent from '../../src/components/Media/ImageComponent';
+import Steps from '../../src/components/Steps/Steps';
+
+# Allegra Architecture
+
+Allegra's architecture ensures that developers can focus on building innovative dApps without worrying about the underlying infrastructure. The decentralized nature of Allegra provides robust security, transparency, and cost-efficiency for deploying, managing, and scaling decentralized applications (dApps). Here's an in-depth look at each component and how they work together:
+
+<ImageComponent className="architecture-img"/>
+
+### Detailed Flow
+
+The steps below describe in details the architecture's diagram above:
+
+1. **Developer uses CLI**: The developer uses the CLI to provision a VPS, add authentication, retrieve SSH details, expose services, and manage instances.
+
+2. **CLI communicates with RPC Client**: The CLI sends commands to the RPC Client, which in turn communicates with the Allegra protocol.
+
+3. **Allegra Protocol coordinates tasks**: The protocol handles state synchronization, resource allocation, fault recovery, load balancing, and auto-scaling.
+
+4. **Resource Discovery identifies resources**: The protocol discovers resources across the network to allocate them efficiently.
+
+5. **Resource Owning Quorum maintains resources**: The quorum of nodes owns and maintains the resources, ensuring they function correctly.
+
+6. **Responding Node handles user requests**: Nodes receive and route user requests to the appropriate quorums, responding back to users.
+
+7. **Developer VPS runs the dApp**: The VPS instance, provisioned by the developer, runs the dApp and is maintained by the quorum.
+
+### Allegra Architecture Components
+
+The table below presents all components involved in Allegra:
+
+| **Component**              | **Description**                                                                                                                                                                     |
+|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Developer**              | The developer initiates the process using the Command Line Interface (CLI) to provision a Virtual Private Server (VPS). They can add authentication, retrieve SSH details, expose services to the public, and manage their instances. |
+| **CLI (Command Line Interface)** | The CLI is the primary tool used by developers to interact with the Allegra protocol. Through the CLI, developers can issue commands and manage their VPS instances.                                                |
+| **RPC Client**             | The Remote Procedure Call (RPC) Client is used by the CLI to communicate with the Allegra protocol. It acts as an intermediary, sending commands and receiving responses from the protocol.                           |
+| **Allegra Protocol**       | The core protocol of Allegra coordinates essential tasks such as state synchronization, resource allocation, fault recovery, load balancing, and auto-scaling. It ensures the seamless operation of the decentralized infrastructure.        |
+| **Resource Discovery**     | Resource discovery within the Allegra protocol identifies available resources across the network. This process ensures that resources are efficiently allocated to different instances.                                    |
+| **Resource Owning Quorum** | A quorum of nodes is responsible for owning and maintaining the resources. They ensure the proper functioning of the instances and maintain the state according to the protocol’s requirements.                              |
+| **Responding Node**        | Nodes that receive requests from users. They route these requests to the appropriate quorums and ensure responses are sent back to the users.                                                                               |
+| **Developer VPS**          | The virtual private server instance provisioned by the developer. This is where the dApp runs and is maintained by the responsible quorum of nodes.                                                                         |
+| **Session**                | Represents the ongoing interaction between the developer and their VPS instance. The session includes all activities from provisioning to managing the instance.                                                            |
+
+## Next Steps
+
+Refer to the [Deploying on Allegra](/allegra/deploy) page and follow each step to learn how to deploy your dApp on Allegra.

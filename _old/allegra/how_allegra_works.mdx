@@ -1,0 +1,39 @@
+---
+title: How Allegra Works?
+id: how_allegra_works
+slug: /allegra/how_allegra_works
+description: "An overview of how Allegra works, simplifying the deployment, management, and scaling of decentralized applications (dApps) using a decentralized network of nodes."
+tags: ['Allegra', 'Web3', 'dApps', 'decentralized infrastructure', 'how it works']
+---
+
+import ImageComponent from '../../src/components/Media/ImageComponent';
+
+Allegra simplifies the deployment, management, and scaling of decentralized applications (dApps) by leveraging a decentralized network of nodes. Here's an overview of how Allegra works:
+
+## Developer Launches Instance
+
+Developers use the Allegra UI or CLI to launch and access their virtual private server (VPS) instance. The protocol distributes this instance among an entire quorum of nodes to ensure fault tolerance, recovery, verifiability, and censorship resistance.
+
+## Operators Maintain Instance
+
+Operators within the responsible quorum maintain the instance until the owner decides to alter it. They ensure that the full configuration of the instance is maintained according to the owner's changes.
+
+## Developer Deploys App
+
+The developer (or authorized team members) download, compile, and run their application on the VPS instance. The application can range from a simple JSON Data API to a complex decentralized exchange (DEX) off-chain matching engine, or a pre-trained generative AI model.
+
+## User Requests App
+
+A user makes a request to the application via HTTP. Nodes in the Allegra network receive the request, route it to the appropriate quorum, and respond to the user. From this point, the process is the same as handling any other web request.
+
+## State Synchronization
+
+After any changes to an instance, whether by a developer or through user interaction, Allegra's protocol requires all quorum members responsible for the instance to receive an updated copy of it. This ensures consistency and synchronization across the network.
+
+## Revoking Ownership & Making the App Unstoppable
+
+Developers or owners of an instance can revoke ownership, rendering the instance immutable and unstoppable. A smart contract must then provide ongoing payments to operators and manage the governance of the instance.
+
+## Next Steps
+
+Allegra's architecture ensures that developers can focus on building innovative dApps without worrying about the underlying infrastructure. The decentralized nature of Allegra provides robust security, transparency, and cost-efficiency. Learn more about Allegra's architecture by referring to the [Architecture](/allegra/architecture) page.

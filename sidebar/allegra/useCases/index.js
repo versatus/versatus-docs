@@ -7,6 +7,14 @@ module.exports = [
   },
   {
     type: 'doc',
+    id: 'allegra/use_cases/web2',
+  },
+  {
+    type: 'doc',
+    id: 'allegra/use_cases/web3',
+  },
+  {
+    type: 'doc',
     id: 'allegra/use_cases/decentralized_ai',
   },
   {
