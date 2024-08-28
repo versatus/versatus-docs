@@ -11,15 +11,15 @@ module.exports = [
   },
   {
     type: 'doc',
-    id: 'allegra/how_allegra_works',
-  },
-  {
-    type: 'doc',
     id: 'allegra/problem',
   },
   {
     type: 'doc',
     id: 'allegra/solution',
+  },
+  {
+    type: 'doc',
+    id: 'allegra/how_allegra_works',
   },
   {
     type: 'doc',
