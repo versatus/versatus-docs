@@ -2,15 +2,19 @@
 title: Allegra CLI
 id: cli
 slug: /allegra/cli
-description: "."
+description: "The Allegra CLI (Command Line Interface) provides developers with a toolset to interact with the Allegra platform, allowing for seamless management and deployment of Virtual Private Servers (VPS)."
 tags: ['Allegra', 'Web3', 'deployment', 'dApps', 'VPS', 'guide']
 ---
 
-The Allegra CLI (Command Line Interface) provides developers with a toolset to interact with Allegra, allowing for seamless management and deployment of Virtual Private Servers (VPS), containers, and other cloud resources in a decentralized environment. With a few simple commands, you can create, start, stop, and delete instances, ensuring that your dApps remain operational, scalable, and efficient.
+
+
+The Allegra CLI (Command Line Interface) provides developers with a toolset to interact with the Allegra platform, allowing for seamless management and deployment of Virtual Private Servers (VPS), containers, and other cloud resources in a decentralized environment.
+
+This page provides basic commands as a starting point for interacting with the Allegra platform. As you become more familiar with the system, you can explore more advanced features. It's worth mentioning that all these commands interact with Allegra Core components, including RAGER for optimal resource allocation, the Quorum Manager for ensuring network consensus, and the Storage Layer for managing instance data. This integration ensures that even simple CLI commands leverage the full power of Allegra's decentralized architecture.
 
 ## Creating a New Instance
 
-The Allegra CLI interacts with the `VmManager` component, which handles the creation process. Use the following example command to create a new Ubuntu 22.04 instance named "my-instance" with 2GB of RAM and 4 CPUs:
+The Allegra CLI interacts with the **VmManager**, a component within the Allegra platform responsible for provisioning, managing, and scaling Virtual Private Server (VPS) instances, which handles the creation process. Use the following example command to create a new Ubuntu 22.04 instance named "my-instance" with 2GB of RAM and 4 CPUs:
 
 ```sh
 allegra create --name my-instance \
