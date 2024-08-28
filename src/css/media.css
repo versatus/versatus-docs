@@ -2,10 +2,10 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  margin-top: 15px;
-  border-radius: .5rem !important;
+  margin: 20px 0;
+  border-radius: 0.5rem !important;
 }
 
 .media-wrapper img {
-  border-radius: .5rem !important;
+  border-radius: 0.5rem !important;
 }
