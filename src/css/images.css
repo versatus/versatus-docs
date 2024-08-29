@@ -122,17 +122,17 @@
   content: url("../../static/img/allegra/allegra-stack-light.png");
 }
 
-/* [data-theme='dark'] .allegra-stack {
-  content: url('../../static/img/allegra/allegra-stack-dark.png');
-} */
+[data-theme="dark"] .allegra-stack {
+  content: url("../../static/img/allegra/allegra-stack-dark.png");
+}
 
 .container-diagram {
   content: url("../../static/img/allegra/container-diagram-light.png");
 }
 
-/* [data-theme="dark"] .container-diagram {
+[data-theme="dark"] .container-diagram {
   content: url("../../static/img/allegra/container-diagram-dark.png");
-} */
+}
 
 .context-diagram {
   content: url("../../static/img/allegra/context-diagram-light.png");
@@ -146,17 +146,17 @@
   content: url("../../static/img/allegra/network-stack-light.png");
 }
 
-/* [data-theme="dark"] .network-stack {
+[data-theme="dark"] .network-stack {
   content: url("../../static/img/allegra/network-stack-dark.png");
-} */
+}
 
 .quorum-manager {
   content: url("../../static/img/allegra/quorum-manager-light.png");
 }
 
-/* [data-theme="dark"] .quorum-manager {
+[data-theme="dark"] .quorum-manager {
   content: url("../../static/img/allegra/quorum-manager-dark.png");
-} */
+}
 
 .request-lifecycle {
   content: url("../../static/img/allegra/request-lifecycle-light.png");
@@ -170,14 +170,14 @@
   content: url("../../static/img/allegra/storage-light.png");
 }
 
-/* [data-theme="dark"] .storage {
+[data-theme="dark"] .storage {
   content: url("../../static/img/allegra/storage-dark.png");
-} */
+}
 
 .verifier {
   content: url("../../static/img/allegra/verifier-light.png");
 }
 
-/* [data-theme="dark"] .verifier {
+[data-theme="dark"] .verifier {
   content: url("../../static/img/allegra/verifier-dark.png");
-} */
+}
