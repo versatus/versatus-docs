@@ -1,7 +1,3 @@
-.navbar {
-  height: 80px;
-}
-
 .navbar__logo {
   width: 240px;
   height: fit-content;
@@ -19,7 +15,8 @@
   margin-right: 50px;
 }
 
-.navbar__items .navbar__link, .navbar__items--right {
+.navbar__items .navbar__link,
+.navbar__items--right {
   color: var(--white);
 }
 
@@ -60,7 +57,7 @@
 }
 
 .navbar__link:hover {
-  border-radius: 6px; 
+  border-radius: 6px;
   color: var(--versatus-main-color);
   font-weight: 600;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.076);
@@ -115,7 +112,8 @@
   justify-content: center;
 }
 
-.navbar__item, .navbar__link {
+.navbar__item,
+.navbar__link {
   font-size: 16px !important;
 }
 
@@ -151,7 +149,7 @@
 .dropdown > .navbar__link:after {
   background-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><polyline points="208 96 128 176 48 96" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/></svg>');
   border-style: none;
-  content: '';
+  content: "";
   position: relative;
   justify-self: center;
   align-self: center;
