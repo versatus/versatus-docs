@@ -1,4 +1,5 @@
 import React from "react";
+import { AppWindow } from "@phosphor-icons/react";
 
 export default function ProblemSolutionIcon({ type, number }) {
   const iconClass =
@@ -582,7 +583,7 @@ export default function ProblemSolutionIcon({ type, number }) {
         </svg>
       );
     } else if (number === 6) {
-      return <div></div>;
+      return <AppWindow size={24} className={iconClass} color="#208f59" />;
     } else if (number === 7) {
       return (
         <svg

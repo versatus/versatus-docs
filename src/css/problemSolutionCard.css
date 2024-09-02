@@ -1,3 +1,15 @@
+.versatus_check {
+  position: relative;
+  width: 45px !important;
+  top: 3px;
+}
+
+.problem_main_icon {
+  position: relative;
+  width: 35px !important;
+  top: 6px;
+}
+
 .problem_solution_card {
   display: flex;
   padding: 25px;
@@ -31,6 +43,10 @@
 
 .problem_solution_card .solution_icon_3 {
   width: 30px;
+}
+
+.problem_solution_card .solution_icon_6 {
+  margin-top: -4px;
 }
 
 .ps_card_content h2 {
