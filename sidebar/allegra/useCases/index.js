@@ -10,15 +10,17 @@ module.exports = [
     id: 'allegra/use_cases/web2',
   },
   {
-    type: 'doc',
+    type: 'category',
+    label: 'Web3',
+    link: {
+      type: 'doc',
     id: 'allegra/use_cases/web3',
-  },
-  {
-    type: 'doc',
-    id: 'allegra/use_cases/decentralized_ai',
-  },
-  {
-    type: 'doc',
-    id: 'allegra/use_cases/decentralizing_dex',
-  },
+    },
+    collapsed: true,
+    collapsible: true,
+    items: [
+      'allegra/use_cases/decentralized_ai',
+      'allegra/use_cases/decentralizing_dex'
+    ],
+  }
 ]
