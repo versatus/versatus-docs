@@ -1,98 +1,104 @@
 .burd-main {
-  content: url('../../static/img/lasr/tutorials/burd/burd-main-light.png');
+  content: url("../../static/img/lasr/tutorials/burd/burd-main-light.png");
 }
 
-[data-theme='dark'] .burd-main {
-  content: url('../../static/img/lasr/tutorials/burd/burd-main-dark.png');
+[data-theme="dark"] .burd-main {
+  content: url("../../static/img/lasr/tutorials/burd/burd-main-dark.png");
 }
 
 .addUser {
-  content: url('../../static/img/lasr/tutorials/burd/addUser-light.png');
+  content: url("../../static/img/lasr/tutorials/burd/addUser-light.png");
 }
 
-[data-theme='dark'] .addUser {
-  content: url('../../static/img/lasr/tutorials/burd/addUser-dark.png');
+[data-theme="dark"] .addUser {
+  content: url("../../static/img/lasr/tutorials/burd/addUser-dark.png");
 }
 
 .churp {
-  content: url('../../static/img/lasr/tutorials/burd/churp-light.png');
+  content: url("../../static/img/lasr/tutorials/burd/churp-light.png");
 }
 
-[data-theme='dark'] .churp {
-  content: url('../../static/img/lasr/tutorials/burd/churp-dark.png');
+[data-theme="dark"] .churp {
+  content: url("../../static/img/lasr/tutorials/burd/churp-dark.png");
 }
 
 .deleteChurp {
-  content: url('../../static/img/lasr/tutorials/burd/deleteChurp-light.png');
+  content: url("../../static/img/lasr/tutorials/burd/deleteChurp-light.png");
 }
 
-[data-theme='dark'] .deleteChurp {
-  content: url('../../static/img/lasr/tutorials/burd/deleteChurp-dark.png');
+[data-theme="dark"] .deleteChurp {
+  content: url("../../static/img/lasr/tutorials/burd/deleteChurp-dark.png");
 }
 
 .like {
-  content: url('../../static/img/lasr/tutorials/burd/like-light.png');
+  content: url("../../static/img/lasr/tutorials/burd/like-light.png");
 }
 
-[data-theme='dark'] .like {
-  content: url('../../static/img/lasr/tutorials/burd/like-dark.png');
+[data-theme="dark"] .like {
+  content: url("../../static/img/lasr/tutorials/burd/like-dark.png");
 }
 
 .chess-main {
-  content: url('../../static/img/lasr/tutorials/chess/chess-main-light.png');
+  content: url("../../static/img/lasr/tutorials/chess/chess-main-light.png");
 }
 
-[data-theme='dark'] .chess-main {
-  content: url('../../static/img/lasr/tutorials/chess/chess-main-dark.png');
+[data-theme="dark"] .chess-main {
+  content: url("../../static/img/lasr/tutorials/chess/chess-main-dark.png");
 }
 
 .registerUser {
-  content: url('../../static/img/lasr/tutorials/chess/registerUser-light.png');
+  content: url("../../static/img/lasr/tutorials/chess/registerUser-light.png");
 }
 
-[data-theme='dark'] .registerUser {
-  content: url('../../static/img/lasr/tutorials/chess/registerUser-dark.png');
+[data-theme="dark"] .registerUser {
+  content: url("../../static/img/lasr/tutorials/chess/registerUser-dark.png");
 }
 
 .createGame {
-  content: url('../../static/img/lasr/tutorials/chess/createGame-light.png');
+  content: url("../../static/img/lasr/tutorials/chess/createGame-light.png");
 }
 
-[data-theme='dark'] .createGame {
-  content: url('../../static/img/lasr/tutorials/chess/createGame-dark.png');
+[data-theme="dark"] .createGame {
+  content: url("../../static/img/lasr/tutorials/chess/createGame-dark.png");
 }
 
 .acceptGame {
-  content: url('../../static/img/lasr/tutorials/chess/acceptGame-light.png');
+  content: url("../../static/img/lasr/tutorials/chess/acceptGame-light.png");
 }
 
-[data-theme='dark'] .acceptGame {
-  content: url('../../static/img/lasr/tutorials/chess/acceptGame-dark.png');
+[data-theme="dark"] .acceptGame {
+  content: url("../../static/img/lasr/tutorials/chess/acceptGame-dark.png");
 }
 
 .makeMove {
-  content: url('../../static/img/lasr/tutorials/chess/makeMove-light.png');
+  content: url("../../static/img/lasr/tutorials/chess/makeMove-light.png");
 }
 
-[data-theme='dark'] .makeMove {
-  content: url('../../static/img/lasr/tutorials/chess/makeMove-dark.png');
+[data-theme="dark"] .makeMove {
+  content: url("../../static/img/lasr/tutorials/chess/makeMove-dark.png");
 }
 
-.faucet, .fungible, .burd, .chess {
+.faucet,
+.fungible,
+.burd,
+.chess {
   color: #000;
   fill: #000;
   stroke: #000;
   transition: all 0.3s ease;
 }
 
-[data-theme='dark'] .faucet, [data-theme='dark'] .fungible, [data-theme='dark'] .burd, [data-theme='dark'] .chess {
-  color: #FFF;
-  fill: #FFF;
-  stroke: #FFF;
+[data-theme="dark"] .faucet,
+[data-theme="dark"] .fungible,
+[data-theme="dark"] .burd,
+[data-theme="dark"] .chess {
+  color: #fff;
+  fill: #fff;
+  stroke: #fff;
 }
 
-[data-theme='dark'] .nft path {
-  fill: #FFF;
+[data-theme="dark"] .nft path {
+  fill: #fff;
   transition: all 0.3s ease;
 }
 
@@ -105,9 +111,73 @@
 }
 
 .architecture-img {
-  content: url('../../static/img/allegra/architecture-light.png');
+  content: url("../../static/img/allegra/architecture-light.png");
 }
 
-[data-theme='dark'] .architecture-img {
-  content: url('../../static/img/allegra/architecture-dark.png');
+[data-theme="dark"] .architecture-img {
+  content: url("../../static/img/allegra/architecture-dark.png");
+}
+
+.allegra-stack {
+  content: url("../../static/img/allegra/allegra-stack-light.png");
+}
+
+[data-theme="dark"] .allegra-stack {
+  content: url("../../static/img/allegra/allegra-stack-dark.png");
+}
+
+.container-diagram {
+  content: url("../../static/img/allegra/container-diagram-light.png");
+}
+
+[data-theme="dark"] .container-diagram {
+  content: url("../../static/img/allegra/container-diagram-dark.png");
+}
+
+.context-diagram {
+  content: url("../../static/img/allegra/context-diagram-light.png");
+}
+
+[data-theme="dark"] .context-diagram {
+  content: url("../../static/img/allegra/context-diagram-dark.png");
+}
+
+.network-stack {
+  content: url("../../static/img/allegra/network-stack-light.png");
+}
+
+[data-theme="dark"] .network-stack {
+  content: url("../../static/img/allegra/network-stack-dark.png");
+}
+
+.quorum-manager {
+  content: url("../../static/img/allegra/quorum-manager-light.png");
+}
+
+[data-theme="dark"] .quorum-manager {
+  content: url("../../static/img/allegra/quorum-manager-dark.png");
+}
+
+.request-lifecycle {
+  content: url("../../static/img/allegra/request-lifecycle-light.png");
+}
+
+[data-theme="dark"] .request-lifecycle {
+  content: url("../../static/img/allegra/request-lifecycle-dark.png");
+}
+
+.storage {
+  content: url("../../static/img/allegra/storage-light.png");
+}
+
+[data-theme="dark"] .storage {
+  content: url("../../static/img/allegra/storage-dark.png");
+}
+
+.verifier {
+  content: url("../../static/img/allegra/verifier-light.png");
+}
+
+[data-theme="dark"] .verifier {
+  content: url("../../static/img/allegra/verifier-dark.png");
 }

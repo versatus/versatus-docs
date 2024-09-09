@@ -1,39 +1,9 @@
+const introduction = require('./introduction');
 const useCases = require('./useCases');
+const architecture = require('./architecture');
 
 module.exports = [
-  {
-    type: 'html',
-    value: '<span class=\'sidebar_title\'>Introduction</span>',
-    defaultStyle: true,
-    className: 'sidebar_title',
-  },
-  {
-    type: 'doc',
-    id: 'allegra/overview',
-  },
-  {
-    type: 'doc',
-    id: 'allegra/how_allegra_works',
-  },
-  {
-    type: 'doc',
-    id: 'allegra/architecture',
-  },
-  {
-    type: 'doc',
-    id: 'allegra/deploy',
-  },
+  ...introduction,
+  ...architecture,
   ...useCases,
-  // {
-  //   type: 'category',
-  //   label: 'Allegra',
-  //   link: {
-  //     type: "doc",
-  //     id: "allegra/allegra"
-  //   },
-  //   collapsed: false,
-  //   collapsible: false,
-  //   items: [
-  //   ],
-  // },
 ];

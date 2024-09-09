@@ -1,0 +1,66 @@
+---
+title: Allegra CLI
+id: cli
+slug: /allegra/cli
+description: "The Allegra CLI (Command Line Interface) provides developers with a toolset to interact with the Allegra platform, allowing for seamless management and deployment of Virtual Private Servers (VPS)."
+tags: ['Allegra', 'Web3', 'deployment', 'dApps', 'VPS', 'guide']
+---
+
+
+
+The Allegra CLI (Command Line Interface) provides developers with a toolset to interact with the Allegra platform, allowing for seamless management and deployment of Virtual Private Servers (VPS), containers, and other cloud resources in a decentralized environment.
+
+This page provides basic commands as a starting point for interacting with the Allegra platform. As you become more familiar with the system, you can explore more advanced features. It's worth mentioning that all these commands interact with Allegra Core components, including RAGER for optimal resource allocation, the Quorum Manager for ensuring network consensus, and the Storage Layer for managing instance data. This integration ensures that even simple CLI commands leverage the full power of Allegra's decentralized architecture.
+
+## Creating a New Instance
+
+The Allegra CLI interacts with the **VmManager**, a component within the Allegra platform responsible for provisioning, managing, and scaling Virtual Private Server (VPS) instances, which handles the creation process. Use the following example command to create a new Ubuntu 22.04 instance named "my-instance" with 2GB of RAM and 4 CPUs:
+
+```sh
+allegra create --name my-instance \
+  --distro ubuntu \
+  --version 22.04 \
+  --ram 2048 \
+  --vcpus 4 \
+  --sk <my-secret-key>
+```
+
+- `--name`: Specifies the name of the VPS instance.
+- `--distro`: Sets the operating system distribution for the instance.
+- `--version`: Specifies the version of the chosen operating system distribution.
+- `--ram`: Allocates the amount of RAM (memory) to the instance, specified in megabytes (MB).
+- `--vcpus`: Allocates the number of virtual CPUs (vCPUs) for the instance.
+- `--sk`: Provides the secret key for authentication with the Allegra platform.
+
+## Starting an Instance
+
+To start an existing instance, use the `allegra start` command. This command initiates the process to start the instance, making it active and ready for use.
+
+```sh
+allegra start --name my-instance --sk <my-secret-key>
+```
+
+- `--name`: Specifies the name of the VPS instance to start.
+- `--sk`: Provides the secret key for authentication with the Allegra platform.
+
+## Stopping an Instance
+
+To stop a running instance, use the `allegra stop` command. This command halts the instance, pausing all activities until it is restarted.
+
+```sh
+allegra stop --name my-instance --sk <my-secret-key>
+```
+
+- `--name`: Specifies the name of the VPS instance to stop.
+- `--sk`: Provides the secret key for authentication with the Allegra platform.
+
+## Deleting an Instance
+
+To delete an instance, use the `allegra delete` command. This command removes the specified instance from the Allegra network, freeing up resources and ensuring no further charges.
+
+```sh
+allegra delete --name my-instance --sk <my-secret-key>
+```
+
+- `--name`: Specifies the name of the VPS instance to delete.
+- `--sk`: Provides the secret key for authentication with the Allegra platform.

@@ -55,8 +55,8 @@ const config = {
           routeBasePath: "/",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/versatus/versatus-docs',
+          // editUrl:
+          //   'https://github.com/versatus/versatus-docs',
         },
         blog: false,
         theme: {
@@ -76,6 +76,18 @@ const config = {
       },
       // Replace with your project's social card
       // image: 'img/docusaurus-social-card.jpg',
+      zoom: {
+        selector: '.markdown :not(em) > img',
+        background: {
+          light: 'rgb(255, 255, 255,0.9)',
+          dark: 'rgb(50, 50, 50)',
+        },
+        config: {
+          // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
+          margin: 80,
+          scrollOffset: 50,
+        },
+      },
       navbar: {
         title: '',
         logo: {

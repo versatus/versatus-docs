@@ -8,56 +8,74 @@ tags: ['Allegra', 'Web3', 'cloud platform', 'dApps', 'decentralization']
 
 import ImageComponent from '../../src/components/Media/ImageComponent';
 import LinkCards from '../../src/components/Cards/LinkCards';
+import IconCards from '../../src/components/Cards/IconCards';
 
-<!---leave the following h1 title empty, so the title does not appear at the page--->
+
+{/* <!---leave the following h1 title empty, so the title does not appear at the page---> */}
 #
 
 <ImageComponent className="main-page-logo" wrapperClass="main-page-theme"/>
 
-Allegra is the revolutionary Web3 cloud platform that allows developers to deploy, manage, and scale decentralized applications (dApps) effortlessly.
+Allegra is a groundbreaking Web3 cloud platform designed to empower developers with the tools needed to deploy, manage, and scale decentralized applications (dApps) effortlessly within a truly decentralized environment.
 
-Building and deploying dApps in the Web3 ecosystem can be complex, exclusive, and resource-intensive. Allegra simplifies this process, providing a robust, decentralized infrastructure that ensures data sovereignty, transparency, and cost-efficiency.
+## Simplifying Web3 Development
 
-## Why Build on Allegra
+In an era where digital infrastructure forms the backbone of our global economy, Allegra offers tools designed to help redefine the landscape of cloud computing and usher in a new age of digital sovereignty. Allegra isn't just another cloud solution, it's the world’s first truly decentralized, verifiable elastic network supercomputer, a system designed to adapt and scale to various computing needs in a decentralized manner.
 
-### Decentralized Infrastructure
+Versatus mission is clear and ambitious: 
 
-Allegra ensures data safety and security, and eliminates single points of failure by leveraging a decentralized network of nodes, providing unparalleled fault tolerance and recovery capabilities.
+> Build a cloud infrastructure that is sovereign, censorship-resistant, and accessible to all that prioritizes data sovereignty, transparency, and is cost-efficiency. 
 
-### Verifiable and Transparent
+You can leverage Allegra's belief that unrestricted access to the entire application stack is not just a technological imperative but a cornerstone for continued human progress in the digital age.
 
-Transparency and provability are built into the core of Allegra, eliminating the need to trust infrastructure providers. All operations are verifiable, ensuring security and trustworthiness.
+## Allegra Features and Capabilities
 
-### Cost-Efficient Scalability
+### Provision, Manage & Scale VPS Instances
+Allegra’s platform allows you to provision, manage, and scale Virtual Private Server (VPS) instances with ease. The **VmManager** component in Allegra handles these tasks, ensuring that instances are optimally placed within the network for performance and reliability. Whether you need to spin up new instances or scale existing ones, Allegra offers a seamless experience.
 
-Allegra is 60-80% more affordable than traditional cloud platforms by utilizing idle resources to generate additional revenue, offering a cost-effective solution for developers.
+### Deploy & Host Web and Mobile Applications
+Deploy and host your web and mobile applications effortlessly with Allegra. Leveraging Allegra's distributed network of nodes, the platform ensures high availability and performance for hosted applications. The **Network Layer** components, including **BGP**, **HAProxy**, and **Nginx**, ensure efficient routing and load balancing for your application traffic.
 
-### Secure and Robust
+### Provision & Orchestrate Containers
+Allegra supports container-based workloads, allowing you to easily provision and orchestrate containers using Docker or LXD/LXC. This capability is ideal for microservices architectures and applications that require rapid scaling, offering flexibility and speed in deployment.
 
-Severe economic penalties for malicious or faulty operators ensure the security and reliability of the network, offering robust disincentives against economic vulnerabilities.
+### Revoke Ownership & Govern with Smart Contracts
+One of Allegra’s unique features is the ability to revoke ownership of an instance and govern it through smart contracts. This capability ensures that your application infrastructure remains decentralized and censorship-resistant, even as it grows and evolves.
 
-Allegra offers a developer experience without the need for multiple platforms. Developers can concentrate on creating innovative dApps without the complexities of managing various tools and environments.
+### TEEs for Confidential Compute & Remote Attestation
+Allegra provides support for Trusted Execution Environments (TEEs), enabling confidential computing and secure enclaves for sensitive operations. This feature is crucial for applications that require enhanced security, ensuring data privacy and integrity throughout the lifecycle of your application.
+
+### GPU-Optimized Instances for AI/ML Workloads
+Recognizing the growing importance of AI and machine learning, Allegra offers GPU-optimized instances for verifiable training, inference, and model hosting. These instances are designed to handle compute-intensive tasks efficiently, making Allegra a strong choice for AI and ML applications.
+
+
+
+## The Future of Cloud Computing
+
+Allegra isn't just a response to the challenges of today’s centralized cloud computing landscape. It's a reimagining of what cloud infrastructure can be. By bringing together the strengths of blockchain technology, decentralized systems, and traditional cloud infrastructure, Allegra provides you with a platform that is secure, transparent, and resilient. It addresses the key issues of centralization, scalability, cost, and vulnerability, while also setting the stage for the next generation of cloud-native applications.
+
+Whether you're hosting DeFi applications, provisioning confidential compute environments, or supporting AI/ML workloads, Allegra’s architecture ensures that your infrastructure is reliable and aligned with the principles of sovereignty and open access. In a world where digital sovereignty and resilience are more important than ever, Allegra offers a way forward for a free, open, and resilient digital future.
 
 ## Next Steps
 
-To start your journey with Allegra, we recommend beginning with the following pages:
+To start your journey with Allegra, we begin with the following pages:
 
 <LinkCards numColumns={3} data={
   [
+    {
+      title: 'The Problem',
+      description: 'Understand about the problem Allegra tackles.',
+      linkTo: '/allegra/problem'
+    },
+    {
+      title: 'The Solution',
+      description: 'Understand how Allegra addresses these challenges.',
+      linkTo: '/allegra/solution'
+    },
     {
       title: 'How Allegra Works?',
       description: 'Learn how Allegra works, and how to leverage it',
       linkTo: '/allegra/how_allegra_works'
     },
-    {
-      title: 'Architecture',
-      description: 'Understand about Allegra\'s architecture.',
-      linkTo: '/allegra/architecture'
-    },
-    {
-      title: 'Deploying on Allegra',
-      description: 'Deploy your first application on Allegra.',
-      linkTo: '/allegra/deploy'
-    }
   ]
 }/>

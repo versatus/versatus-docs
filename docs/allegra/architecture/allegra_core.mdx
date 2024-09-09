@@ -1,0 +1,118 @@
+---
+title: Allegra Core
+id: allegra_core
+slug: /allegra/allegra_core
+description: ""
+tags: ['Allegra', 'Web3', 'cloud platform', 'dApps', 'decentralization']
+---
+
+import Image from '@site/src/components/Media/Image';
+import Accordion from '@site/src/components/Accordion/Accordion';
+
+# Allegra Core: The Heart of the System
+
+The **Allegra Core** is the central layer of Allegra's decentralized cloud architecture. By managing resources, maintaining consensus, and facilitating communication, it ensures that Allegra operates as a resilient, secure, and efficient cloud computing solution. This core layer enables developers and businesses to build and scale applications with confidence, knowing their infrastructure is supported by a robust and intelligent system.
+
+## Key Components of the Allegra Core
+
+The Allegra Core comprises several critical components that work together to manage the decentralized infrastructure:
+
+- **RAGER (Resource Aware, Geoproximity Enhanced Routing)**: Intelligent routing system for handling requests. Goes beyond simple load balancing by considering factors such as geographical proximity and available resources when routing requests. This reduces latency, optimizes resource utilization, and ensures that workloads are handled by the most appropriate nodes.
+
+- **Quorum Manager**: Maintains consensus across the decentralized network. Manages leader election and ensures that the network’s state remains consistent. It handles the voting process to decide on the network's current state and leadership, ensuring a reliable and agreed-upon state throughout the network. Here is a glimpse into how it handles votes:
+
+    <Accordion title="Quorum Manager code example">
+        ```python
+        class QuorumManager:
+            def handle_vote_received(self, vote, quorum_size):
+                # Handle a received vote for leader election
+                if self.is_previous_election_vote(vote):
+                    self.add_to_last_election_votes(vote)
+                    return
+                if vote.block_height != self.trigger_block:
+                    return
+                winning_ballot = self.get_winning_ballot(vote.ballots)
+                self.votes_collected[winning_ballot][vote.peer] = vote
+                self.check_majority_reached(quorum_size)
+
+            def check_majority_reached(self, quorum_size):
+                # Check if a majority has been reached in the voting process
+                for ballot, votes in self.votes_collected.items():
+                    if len(votes) > (quorum_size / 2):
+                        vote_subsets = self.group_votes_by_ballot_and_block(votes)
+                        for (ballot, block_height, _), subset_votes in vote_subsets.items():
+                            if len(subset_votes) > (quorum_size / 2):
+                                self.handle_majority_reached(ballot, block_height)
+                                return
+
+            def handle_majority_reached(self, winning_ballot, block_height):
+                # Handle the case when a majority has been reached
+                if winning_ballot.candidate == self.node.peer_info:
+                    self.state = NodeState.Leader
+                else:
+                    self.state = NodeState.Follower
+                self.current_leader = winning_ballot.candidate
+                self.last_election_block = block_height
+                self.trigger_block = block_height + self.election_block_interval
+                self.last_election_votes = self.votes_collected.copy()
+                self.votes_collected.clear()
+        ```
+
+    </Accordion>
+
+
+
+- **PubSub Broker** (Publish-Subscribe): Facilitates communication between different components of the system. Implements a publish-subscribe model for efficient, decoupled communication, formatting and sending messagens across the network. This is essential for a distributed system where components need to communicate asynchronously and reliably. Here’s how it publishes messages:
+
+    <Accordion title="PubSub Broke code example">
+    ```python
+    class GenericPublisher:
+        def __init__(self, stream):
+            self.stream = stream
+
+        async def publish(self, topic, msg):
+            # Publish a message to a given topic
+            topic_len = len(str(topic))
+            topic_len_bytes = topic_len.to_bytes(4, 'big')
+
+            event = msg.to_inner().into()
+            message_str = event.inner_to_string()
+            message_len = len(message_str)
+            message_len_bytes = message_len.to_bytes(4, 'big')
+
+            total_len = HEADER_SIZE + TOPIC_SIZE_OFFSET + topic_len + message_len
+            full_message = bytearray(total_len)
+
+            # Construct the full message
+            full_message[0:4] = message_len_bytes
+            full_message[4:8] = topic_len_bytes
+            full_message[8:8 + topic_len] = str(topic).encode()
+            full_message[8 + topic_len:] = message_str.encode()
+
+            # Write the full message to the stream
+            await self.stream.write_all(full_message)
+    ```
+
+    </Accordion>
+
+- **State Manager** Maintains the overall state of the system. Keeps track of the current state of all nodes, virtual machines, and containers, ensuring consistent operations and resource allocation across the network.
+
+- **VM & Container Manager** Manages the lifecycle of virtual machines (VMs) and containers. Allocates resources, starts, stops, and deletes instances, and ensures that VMs and containers are correctly configured and operational.
+
+<Image src="img/allegra/quorum-manager-light.png" srcDark="img/allegra/quorum-manager-dark.png"/>
+
+## How the Allegra Core Works
+
+1. **Intelligent Request Routing with RAGER**: The RAGER system routes requests by considering multiple factors like resource availability and geographic proximity, optimizing both the speed and efficiency of request handling.
+
+2. **Network Consensus with Quorum Manager**: The Quorum Manager oversees the consensus mechanism by handling the voting process among nodes. It ensures that the network agrees on the leader and maintains a consistent state, preventing any single point of failure from disrupting the entire system.
+
+3. **Efficient Communication through PubSub Broker**: The PubSub Broker enables decoupled, asynchronous communication between different components, allowing them to operate independently while maintaining synchronization across the network.
+
+4. **State Management and Resource Allocation**: The State Manager keeps a real-time record of the system's overall state, ensuring all operations and resource allocations are consistent. The VM & Container Manager then uses this information to manage the lifecycle of instances, including creating, starting, stopping, and deleting them as needed.
+
+## Benefits of the Allegra Core
+
+- **Optimized Resource Utilization**: Through intelligent routing and resource management, the Allegra Core maximizes the efficiency of the network.
+- **High Availability and Reliability**: By maintaining network consensus and facilitating smooth communication, the core ensures that the platform remains operational even in adverse conditions.
+- **Scalable Operations**: The Core's architecture supports seamless scaling, allowing for rapid expansion and adaptation to changing workloads and demands.

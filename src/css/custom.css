@@ -4,12 +4,12 @@
  * work well for content-centric websites.
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 
 /* You can override the default Infima variables here. */
 :root {
-  --versatus-main-color: #FE536E;
-  --ifm-color-primary: #FE536E;
+  --versatus-main-color: #fe536e;
+  --ifm-color-primary: #fe536e;
   --ifm-color-primary-dark: #29784c;
   --ifm-color-primary-darker: #277148;
   --ifm-color-primary-darkest: #205d3b;
@@ -18,17 +18,17 @@
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --cards-background-color: #FFF;
-  --cards-background-color-hover: #FE536E;
-  --border-color: #ACACAC;
-  --white: #FFF;
+  --cards-background-color: #fff;
+  --cards-background-color-hover: #fe536e;
+  --border-color: #acacac;
+  --white: #fff;
   --font-family-main: Inter;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --versatus-main-color: #FE536E;
-  --ifm-color-primary: #FE536E;
+[data-theme="dark"] {
+  --versatus-main-color: #fe536e;
+  --ifm-color-primary: #fe536e;
   --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;
   --ifm-color-primary-darkest: #1a8870;
@@ -36,14 +36,15 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-  --cards-background-color: #1C1C1C;
+  --cards-background-color: #1c1c1c;
   --cards-background-color-hover: #302323;
   --border-color: #464646;
-  --border-color-hover: #FF595D;
+  --border-color-hover: #ff595d;
 }
 
 * {
   font-family: var(--font-family-main);
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 1.2rem) !important;
 }
 
 .footer.footer--dark {
@@ -111,11 +112,11 @@ table {
 }
 
 .main-page-logo {
-  content: url('../../static/img/main-page-logo-lightmode.png')
+  content: url("../../static/img/main-page-logo-lightmode.png");
 }
 
-[data-theme='dark'] .main-page-logo {
-  content: url('../../static/img/main-page-logo-darkmode.png')
+[data-theme="dark"] .main-page-logo {
+  content: url("../../static/img/main-page-logo-darkmode.png");
 }
 
 .language-sh.codeBlockContainer_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module.theme-code-block {

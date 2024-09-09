@@ -1,0 +1,80 @@
+.versatus_check {
+  position: relative;
+  width: 45px !important;
+  top: 3px;
+}
+
+.problem_main_icon {
+  position: relative;
+  width: 35px !important;
+  top: 6px;
+}
+
+.problem_solution_card {
+  display: flex;
+  padding: 25px;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 6px;
+  border: 1px solid #464646;
+  background: linear-gradient(180deg, #4b1a1d 0%, #111 100%);
+  margin-bottom: 10px;
+}
+
+.problem_solution_card svg {
+  margin-top: -2px;
+}
+
+.problem_solution_card .problem_icon {
+  width: 60px;
+}
+
+.problem_solution_card .problem_icon_6 {
+  width: 65px;
+}
+
+.problem_solution_card .solution_icon {
+  width: 24px;
+}
+
+.problem_solution_card .solution_icon_1 {
+  width: 35px;
+}
+
+.problem_solution_card .solution_icon_3 {
+  width: 30px;
+}
+
+.problem_solution_card .solution_icon_6 {
+  margin-top: -4px;
+}
+
+.ps_card_content h2 {
+  color: #fff;
+  font-feature-settings: "liga" off, "clig" off;
+  font-family: Inter;
+  font-size: 17.5px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  margin-bottom: 10px;
+}
+
+.ps_card_content .ps_card_children {
+  align-self: stretch;
+  color: #fff;
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.ps_card_content .ps_card_children p {
+  margin-bottom: 10px;
+}
+
+.ps_card_content .ps_card_children p:last-child,
+.ps_card_content .ps_card_children ul:last-child {
+  margin-bottom: 0;
+}
