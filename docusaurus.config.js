@@ -56,7 +56,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/versatus/versatus-docs/main',
+            'https://github.com/versatus/versatus-docs/blob/main',
         },
         blog: false,
         theme: {
